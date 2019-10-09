@@ -1,0 +1,367 @@
+::CSS [stylesheet]
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&display=swap');
+
+#story {
+  text-align: left;
+  margin: 0;
+  margin-left: 0!important;
+  overflow: hidden;  
+  background-color: #000;
+  background-image: url("./images/hell.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Custom Classes */
+  .black-screen {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-image: none;
+  }
+
+  .black-screen h1 {
+    color: #fff!important;
+    padding-top: 2rem!important;
+    margin-top: -1rem!important;
+  }
+
+  .black-screen img {    
+    width: 3vh;
+    height: 3vh;
+    padding: 0;
+  }
+
+  .black-screen img:hover {    
+    animation: shake 0.82s cubic-bezier(.20,.05,.10,.5) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-3px, 0, 0);
+    }
+
+    40%, 60% {
+      transform: translate3d(3px, 0, 0);
+    }
+  }
+
+  .fade-background {        
+    -webkit-animation: myfirst 5s ; 
+    animation: myfirst 5s ;
+  }
+
+  @-webkit-keyframes myfirst {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes myfirst {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .invert {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+  }
+
+  .vert {
+    font-size: .9rem;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+  }
+
+  .small {
+    position: absolute;
+    bottom: 0px;
+    font-size: .75rem;
+    vertical-align: middle;
+  }
+
+  .small a{
+    font-size: .75rem;
+    font-family: 'Mansalva', cursive!important;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .text-small p {
+    line-height: .75rem!important;
+    font-size: .75rem!important;
+  }
+
+  .text-normal p {
+    line-height: 1rem!important;
+    font-size: 1rem!important;
+  }
+
+  .hidden-links a {
+    font: inherit;
+    font-size: calc(10px + 1vmin);
+    cursor: pointer;
+    font-weight: 500;
+    font-family: 'Crimson Text', serif;
+    color: color:rgb(221, 221, 221)!important;
+  }
+
+  .hidden-links a:hover {
+    text-decoration: none;
+    text-shadow: 0 0 3px rgba(240, 240, 240, 0.75)!important;
+    font-weight: 550;
+    font-family: 'Crimson Text', serif;
+    color: rgb(255, 255, 255)!important;
+  }
+/* Custom Classes end */
+
+/* UIBar */
+  #ui-bar {
+    height: auto;
+    width: 12rem;
+    border-right: 1px solid rgb(50, 50, 50, 0.5);
+    background-color: rgb(30, 30, 40, 0.8);
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 15px rgb(0, 0, 0, 0.8);
+  }
+
+  #ui-bar.stowed {
+    left: -10.5em;
+  }
+
+  #ui-bar ul {
+    border-radius: 16px!important;
+    background-color: rgb(50, 50, 60, 0.5);
+  }
+
+  #ui-bar li:hover {
+    background-color: #20242b!important;
+  }
+
+  #ui-bar a {
+    text-transform: lowercase!important;
+    font-variant: small-caps;
+    font-family: 'Varela Round', sans-serif;
+    font-size: .8rem!important;
+    border-radius: 25px!important;
+  }
+
+  #ui-bar a:hover{
+    text-transform: lowercase!important;
+    font-variant: small-caps;
+    font-family: 'Varela Round', sans-serif;
+    font-size: .8rem!important;
+    background-color: rgb(70, 70, 80, 0.5)!important;
+    border-radius: 25px!important;
+  }
+
+  #ui-bar-body {
+    padding: 1rem 0rem .5rem;
+    margin: 1.5rem 0rem 1rem;
+  }
+
+  #ui-bar-toggle {
+    font-size: .9rem;
+    border-right: 1px solid rgb(60, 60, 60, 1);
+  }
+
+  #ui-bar.stowed #ui-bar-toggle {
+    padding: .3em .35em .25em .5em;
+  }
+
+  #ui-bar-history {
+    display: none;
+  }
+
+  #title {
+    background-color: rgb(50, 50, 60, 0.75);
+    font-family: 'Nunito', sans-serif!important;
+    font-size: .8rem!important;
+    padding: .5rem 1rem .3rem;
+    box-shadow: 2px 2px 9px rgb(20, 20, 20, 0.75);
+  }
+
+  #menu {
+    margin-top: 1rem!important;
+    padding: 0 1rem 0;
+  }
+
+  #story-title {
+    font-family: 'Mansalva', cursive;
+  }
+
+  #story-author {
+    margin: 0 0 .3rem;
+    font-family: 'Nunito', sans-serif!important;
+    font-size: .8rem!important;
+  }
+/* UIBar end */
+
+.passage {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;  
+  min-height: 100vh;
+  max-width: 40rem;
+  display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #ddd; 
+  background-color: rgb(5, 5, 5, .35);
+  box-shadow: 0px 0px 32px rgb(0, 0, 0, 0.9);
+}
+
+.room-start {
+  text-align: left;
+  margin: 0;
+  margin-left: 0!important;
+  overflow: hidden;  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #ddd;  
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background: none!important;
+  color: #fff;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: calc(10px + 1vmin);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Crimson Text', serif;
+  outline: none;
+}
+
+button:hover{
+  text-shadow: 0 0 1.5px rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+}
+
+.inv {
+  display: inline!important;
+  font-size: calc(10px + 1vmin)!important;
+}
+
+li.inv {
+  padding: 0 10px 0 0!important;
+}
+
+.room {
+  scrollbar-color: #dddddd #515761;
+  scrollbar-width: thin;
+}
+
+div.room {
+  max-height: 85vh;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-right: 2rem;
+  padding-left: 1.5rem;
+  overflow-y:auto;
+}
+
+.room h1 {
+  font-family: 'Mansalva', cursive;
+  font-weight: bold;
+  color: rgba(221, 221, 221, 1);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  max-height: 20vh;
+  max-width: 350;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
+  display: block;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: calc(10px + 1vmin);
+  max-width: 500px;
+  font-family: 'Crimson Text', serif;
+  line-height: 1.5rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 16px rgba(0, 0, 0, 1);
+}
+
+a {
+  font: inherit;
+  font-size: calc(10px + 1vmin);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Crimson Text', serif;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+  text-shadow: 0 0 3px rgba(240, 240, 240, 0.7);
+  font-weight: 600;
+  font-family: 'Crimson Text', serif;
+  color: #fff;
+}
+
+li {
+  font-family: 'Crimson Text', serif;
+  line-height: 1.5rem;
+}
+
+div .room::-webkit-scrollbar { 
+  width: .75rem;
+}
+
+div .room::-webkit-scrollbar-thumb {
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  background-color: rgb(221, 221, 221);
+  outline: 0px solid rgb(221, 221, 221);
+}
+
+div .room::-webkit-scrollbar-track {
+  border-top-right-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+  background: rgb(255, 114, 111, .15);
+}
