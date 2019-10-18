@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="2" creator="Twee2" creator-version="0.5.0" ifid="cbe819bc-f7a7-4d32-b8a4-85eb40a9f7c4" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="4" creator="Twee2" creator-version="0.5.0" ifid="d818ad3d-65f5-4ee9-bc26-31752b08625b" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -111,6 +111,38 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
   background-image: url("./images/hell.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#inventory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18rem;
+}
+
+#inventory h1 {
+  font-family: 'Crimson Text', serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgba(221, 221, 221, 1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
+}
+
+td {
+  font-size: 1rem;
+  font-family: 'Crimson Text', serif;
+  line-height: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 16px rgba(0, 0, 0, 1);
+}
+
+table, th, td {
+  border: 1px solid white;
+  padding: 5px;
+}
+table {
+  border-spacing: 15px;
 }
 
 /* Custom Classes */
@@ -136,6 +168,12 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
     width: 3vh;
     height: 3vh;
     padding: 0;
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
   }
 
   .black-screen img:hover {    
@@ -230,6 +268,16 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
     font-weight: 550;
     font-family: 'Crimson Text', serif;
     color: rgb(255, 255, 255)!important;
+  }
+
+  p, h1 {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
   }
 /* Custom Classes end */
 
@@ -328,7 +376,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #ddd; 
-  background-color: rgb(5, 5, 5, .35);
+  background-color: rgb(0, 0, 0, .33);
   box-shadow: 0px 0px 32px rgb(0, 0, 0, 0.9);
 }
 
@@ -401,6 +449,7 @@ div.room {
   color: rgba(221, 221, 221, 1);
   margin-top: 0;
   margin-bottom: 0;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
 }
 
 img {
@@ -467,32 +516,62 @@ div .room::-webkit-scrollbar-track {
   background: rgb(255, 114, 111, .15);
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">!function(){"use strict";function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}(),Furl=function(){function Furl(current,append){if(_classCallCheck(this,Furl),Object.defineProperties(this,{node:{value:current},childNodes:{value:[]},value:{writable:!0,value:""},append:{writable:!0,value:!!append},abortTyping:{writable:!0,value:!1}}),this.node.nodeValue&&(this.value=this.node.nodeValue,this.node.nodeValue=""),!this.node.style||"none"!==this.node.style.display)for(var childNodes=this.node.childNodes;childNodes.length>0;)this.childNodes.push(new Furl(childNodes[0],!0)),this.node.removeChild(childNodes[0])}return _createClass(Furl,[{key:"finish",value:function(){for(this.abortTyping=!0;this.unfurl(););}},{key:"unfurl",value:function(parent){if(this.append&&(parent&&parent.appendChild(this.node),this.append=!1),this.value)return this.node.nodeValue+=this.value[0],this.value=this.value.slice(1),!0;for(var current=this.node,i=0,len=this.childNodes.length;i<len;++i)if(this.childNodes[i].unfurl(current))return!0;return!1}}],[{key:"typeout",value:function(content,typeDelay,startDelay){function typer(){if(!furled.abortTyping)var current=passage(),typerId=setInterval(function(){!furled.abortTyping&&passage()===current&&furled.unfurl()||clearInterval(typerId)},typeDelay)}var furled=new Furl(content);return startDelay?setTimeout(typer,startDelay):typer(),furled}}]),Furl}(),tagRe=/^t8n-typewriter-(\d+)(?:-(\d+))?$/;postrender["t8n-typewriter-handler"]=function(content){$(document).off("keypress.t8n-typewriter");for(var tags=this.tags,i=0;i<tags.length;++i){var match=tagRe.exec(tags[i]);if(null!==match){if("break"===function(){var furled=Furl.typeout(content,Number(match[1]),Number(match[2]));return $(document).on("keypress.t8n-typewriter",function(ev){32!==ev.which||ev.target!==document.body&&ev.target!==document.documentElement||(ev.preventDefault(),$(document).off("keypress.t8n-typewriter"),furled.finish())}),"break"}())break}}}}();
-</script><tw-passagedata pid="1" name="StoryInit" tags="" position="">&lt;&lt;script&gt;&gt;
-	UIBar.hide();
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="">&lt;&lt;script&gt;&gt; ;(function () {
+	var favicon  = document.createElement("link");
+	favicon.rel  = "icon";
+	favicon.type = "_ICON_TYPE_";
+	favicon.href = "./images/pentagram.png";
+	document.head.appendChild(favicon);
+}());
 &lt;&lt;/script&gt;&gt;
-&lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="nobr dark" position="">&lt;&lt;audio "bgm1" volume .5 loop play&gt;&gt;
+&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'hidden';
+&lt;&lt;/script&gt;&gt;
+&lt;&lt;set $inventory to []&gt;&gt;
+&lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="nobr" position="">&lt;div id="story" role="main"&gt;
+    &lt;div id="passages"&gt;&lt;/div&gt;
+    &lt;div id="inventory" data-passage="Inventory"&gt;&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Inventory" tags="nobr" position="">&lt;h1&gt; &amp;nbsp;Inventory &lt;/h1&gt;
+&lt;table&gt;
+    &lt;&lt;for _i=0; _i&lt;$inventory.length; _i++&gt;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+            &lt;&lt;print $inventory[_i].name&gt;&gt;   
+            &lt;/td&gt;
+            &lt;td&gt;
+            &lt;&lt;print $inventory[_i].desc&gt;&gt;
+            &lt;/td&gt;	
+        &lt;/tr&gt;
+    &lt;&lt;/for&gt;&gt;
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="4" name="Start" tags="nobr dark" position="">&lt;&lt;audio "bgm1" volume .5 loop play&gt;&gt;
 &lt;div class="room-start black-screen"&gt;
     &lt;div class="room align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         [img[./images/play-icon.svg][Beginning]]
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
-&lt;&lt;script&gt;&gt;
-    UIBar.show();
-	UIBar.stow();
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
+&lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
+&lt;&lt;set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})&gt;&gt;
+&lt;&lt;set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})&gt;&gt;
 &lt;div class="room-start"&gt;
     &lt;div class="room"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
             &lt;p&gt;
-            Centuries pad the worlds between us. Four since you held back the Ottomans at the lip of &lt;&lt;linkreplace "Wallachia." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
-            &lt;span id="fadein1" style="display:none"&gt; Wallachia. Softly, at the precipice of your memory, you delight at the thought of Yenicheri forces dangling from pikes. &lt;br&gt;&lt;br&gt; &lt;/span&gt;
-            Two since you began your little reign of &lt;&lt;linkreplace "terror." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-            &lt;span id="fadein2" style="display:none"&gt; terror. Alas, it was tragically cut short by cruel, spiteful Van Helsing. &lt;/span&gt;
-            Yet they're all just fleeting fractions before your coming unlife. 
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
+            &lt;p&gt;
+            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
+            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
             &lt;/p&gt;
             &lt;p&gt;
-            &lt;i&gt; But you don't want to spend it all here, do you? I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;i&gt; But you don't want to spend an eternity here, do you?
+            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
             &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
                 &lt;&lt;cycle "$goal" autoselect&gt;&gt;
                     &lt;&lt;option "grail"&gt;&gt;
@@ -509,23 +588,29 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
     &lt;/div&gt;
     &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
-    UIBar.show();
-	UIBar.stow();
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
+&lt;&lt;set $inventory to []&gt;&gt;
+&lt;&lt;set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})&gt;&gt;
+&lt;&lt;set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})&gt;&gt;
 &lt;div class="room-start"&gt;
     &lt;div class="room"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
             &lt;p&gt;
-            Centuries pad the worlds between us. Four since you held back the Ottomans at the lip of &lt;&lt;linkreplace "Wallachia." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
-            &lt;span id="fadein1" style="display:none"&gt; Wallachia. Softly, at the precipice of your memory, you delight at the thought of Yenicheri forces dangling from pikes. &lt;br&gt;&lt;br&gt; &lt;/span&gt;
-            Two since you began your little reign of &lt;&lt;linkreplace "terror." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-            &lt;span id="fadein2" style="display:none"&gt; terror. Alas, it was tragically cut short by cruel, spiteful Van Helsing. &lt;/span&gt;
-            Yet they're all just fleeting fractions before your coming unlife. 
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
+            &lt;p&gt;
+            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
+            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
             &lt;/p&gt;
             &lt;p&gt;
-            &lt;i&gt; But you don't want to spend it all here, do you? I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
-            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the        
+            &lt;i&gt; But you don't want to spend an eternity here, do you?
+            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
                 &lt;&lt;cycle "$goal" autoselect&gt;&gt;
                     &lt;&lt;option "grail"&gt;&gt;
                     &lt;&lt;option "nail"&gt;&gt;
@@ -541,36 +626,54 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
     &lt;/div&gt;
     &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Accept" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Accept" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/devil.svg" /&gt;
 	&lt;div&gt;
         &lt;p&gt;
         The devilish being cackles, a sound so terribly gleeful that it makes even your blood run colder. &lt;i&gt; You'll be needing &lt;/i&gt; &lt;&lt;linkreplace "this." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
         &lt;span id="fadein1" style="display:none"&gt; 
-            &lt;i&gt; this &lt;/i&gt; — a simple, rusted broadsword that weeps beautifully when swung. 
+            &lt;i&gt; this &lt;/i&gt; — a simple, rusted pickaxe that weeps beautifully when swung. 
             &lt;br&gt; &lt;br&gt;
             &lt;span id="choices"&gt; 
-            &lt;&lt;link "Take the sword"&gt;&gt; 
+            &lt;&lt;link "Take the pickaxe"&gt;&gt; 
+                &lt;&lt;set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})&gt;&gt;
                 &lt;&lt;replace "#choices"&gt;&gt; 
                     &lt;&lt;timed 10ms t8n&gt;&gt; 
-                        You latch the weapon to your belt. It reminds you of a time long past, when you rode across battlefields for your treacherous god. 
+                        You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
                         &lt;br&gt; &lt;br&gt; 
-                        &lt;img class="invert" src="./images/smile.svg" /&gt;
-                        Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
-                        It leaves you to the constant howling and ephemeral groans of the world around you.
+                        &lt;&lt;linkreplace "Express your gratitude" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+                        &lt;span id="fadein2" style="display:none"&gt;
+                            &lt;img src="./images/creepy-grin.svg" /&gt;
+                            Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
+                            It leaves you to the constant howling and ephemeral groans of the world around you. 
+                            &lt;br&gt; &lt;br&gt;
+                            [[Head to miners' camp -&gt; Camp1]]
+                            &lt;br&gt;
+                            [[Explore the area -&gt; ExploreBeginning]]                       
+                        &lt;/span&gt; 
                     &lt;&lt;/timed&gt;&gt; 
                 &lt;&lt;/replace&gt;&gt; 
             &lt;&lt;/link&gt;&gt; &lt;br&gt;
-            &lt;&lt;link "Ask for better"&gt;&gt; 
-                &lt;&lt;replace "#choices"&gt;&gt; &lt;&lt;timed 10ms t8n&gt;&gt; &lt;i&gt; Greedy, are we&lt;/i&gt;? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
-                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
+            &lt;&lt;link "Ask for more"&gt;&gt; 
+                &lt;&lt;set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})&gt;&gt;
+                &lt;&lt;set $inventory.push({name: "Fiend's Gift", desc:"A lovely little sword that's just almost alive"})&gt;&gt;  
+                &lt;&lt;set $inventory.push("Found")&gt;&gt;  
+                &lt;&lt;replace "#choices"&gt;&gt; &lt;&lt;timed 10ms t8n&gt;&gt; 
+                &lt;i&gt; Greedy, are we&lt;/i&gt;? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
+                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. 
+                &lt;br&gt; &lt;br&gt;
+                &lt;i&gt; I do hope you put it to good use. &lt;/i&gt; The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
+                &lt;br&gt; &lt;br&gt;
+                [[Head to miners' camp -&gt; Camp1]]
+                &lt;br&gt;
+                [[Explore the area -&gt; ExploreBeginning]]
+                &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
             &lt;&lt;/link&gt;&gt; 
             &lt;/span&gt;
         &lt;/span&gt;
         &lt;/p&gt;
-        [[Back -&gt; Beginning2]]
 	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img src="./images/ankh.png" /&gt;
 	&lt;div&gt;
         &lt;p&gt;
@@ -581,28 +684,31 @@ div .room::-webkit-scrollbar-track {
         &lt;&lt;linkreplace "Resist" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
             &lt;span id="fadein1" style="display:none"&gt;
             &lt;img class="invert" src="./images/eyes.png" /&gt;
-            Such a power is familiar, having once employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
+            Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
             &lt;br&gt;
             &lt;/span&gt;
             &lt;br&gt;
 		[[Acquiesce -&gt; Accept]]
         &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
     &lt;div class="room align-center"&gt;
         &lt;p class="hidden-links"&gt;
         &lt;&lt;cycle "$about" autoselect&gt;&gt;
             &lt;&lt;option "I wish there were a way to make a link not look like a link, but still have people click on it."&gt;&gt;
-            &lt;&lt;option "Happy Halloween!"&gt;&gt;
-            &lt;&lt;option "I made this Twine game for a class. If given the option, I would've done this all in React.\nJust kidding."&gt;&gt;
+            &lt;&lt;option "Do not cry over spilled blood."&gt;&gt;
+            &lt;&lt;option "Happy Halloween..."&gt;&gt;
             &lt;&lt;option "Why is there random Japanese thrown into the title? I don't know either."&gt;&gt;
+            &lt;&lt;option "Today's lucky numbers are 42, 666, and 1912."&gt;&gt;
+            &lt;&lt;option "JavaScript is hard to please."&gt;&gt;
+            &lt;&lt;option "The door is behind you."&gt;&gt;
         &lt;&lt;/cycle&gt;&gt;
         &lt;/p&gt;
         &lt;p&gt;
         [[Back -&gt; Beginning2]]
         &lt;/p&gt;
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
 	&lt;div class="align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         &lt;div class="text-normal"&gt;
@@ -627,6 +733,72 @@ div .room::-webkit-scrollbar-track {
         [[Back -&gt; Beginning2]]
         &lt;/p&gt;
 	&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Camp1" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    The atmosphere exuded by the camp is...
+    &lt;/p&gt;
+    &lt;p&gt;
+    [[Mine]] &lt;br&gt;
+    [[Explore]] &lt;br&gt;
+    [[Head to the inn]] &lt;br&gt;
+    [[Head to the shop]] &lt;br&gt;
+    [[Debug -&gt; Beginning2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Camp2" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
+    to keep to the 
+    &lt;/p&gt;
+    &lt;p&gt;
+    [[Head to the inn]] &lt;br&gt;
+    [[Head to the shop]] &lt;br&gt;
+    [[Debug -&gt; Beginning2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="ExploreBeginning" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    What surrounds you is a bleak red landscape, full of terror, but with an inkling of familiarity. The workers' camp lies east of your current location, distant fires scratching at the darkness
+    that the cliffside casts on its figure. To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
+    you have into the ground.
+    &lt;/p&gt;
+    &lt;p&gt;
+    [[Head to camp -&gt; Camp2]] &lt;br&gt;
+    [[Venture into the forest -&gt; Forest]] &lt;br&gt;
+    [[Head north -&gt; Empty]] &lt;br&gt;
+    [[Head south -&gt; Empty]] &lt;br&gt;
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Forest" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature greets you. It moves in a sickening haste, spewing dark shadows in its wake.
+    &lt;br&gt; &lt;br&gt;
+    You attempt to move silently
+    &lt;/p&gt;
+    &lt;p&gt;
+    [[Fight -&gt; FightMonster]] &lt;br&gt;
+    [[Retreat to camp -&gt; Camp2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="FightMonster" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    &lt;&lt;if $inventory.includes("Found")&gt;&gt;
+    Contains
+    &lt;&lt;else&gt;&gt;
+    Not contains
+    &lt;&lt;/if&gt;&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+    [[Head to camp -&gt; Camp2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Empty" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;p&gt;
+    Eventually, the redness of your surroundings blends with your limbs and the very thought of return is lost. So you &lt;&lt;linkreplace "walk." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+    &lt;span id="fadein1" style="display:none"&gt; walk. And &lt;&lt;linkreplace "walk." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+    &lt;span id="fadein2" style="display:none"&gt; walk. And &lt;&lt;linkreplace "walk." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+    &lt;span id="fadein3" style="display:none"&gt; walk. And walk. 
+    &lt;br&gt;&lt;br&gt;
+    An eternity on bloodied feet beckons.
+    &lt;br&gt;&lt;br&gt;
+    [[Try again -&gt; Beginning2]]
+    &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;
+    &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */

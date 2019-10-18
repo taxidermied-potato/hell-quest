@@ -1,0 +1,13 @@
+::StoryInterface [nobr]
+<div id="story" role="main">
+    <div id="passages"></div>
+    <div id="inventory">
+    <table>
+	<<for _i=0; _i<$inventory.length; _i++>>\
+		<tr>
+			<<print $inventory[_i].name>>	
+		</tr>
+	<</for>>
+    </table>
+    </div>
+</div>

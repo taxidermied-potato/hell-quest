@@ -1,0 +1,337 @@
+::StoryIncludes 
+style.tw2
+script.tw2
+
+::StoryTitle
+hell quest
+
+::StoryInit
+<<script>> ;(function () {
+	var favicon  = document.createElement("link");
+	favicon.rel  = "icon";
+	favicon.type = "_ICON_TYPE_";
+	favicon.href = "./images/pentagram.png";
+	document.head.appendChild(favicon);
+}());
+<</script>>
+<<script>>
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'hidden';
+<</script>>
+<<set $inventory to []>>
+<<cacheaudio "bgm1" "./audio/dreamlike.mp3">>
+
+::StoryInterface [nobr]
+<div id="story" role="main">
+    <div id="passages"></div>
+    <div id="inventory" data-passage="Inventory"></div>
+</div>
+
+::Inventory [nobr]
+<h1> &nbsp;Inventory </h1>
+<table>
+    <<for _i=0; _i<$inventory.length; _i++>>
+        <tr>
+            <td>
+            <<print $inventory[_i].name>>   
+            </td>
+            <td>
+            <<print $inventory[_i].desc>>
+            </td>	
+        </tr>
+    <</for>>
+</table>
+
+::Start [nobr dark]
+<<audio "bgm1" volume .5 loop play>>
+<div class="room-start black-screen">
+    <div class="room align-center">
+        <h1> hell<span class="vert">地獄</span>quest </h1>
+        [img[./images/play-icon.svg][Beginning]]
+    </div>
+</div>
+
+::Beginning [fade-background t8n-typewriter-30 nobr]
+<<script>>
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
+<</script>>
+<<audio "bgm1" volume .1 loop play>>
+<<set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})>>
+<<set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})>>
+<div class="room-start">
+    <div class="room">
+        <h1> hell<span class="vert">地獄</span>quest </h1>
+            <p>
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your <<linkreplace "memories" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>> <span id="fadein1" style="display:none"> memories — a glaring chasm in your head — </span> are long gone, your conscious remains quite intact. </p>
+            <p>
+            And for the low, low price of your unlife, we're glad to have you<<linkreplace " working." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>  
+            <span id="fadein2" style="display:none"> working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. </span>
+            </p>
+            <p>
+            <i> But you don't want to spend an eternity here, do you?
+            I'd like to propose an </i> <<linkreplace "exchange." t8n>> <script>$("#fadein3").fadeIn();</script> <</linkreplace>> 
+            <span id="fadein3" style="display:none"> <i> exchange. </i> The contract, indelibly inked in demon's blood, reads simply. <i> "Bring me the       
+                <<cycle "$goal" autoselect>>
+                    <<option "grail">>
+                    <<option "nail">>
+                    <<option "lance">>
+                    <<option "crown">>
+                <</cycle>> 
+            and you are free." </i> 
+            <p> <br> 
+            [[Accept]] <br> 
+            [[Decline? -> Decline]]
+            </p>	
+            </span>
+            </p>
+    </div>
+    <span class="small">[[about]] | [[credits]]</span>
+</div>
+
+::Beginning2 [nobr]
+<<script>>
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
+<</script>>
+<<set $inventory to []>>
+<<set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})>>
+<<set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})>>
+<div class="room-start">
+    <div class="room">
+        <h1> hell<span class="vert">地獄</span>quest </h1>
+            <p>
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your <<linkreplace "memories" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>> <span id="fadein1" style="display:none"> memories — a glaring chasm in your head — </span> are long gone, your conscious remains quite intact. </p>
+            <p>
+            And for the low, low price of your unlife, we're glad to have you<<linkreplace " working." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>  
+            <span id="fadein2" style="display:none"> working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. </span>
+            </p>
+            <p>
+            <i> But you don't want to spend an eternity here, do you?
+            I'd like to propose an </i> <<linkreplace "exchange." t8n>> <script>$("#fadein3").fadeIn();</script> <</linkreplace>> 
+            <span id="fadein3" style="display:none"> <i> exchange. </i> The contract, indelibly inked in demon's blood, reads simply. <i> "Bring me the       
+                <<cycle "$goal" autoselect>>
+                    <<option "grail">>
+                    <<option "nail">>
+                    <<option "lance">>
+                    <<option "crown">>
+                <</cycle>> 
+            and you are free." </i> 
+            <p> <br> 
+            [[Accept]] <br> 
+            [[Decline? -> Decline]]
+            </p>	
+            </span>
+            </p>
+    </div>
+    <span class="small">[[about]] | [[credits]]</span>
+</div>
+
+::Accept [nobr]
+<div class="room">
+    <img class="invert" src="./images/devil.svg" />
+	<div>
+        <p>
+        The devilish being cackles, a sound so terribly gleeful that it makes even your blood run colder. <i> You'll be needing </i> <<linkreplace "this." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+        <span id="fadein1" style="display:none"> 
+            <i> this </i> — a simple, rusted pickaxe that weeps beautifully when swung. 
+            <br> <br>
+            <span id="choices"> 
+            <<link "Take the pickaxe">> 
+                <<set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})>>
+                <<replace "#choices">> 
+                    <<timed 10ms t8n>> 
+                        You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
+                        <br> <br> 
+                        <<linkreplace "Express your gratitude" t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+                        <span id="fadein2" style="display:none">
+                            <img src="./images/creepy-grin.svg" />
+                            Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
+                            It leaves you to the constant howling and ephemeral groans of the world around you. 
+                            <br> <br>
+                            [[Head to miners' camp -> Camp1]]
+                            <br>
+                            [[Explore the area -> ExploreBeginning]]                       
+                        </span> 
+                    <</timed>> 
+                <</replace>> 
+            <</link>> <br>
+            <<link "Ask for more">> 
+                <<set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})>>
+                <<set $inventory.push({name: "Fiend's Gift", desc:"A lovely little sword that's just almost alive"})>>  
+                <<set $inventory.push("Found")>>  
+                <<replace "#choices">> <<timed 10ms t8n>> 
+                <i> Greedy, are we</i>? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
+                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. 
+                <br> <br>
+                <i> I do hope you put it to good use. </i> The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
+                <br> <br>
+                [[Head to miners' camp -> Camp1]]
+                <br>
+                [[Explore the area -> ExploreBeginning]]
+                <</timed>> <</replace>> 
+            <</link>> 
+            </span>
+        </span>
+        </p>
+	</div>
+</div>
+
+::Decline [nobr]
+<div class="room">
+    <img src="./images/ankh.png" />
+	<div>
+        <p>
+        The response is greeted by a look of what you think is sadness. Your benefactor takes to a stone tablet and scrawls out a rough drawing. The glyph shimmers with otherworldly energy, and when you stare into it
+        a brief hypnosis is induced. 
+        </p>
+        <p>
+        <<linkreplace "Resist" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>> 
+            <span id="fadein1" style="display:none">
+            <img class="invert" src="./images/eyes.png" />
+            Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
+            <br>
+            </span>
+            <br>
+		[[Acquiesce -> Accept]]
+        </p>
+	</div>
+</div>
+
+::about [nobr]
+<div class="room-start">
+    <div class="room align-center">
+        <p class="hidden-links">
+        <<cycle "$about" autoselect>>
+            <<option "I wish there were a way to make a link not look like a link, but still have people click on it.">>
+            <<option "Do not cry over spilled blood.">>
+            <<option "Happy Halloween...">>
+            <<option "Why is there random Japanese thrown into the title? I don't know either.">>
+            <<option "Today's lucky numbers are 42, 666, and 1912.">>
+            <<option "JavaScript is hard to please.">>
+            <<option "The door is behind you.">>
+        <</cycle>>
+        </p>
+        <p>
+        [[Back -> Beginning2]]
+        </p>
+    </div>
+</div>
+
+::credits [t8n-typewriter-25 nobr]
+<div class="room">
+	<div class="align-center">
+        <h1> hell<span class="vert">地獄</span>quest </h1>
+        <div class="text-normal">
+            <p>
+            Writing - Al Yin
+            </p>
+            <p>
+            Background - Al Yin
+            </p>
+            <p>
+            Music - Kevin Macleod
+            </p>
+            <br>
+            <p>
+            Twine - Lots of people
+            </p>
+            <p>
+            sorry if i missed anyone
+            </p>
+        </div>
+        <p>
+        [[Back -> Beginning2]]
+        </p>
+	</div>
+</div>
+
+::Camp1 [nobr]
+<div class="room">
+    <p>
+    The atmosphere exuded by the camp is...
+    </p>
+    <p>
+    [[Mine]] <br>
+    [[Explore]] <br>
+    [[Head to the inn]] <br>
+    [[Head to the shop]] <br>
+    [[Debug -> Beginning2]]
+    </p>
+</div>
+
+::Camp2 [nobr]
+<div class="room">
+    <p>
+    By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
+    to keep to the 
+    </p>
+    <p>
+    [[Head to the inn]] <br>
+    [[Head to the shop]] <br>
+    [[Debug -> Beginning2]]
+    </p>
+</div>
+
+::ExploreBeginning [nobr]
+<div class="room">
+    <p>
+    What surrounds you is a bleak red landscape, full of terror, but with an inkling of familiarity. The workers' camp lies east of your current location, distant fires scratching at the darkness
+    that the cliffside casts on its figure. To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
+    you have into the ground.
+    </p>
+    <p>
+    [[Head to camp -> Camp2]] <br>
+    [[Venture into the forest -> Forest]] <br>
+    [[Head north -> Empty]] <br>
+    [[Head south -> Empty]] <br>
+    </p>
+</div>
+
+::Forest [nobr]
+<div class="room">
+    <p>
+    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature greets you. It moves in a sickening haste, spewing dark shadows in its wake.
+    <br> <br>
+    You attempt to move silently
+    </p>
+    <p>
+    [[Fight -> FightMonster]] <br>
+    [[Retreat to camp -> Camp2]]
+    </p>
+</div>
+
+::FightMonster [nobr]
+<div class="room">
+    <p>
+    <<if $inventory.includes("Found")>>
+    Contains
+    <<else>>
+    Not contains
+    <</if>>
+    </p>
+    <p>
+    [[Head to camp -> Camp2]]
+    </p>
+</div>
+
+::Empty [nobr]
+<div class="room">
+    <p>
+    Eventually, the redness of your surroundings blends with your limbs and the very thought of return is lost. So you <<linkreplace "walk." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none"> walk. And <<linkreplace "walk." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+    <span id="fadein2" style="display:none"> walk. And <<linkreplace "walk." t8n>> <script>$("#fadein3").fadeIn();</script> <</linkreplace>>
+    <span id="fadein3" style="display:none"> walk. And walk. 
+    <br><br>
+    An eternity on bloodied feet beckons.
+    <br><br>
+    [[Try again -> Beginning2]]
+    </span> </span> </span>
+    </p>
+</div>
