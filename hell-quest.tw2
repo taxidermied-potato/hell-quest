@@ -192,7 +192,7 @@ hell quest
 
 ::Accept [nobr]
 <div class="room">
-    <img class="invert" src="./images/devil.svg" />
+    <img class="invert" src="./images/devil.svg" width=170/>
 	<div>
         <p>
         The devilish being cackles, a sound so terribly gleeful that it makes even your blood run colder. <i> You'll be needing </i> <<linkreplace "this." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
@@ -224,13 +224,16 @@ hell quest
                 <<set $inventory.push("sword1")>>  
                 <<replace "#choices">> <<timed 10ms t8n>> 
                 <i> Greedy, are we</i>? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
-                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. 
-                <br> <br>
+                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and stow it <<linkreplace "away." t8n>> <script>$("#fadein3").fadeIn();</script> <</linkreplace>>
+                <span id="fadein3" style="display:none">
+                away.
+                <img class="invert" src="./images/sword.svg" width=500/>
                 <i> I do hope you put it to good use. </i> The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
                 <br> <br>
                 [[Explore the area -> ExploreBeginning]]
                 <br>
                 [[Head to miners' camp -> Camp1]]
+                </span>
                 <</timed>> <</replace>> 
             <</link>> 
             </span>
@@ -241,7 +244,7 @@ hell quest
 
 ::Decline [nobr]
 <div class="room">
-    <img src="./images/ankh.png" />
+    <img class="invert" src="./images/skull.svg" />
 	<div>
         <p>
         The response is greeted by a look of what you think is sadness. Your benefactor takes to a stone tablet and scrawls out a rough drawing. The glyph shimmers with otherworldly energy, and when you stare into it
@@ -313,24 +316,25 @@ hell quest
 <<audio ":playing" stop>>
 <<audio "bgm2" volume .12 loop play>>
 <div class="room">
+    <img class="invert" src="./images/crownedskull.svg" width=500/>
     <p>
     What surrounds you is a bleak red landscape, full of terror, but with an inkling of <<linkreplace "familiarity." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
     <span id="fadein1" style="display:none">
-    familiarity. Perhaps you were once an explorer of savage lands. Or maybe a soldier of some sort?
-    <br><br>
-    </span>
-    The workers' camp lies east of your current location, distant fires scratching at the darkness
-    that the cliffside casts on its figure. When you turn, screams echo in the <<linkreplace "distance." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
-    <span id="fadein2" style="display:none">
-        distance.
-        <img class="invert" src="./images/forest.svg" />
-        To your west is a forest of bristlecone pine, mired in a shadowy haze. You think it dangerous to enter without a powerful weapon, but you're always up for a challenge. 
-        Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity you have into the ground.
-        <br><br>
-        [[Head to camp -> Camp2]] <br>
-        [[Venture into the forest -> Forest]] <br>
-        [[Head north -> Empty]] <br>
-        [[Head south -> Empty]]
+        familiarity. Perhaps you were once an explorer of savage lands. Or maybe a soldier of some sort?
+        <br>
+        The workers' camp lies east of your current location, distant fires scratching at the darkness
+        that the cliffside casts on its figure. When you turn, screams echo in the <<linkreplace "distance." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+        <span id="fadein2" style="display:none">
+            distance.
+            <img class="invert" src="./images/forest.svg" />
+            To your west is a forest of bristlecone pine, mired in a shadowy haze. You think it dangerous to enter without a powerful weapon, but you're always up for a challenge. 
+            Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity you have into the ground.
+            <br><br>
+            [[Head to camp -> Camp2]] <br>
+            [[Venture into the forest -> Forest]] <br>
+            [[Head north -> Empty]] <br>
+            [[Head south -> Empty]]
+        </span>
     </span>
     </p>
 </div>
@@ -379,6 +383,11 @@ hell quest
     <br><br>
     [[Head to camp -> Camp2]]
     <<else>>
+    <<if random(1, 2) == 1>>
+    <img class="invert" src="./images/reaper1.svg" />
+    <<else>>
+    <img class="invert" src="./images/reaper2.svg" />
+    <</if>>
     You swing your pickaxe to no avail. The demon seems amused for just a second before it bites your head off.
     <br><br>
     [[Try again -> Beginning2]]
@@ -406,12 +415,22 @@ hell quest
 <<audio ":playing" stop>>
 <<audio "bgm4" volume .1 loop play>>
 <div class="room">
+    <img class="invert" src="./images/village.svg" />
     <p>
-    The atmosphere exuded by the camp is surprisingly jolly, all things considered. 
+    The atmosphere exuded by the camp is surprisingly jolly, all things considered. Though the miners present seem weary and just a bit disillusioned, 
+    there is an ostensible air of <<linkreplace "peace." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none"> 
+    peace.  As much peace as one can have here, anyways.
+    <br><br>
+    </span>
+    In the end, you can't help but smile at the sound of laughter and the effervescent scent of <<linkreplace "morning market being." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+    <span id="fadein2" style="display:none"> 
+    morning market being. As the scent of freshly cooked bread stretches its legs, children sprint across crowded streets.
+    </span>
     </p>
     <p>
-    [[Head out ->]] <br>
-    [[Head to the inn -> InnDay]] <br>
+    [[Head out -> Headout]] <br>
+    [[Enter the inn -> InnDay]] <br>
     [[Head to the shop -> Shop]] <br>
     </p>
 </div>
@@ -421,22 +440,50 @@ hell quest
 <<audio "bgm4" volume .06 loop play>>
 <div class="room">
     <p>
-    <img src="./images/sunset.svg" />
+    <img class="invert" src="./images/sunset.svg" />
     By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
     to keep to the relative safety of the indoors. 
     </p>
     <p>
-    [[Head to the inn -> InnNight]] <br>
+    [[Enter the inn -> InnNight]] <br>
+    [[Head to the shop -> Shop]] <br>
+    </p>
+</div>
+
+::Camp3 [nobr]
+<<audio ":playing" stop>>
+<<audio "bgm4" volume .1 loop play>>
+<div class="room">
+    <img class="invert" src="./images/village.svg" />
+    <p>
+    Another day.
+    </p>
+    <p>
+    [[Head out -> Headout]] <br>
+    [[Enter the inn -> InnDay]] <br>
     [[Head to the shop -> Shop]] <br>
     </p>
 </div>
 
 ::InnDay [nobr]
+<div class="room">
+
+</div>
 
 ::InnNight [nobr]
+<div class="room">
+   
+</div>
 
 ::Shop [nobr]
+<div class="room">
+    
+</div>
 
 ::Headout [nobr]
 <<audio ":playing" stop>>
 <<audio "bgm2" volume .12 loop play>>
+<div class="room">
+    <img class="invert" src="./images/crownedskull.svg" width=500/>
+
+</div>
