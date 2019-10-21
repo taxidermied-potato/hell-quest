@@ -472,13 +472,13 @@ hell quest
     [[Head out -> Headout]] <br>
     [[Explore camp -> ExploreCamp]] <br>
     [[Head to the shop -> Shop]]
-    <<elseif $health > 8>>
+    <<elseif $health > 7>>
     A slight ache still pervades through your body, but it's nothing to worry about.
     <br><br>
     [[Head out -> Headout]] <br>
     [[Explore camp -> ExploreCamp]] <br>
     [[Head to the shop -> Shop]]
-    <<elseif $health > 5>>
+    <<elseif $health > 4>>
     Your muscles spent the night knitting themselves back together. They are not done yet.
     <br><br>
     [[Explore camp -> ExploreCamp]] <br>
@@ -500,12 +500,13 @@ hell quest
 
 ::InnNight [nobr]
 <div class="room">
+    <img class="invert" src="./images/bed.svg" />
     <p>
-    <<if $health > 10>>
+    <<if $health > 9>>
     You are in good health. Time to hit the hay.
-    <<elseif $health > 7>>
+    <<elseif $health > 6>>
     You are slightly injured. A good night's sleep will help you heal.
-    <<elseif $health > 4>>
+    <<elseif $health > 3>>
     Everything aches. Sleep is an opiate welcome.
     <<else>>
     You are pretty terribly injured. The pain makes it difficult to find comfort in your bed.
