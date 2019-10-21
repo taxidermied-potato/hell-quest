@@ -495,7 +495,10 @@ hell quest
 
 ::InnDay [nobr]
 <div class="room">
-
+    <img class="invert" src="./images/inkeep.svg" />
+    <p>
+    You enter the common room with no notable intent. The inkeep, a boisterous old man, sends his greetings from across the room.
+    </p>
 </div>
 
 ::InnNight [nobr]
@@ -513,6 +516,11 @@ hell quest
     <</if>>
     </p>
     [[Go to sleep|Camp3][$days to $days + 1, $health to $health + 1]]
+</div>
+
+::ExploreCamp [nobr]
+<div class="room">
+    
 </div>
 
 ::Shop [nobr]
