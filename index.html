@@ -666,6 +666,8 @@ div .room::-webkit-scrollbar-track {
     var char = document.getElementById('character');
     character.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
+&lt;&lt;audio ":playing" stop&gt;&gt;
+&lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
 &lt;&lt;set $inventory.push("coin")&gt;&gt;
 &lt;&lt;set $inventory.push("cloak1")&gt;&gt;
@@ -737,9 +739,9 @@ div .room::-webkit-scrollbar-track {
                 &lt;br&gt; &lt;br&gt;
                 &lt;i&gt; I do hope you put it to good use. &lt;/i&gt; The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
                 &lt;br&gt; &lt;br&gt;
-                [[Head to miners' camp -&gt; Camp1]]
-                &lt;br&gt;
                 [[Explore the area -&gt; ExploreBeginning]]
+                &lt;br&gt;
+                [[Head to miners' camp -&gt; Camp1]]
                 &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
             &lt;&lt;/link&gt;&gt; 
             &lt;/span&gt;

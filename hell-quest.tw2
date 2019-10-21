@@ -152,6 +152,8 @@ hell quest
     var char = document.getElementById('character');
     character.style.visibility = 'visible';
 <</script>>
+<<audio ":playing" stop>>
+<<audio "bgm1" volume .1 loop play>>
 <<set $inventory to []>>
 <<set $inventory.push("coin")>>
 <<set $inventory.push("cloak1")>>
@@ -226,9 +228,9 @@ hell quest
                 <br> <br>
                 <i> I do hope you put it to good use. </i> The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
                 <br> <br>
-                [[Head to miners' camp -> Camp1]]
-                <br>
                 [[Explore the area -> ExploreBeginning]]
+                <br>
+                [[Head to miners' camp -> Camp1]]
                 <</timed>> <</replace>> 
             <</link>> 
             </span>
