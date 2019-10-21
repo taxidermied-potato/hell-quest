@@ -14,36 +14,75 @@ hell quest
 	document.head.appendChild(favicon);
 }());
 <</script>>
-<<script>>
-    var inventory = document.getElementById('inventory');
-    inventory.style.visibility = 'hidden';
-<</script>>
+<<set $items to {}>>
+<<set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 1}>>
+<<set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a weak spell", number: 1}>>
+<<set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 1}>>
+<<set $items["bones"] to {name: "Old Bones", desc: "One man's bones another man's...?", number: 1, worth: 1}>>
+<<set $items["ore"] to {name: "Ore", desc: "It's not treaure, but it's something", number: 1, worth: 3}>>
+<<set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 1, worth: 15}>>
+<<set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 1, worth: 50}>>
+<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}>>
+<<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}>>
+<<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery"}>>
+<<set $items["cloak4"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that swept through countless battlefields"}>>
+<<set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch"}>>
+<<set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted"}>>
+<<set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune"}>>
+<<set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them"}>>
+<<set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole"}>>
+<<set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive"}>>
+<<set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says"}>>
+<<set $items["sword3"] to {name: "Gold Broadsword", desc: "Shiny, chrome, and great for slaying monsters"}>>
+<<set $items["sword4"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself"}>>
+<<set $items["sword5"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something monstrous."}>>
+<<set $items["armor1"] to {name: "Iron Armor", desc: "+5 DEF, -5 SPD"}>>
+<<set $items["armor2"] to {name: "Gold Armor", desc: "You didn't actually think stats were a thing did you?"}>>
+<<set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons"}>>
+<<set $items["armor4"] to {name: "Romanian Bulwark", desc: "It whispers to you, Lord Impaler"}>>
+<<set $days to 1>>
 <<set $inventory to []>>
 <<cacheaudio "bgm1" "./audio/dreamlike.mp3">>
+<<cacheaudio "bgm2" "./audio/rest.mp3">>
+<<cacheaudio "bgm3" "./audio/air.mp3">>
 
 ::StoryInterface [nobr]
 <div id="story" role="main">
     <div id="passages"></div>
     <div id="inventory" data-passage="Inventory"></div>
+    <div id="character" data-passage="Character"></div>
 </div>
 
 ::Inventory [nobr]
-<h1> &nbsp;Inventory </h1>
+<h1> Inventory </h1>
+<<for _i=0; _i<$inventory.length; _i++>>
 <table>
-    <<for _i=0; _i<$inventory.length; _i++>>
         <tr>
-            <td>
-            <<print $inventory[_i].name>>   
+            <td class="inven-name">
+            <<print $items[$inventory[_i]].name>>   
             </td>
             <td>
-            <<print $inventory[_i].desc>>
+            <<print $items[$inventory[_i]].desc>>
             </td>	
+            <<if $items[$inventory[_i]].number != null>>
+            <td>
+            <<print "x" + $items[$inventory[_i]].number>>
+            </td>	
+            <</if>>
         </tr>
-    <</for>>
 </table>
+<</for>>
+
+::Character [nobr]
+<h1> Day <<print $days>> </h1>
 
 ::Start [nobr dark]
-<<audio "bgm1" volume .5 loop play>>
+<<script>>
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'hidden';
+    var char = document.getElementById('character');
+    character.style.visibility = 'hidden';
+<</script>>
 <div class="room-start black-screen">
     <div class="room align-center">
         <h1> hell<span class="vert">地獄</span>quest </h1>
@@ -55,10 +94,12 @@ hell quest
 <<script>>
     var inventory = document.getElementById('inventory');
     inventory.style.visibility = 'visible';
+    var char = document.getElementById('character');
+    character.style.visibility = 'visible';
 <</script>>
 <<audio "bgm1" volume .1 loop play>>
-<<set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})>>
-<<set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})>>
+<<set $inventory.push("coin")>>
+<<set $inventory.push("cloak1")>>
 <div class="room-start">
     <div class="room">
         <h1> hell<span class="vert">地獄</span>quest </h1>
@@ -96,10 +137,12 @@ hell quest
 <<script>>
     var inventory = document.getElementById('inventory');
     inventory.style.visibility = 'visible';
+    var char = document.getElementById('character');
+    character.style.visibility = 'visible';
 <</script>>
 <<set $inventory to []>>
-<<set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})>>
-<<set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})>>
+<<set $inventory.push("coin")>>
+<<set $inventory.push("cloak1")>>
 <div class="room-start">
     <div class="room">
         <h1> hell<span class="vert">地獄</span>quest </h1>
@@ -144,7 +187,7 @@ hell quest
             <br> <br>
             <span id="choices"> 
             <<link "Take the pickaxe">> 
-                <<set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})>>
+                <<set $inventory.push("pickaxe1")>>
                 <<replace "#choices">> 
                     <<timed 10ms t8n>> 
                         You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
@@ -163,9 +206,8 @@ hell quest
                 <</replace>> 
             <</link>> <br>
             <<link "Ask for more">> 
-                <<set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})>>
-                <<set $inventory.push({name: "Fiend's Gift", desc:"A lovely little sword that's just almost alive"})>>  
-                <<set $inventory.push("Found")>>  
+                <<set $inventory.push("pickaxe1")>>
+                <<set $inventory.push("sword1")>>  
                 <<replace "#choices">> <<timed 10ms t8n>> 
                 <i> Greedy, are we</i>? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
                 Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. 
@@ -193,6 +235,7 @@ hell quest
         </p>
         <p>
         <<linkreplace "Resist" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>> 
+            <<set $inventory.push("magic1")>>
             <span id="fadein1" style="display:none">
             <img class="invert" src="./images/eyes.png" />
             Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
@@ -269,8 +312,9 @@ hell quest
 ::Camp2 [nobr]
 <div class="room">
     <p>
+    <img src="./images/sunset.svg" />
     By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
-    to keep to the 
+    to keep to the relative safety of the tents. 
     </p>
     <p>
     [[Head to the inn]] <br>
@@ -280,10 +324,19 @@ hell quest
 </div>
 
 ::ExploreBeginning [nobr]
+<<audio "bgm1" stop>>
+<<audio "bgm2" volume .15 loop play>>
 <div class="room">
     <p>
-    What surrounds you is a bleak red landscape, full of terror, but with an inkling of familiarity. The workers' camp lies east of your current location, distant fires scratching at the darkness
-    that the cliffside casts on its figure. To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
+    What surrounds you is a bleak red landscape, full of terror, but with an inkling of <<linkreplace "familiarity." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none">
+    familiarity. Perhaps you were once an explorer of savage lands. Or maybe a soldier of some sort?
+    <br><br>
+    </span>
+    The workers' camp lies east of your current location, distant fires scratching at the darkness
+    that the cliffside casts on its figure. 
+    <img class="invert" src="./images/forest.svg" />
+    To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
     you have into the ground.
     </p>
     <p>
@@ -297,32 +350,57 @@ hell quest
 ::Forest [nobr]
 <div class="room">
     <p>
-    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature greets you. It moves in a sickening haste, spewing dark shadows in its wake.
+    <img class="invert" src="./images/eyedemon.png" />
+    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature appears. It moves in a sickening haste, spewing dark shadows in its wake.
     <br> <br>
-    You attempt to move silently
-    </p>
-    <p>
-    [[Fight -> FightMonster]] <br>
-    [[Retreat to camp -> Camp2]]
+    You attempt to crawl backwards 
+    <<cycle "$crawl" autoselect>>
+        <<option "silently">>
+        <<option "very silently">>
+        <<option "loudly">>
+    <</cycle>>
+    <<linkreplace "[...]" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none">
+    <<if $crawl is "silently">>
+	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you.
+        <br><br>
+        [[Fight back -> FightMonster]] <br>
+        [[Retreat to camp -> Camp2]]   
+    <<elseif $crawl is "loudly">>
+        — and you slip behind a tree before its gaze meets you.
+        <br><br>
+        [[Attack it -> FightMonster]] <br>
+        [[Retreat to camp -> Camp2]]        
+    <<elseif $crawl is "very silently">>
+        — The demon seems amused for just a second before it bites your head off.
+        <br><br>
+        [[Try again -> Beginning2]]
+    <</if>>
+    </span>
     </p>
 </div>
 
 ::FightMonster [nobr]
 <div class="room">
     <p>
-    <<if $inventory.includes("Found")>>
-    Contains
-    <<else>>
-    Not contains
-    <</if>>
-    </p>
-    <p>
+    <<if $inventory.includes("sword1")>>
+    <<set $inventory.push("magic2")>>
+    <img class="invert" src="./images/energy.png" />
+    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain.
+    Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
+    <br><br>
     [[Head to camp -> Camp2]]
+    <<else>>
+    You swing your pickaxe to no avail. The demon seems amused for just a second before it bites your head off.
+    <br><br>
+    [[Try again -> Beginning2]]
+    <</if>>
     </p>
 </div>
 
 ::Empty [nobr]
 <div class="room">
+    <img class="invert" src="./images/footprints.png" />
     <p>
     Eventually, the redness of your surroundings blends with your limbs and the very thought of return is lost. So you <<linkreplace "walk." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
     <span id="fadein1" style="display:none"> walk. And <<linkreplace "walk." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>

@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="4" creator="Twee2" creator-version="0.5.0" ifid="d818ad3d-65f5-4ee9-bc26-31752b08625b" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="fff37dfd-90d7-4761-bec6-b2f4c7f8093a" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -113,10 +113,26 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
   background-size: cover;
 }
 
+#character {
+  position: absolute;
+  top: 0;
+  right: .8rem;
+}
+
+#character h1 {
+  font-family: 'Crimson Text', serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgba(221, 221, 221, 1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
+}
+
 #inventory {
   position: absolute;
   top: 0;
-  left: 0;
+  left: .8rem;
   width: 18rem;
 }
 
@@ -141,8 +157,14 @@ table, th, td {
   border: 1px solid white;
   padding: 5px;
 }
+
 table {
   border-spacing: 15px;
+}
+
+
+.inven-name {
+  width: 3.5rem;
 }
 
 /* Custom Classes */
@@ -524,39 +546,77 @@ div .room::-webkit-scrollbar-track {
 	document.head.appendChild(favicon);
 }());
 &lt;&lt;/script&gt;&gt;
-&lt;&lt;script&gt;&gt;
-    var inventory = document.getElementById('inventory');
-    inventory.style.visibility = 'hidden';
-&lt;&lt;/script&gt;&gt;
+&lt;&lt;set $items to {}&gt;&gt;
+&lt;&lt;set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 1}&gt;&gt;
+&lt;&lt;set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a weak spell", number: 1}&gt;&gt;
+&lt;&lt;set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 1}&gt;&gt;
+&lt;&lt;set $items["bones"] to {name: "Old Bones", desc: "One man's bones another man's...?", number: 1, worth: 1}&gt;&gt;
+&lt;&lt;set $items["ore"] to {name: "Ore", desc: "It's not treaure, but it's something", number: 1, worth: 3}&gt;&gt;
+&lt;&lt;set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 1, worth: 15}&gt;&gt;
+&lt;&lt;set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 1, worth: 50}&gt;&gt;
+&lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}&gt;&gt;
+&lt;&lt;set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}&gt;&gt;
+&lt;&lt;set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery"}&gt;&gt;
+&lt;&lt;set $items["cloak4"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that swept through countless battlefields"}&gt;&gt;
+&lt;&lt;set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch"}&gt;&gt;
+&lt;&lt;set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted"}&gt;&gt;
+&lt;&lt;set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune"}&gt;&gt;
+&lt;&lt;set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them"}&gt;&gt;
+&lt;&lt;set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole"}&gt;&gt;
+&lt;&lt;set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive"}&gt;&gt;
+&lt;&lt;set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says"}&gt;&gt;
+&lt;&lt;set $items["sword3"] to {name: "Gold Broadsword", desc: "Shiny, chrome, and great for slaying monsters"}&gt;&gt;
+&lt;&lt;set $items["sword4"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself"}&gt;&gt;
+&lt;&lt;set $items["sword5"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something monstrous."}&gt;&gt;
+&lt;&lt;set $items["armor1"] to {name: "Iron Armor", desc: "+5 DEF, -5 SPD"}&gt;&gt;
+&lt;&lt;set $items["armor2"] to {name: "Gold Armor", desc: "You didn't actually think stats were a thing did you?"}&gt;&gt;
+&lt;&lt;set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons"}&gt;&gt;
+&lt;&lt;set $items["armor4"] to {name: "Romanian Bulwark", desc: "It whispers to you, Lord Impaler"}&gt;&gt;
+&lt;&lt;set $days to 1&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
-&lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="nobr" position="">&lt;div id="story" role="main"&gt;
+&lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;
+&lt;&lt;cacheaudio "bgm2" "./audio/rest.mp3"&gt;&gt;
+&lt;&lt;cacheaudio "bgm3" "./audio/air.mp3"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="nobr" position="">&lt;div id="story" role="main"&gt;
     &lt;div id="passages"&gt;&lt;/div&gt;
     &lt;div id="inventory" data-passage="Inventory"&gt;&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Inventory" tags="nobr" position="">&lt;h1&gt; &amp;nbsp;Inventory &lt;/h1&gt;
+    &lt;div id="character" data-passage="Character"&gt;&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Inventory" tags="nobr" position="">&lt;h1&gt; Inventory &lt;/h1&gt;
+&lt;&lt;for _i=0; _i&lt;$inventory.length; _i++&gt;&gt;
 &lt;table&gt;
-    &lt;&lt;for _i=0; _i&lt;$inventory.length; _i++&gt;&gt;
         &lt;tr&gt;
-            &lt;td&gt;
-            &lt;&lt;print $inventory[_i].name&gt;&gt;   
+            &lt;td class="inven-name"&gt;
+            &lt;&lt;print $items[$inventory[_i]].name&gt;&gt;   
             &lt;/td&gt;
             &lt;td&gt;
-            &lt;&lt;print $inventory[_i].desc&gt;&gt;
+            &lt;&lt;print $items[$inventory[_i]].desc&gt;&gt;
             &lt;/td&gt;	
+            &lt;&lt;if $items[$inventory[_i]].number != null&gt;&gt;
+            &lt;td&gt;
+            &lt;&lt;print "x" + $items[$inventory[_i]].number&gt;&gt;
+            &lt;/td&gt;	
+            &lt;&lt;/if&gt;&gt;
         &lt;/tr&gt;
-    &lt;&lt;/for&gt;&gt;
-&lt;/table&gt;</tw-passagedata><tw-passagedata pid="4" name="Start" tags="nobr dark" position="">&lt;&lt;audio "bgm1" volume .5 loop play&gt;&gt;
+&lt;/table&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Character" tags="nobr" position="">&lt;h1&gt; Day &lt;&lt;print $days&gt;&gt; &lt;/h1&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="nobr dark" position="">&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'hidden';
+    var char = document.getElementById('character');
+    character.style.visibility = 'hidden';
+&lt;&lt;/script&gt;&gt;
 &lt;div class="room-start black-screen"&gt;
     &lt;div class="room align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         [img[./images/play-icon.svg][Beginning]]
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;script&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;script&gt;&gt;
     var inventory = document.getElementById('inventory');
     inventory.style.visibility = 'visible';
+    var char = document.getElementById('character');
+    character.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
-&lt;&lt;set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})&gt;&gt;
-&lt;&lt;set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})&gt;&gt;
+&lt;&lt;set $inventory.push("coin")&gt;&gt;
+&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
 &lt;div class="room-start"&gt;
     &lt;div class="room"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
@@ -588,13 +648,15 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
     &lt;/div&gt;
     &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
     var inventory = document.getElementById('inventory');
     inventory.style.visibility = 'visible';
+    var char = document.getElementById('character');
+    character.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
-&lt;&lt;set $inventory.push({name: "Aspri coin", desc:"Minted in silver, aged by time and battle"})&gt;&gt;
-&lt;&lt;set $inventory.push({name: "Tattered Cloak", desc:"An old cloak that provides little protection against the elements of the underworld"})&gt;&gt;
+&lt;&lt;set $inventory.push("coin")&gt;&gt;
+&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
 &lt;div class="room-start"&gt;
     &lt;div class="room"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
@@ -626,7 +688,7 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
     &lt;/div&gt;
     &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Accept" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Accept" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/devil.svg" /&gt;
 	&lt;div&gt;
         &lt;p&gt;
@@ -636,7 +698,7 @@ div .room::-webkit-scrollbar-track {
             &lt;br&gt; &lt;br&gt;
             &lt;span id="choices"&gt; 
             &lt;&lt;link "Take the pickaxe"&gt;&gt; 
-                &lt;&lt;set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})&gt;&gt;
+                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
                 &lt;&lt;replace "#choices"&gt;&gt; 
                     &lt;&lt;timed 10ms t8n&gt;&gt; 
                         You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
@@ -655,9 +717,8 @@ div .room::-webkit-scrollbar-track {
                 &lt;&lt;/replace&gt;&gt; 
             &lt;&lt;/link&gt;&gt; &lt;br&gt;
             &lt;&lt;link "Ask for more"&gt;&gt; 
-                &lt;&lt;set $inventory.push({name: "Rusted Pickaxe", desc:"It's better than nothing, and can be used to defend yourself in a pinch"})&gt;&gt;
-                &lt;&lt;set $inventory.push({name: "Fiend's Gift", desc:"A lovely little sword that's just almost alive"})&gt;&gt;  
-                &lt;&lt;set $inventory.push("Found")&gt;&gt;  
+                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
+                &lt;&lt;set $inventory.push("sword1")&gt;&gt;  
                 &lt;&lt;replace "#choices"&gt;&gt; &lt;&lt;timed 10ms t8n&gt;&gt; 
                 &lt;i&gt; Greedy, are we&lt;/i&gt;? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
                 Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and sling it across your back. 
@@ -673,7 +734,7 @@ div .room::-webkit-scrollbar-track {
         &lt;/span&gt;
         &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img src="./images/ankh.png" /&gt;
 	&lt;div&gt;
         &lt;p&gt;
@@ -682,6 +743,7 @@ div .room::-webkit-scrollbar-track {
         &lt;/p&gt;
         &lt;p&gt;
         &lt;&lt;linkreplace "Resist" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;&lt;set $inventory.push("magic1")&gt;&gt;
             &lt;span id="fadein1" style="display:none"&gt;
             &lt;img class="invert" src="./images/eyes.png" /&gt;
             Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
@@ -691,7 +753,7 @@ div .room::-webkit-scrollbar-track {
 		[[Acquiesce -&gt; Accept]]
         &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
     &lt;div class="room align-center"&gt;
         &lt;p class="hidden-links"&gt;
         &lt;&lt;cycle "$about" autoselect&gt;&gt;
@@ -708,7 +770,7 @@ div .room::-webkit-scrollbar-track {
         [[Back -&gt; Beginning2]]
         &lt;/p&gt;
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
 	&lt;div class="align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         &lt;div class="text-normal"&gt;
@@ -733,7 +795,7 @@ div .room::-webkit-scrollbar-track {
         [[Back -&gt; Beginning2]]
         &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Camp1" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Camp1" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt;
     The atmosphere exuded by the camp is...
     &lt;/p&gt;
@@ -744,20 +806,30 @@ div .room::-webkit-scrollbar-track {
     [[Head to the shop]] &lt;br&gt;
     [[Debug -&gt; Beginning2]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Camp2" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Camp2" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt;
+    &lt;img src="./images/sunset.svg" /&gt;
     By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
-    to keep to the 
+    to keep to the relative safety of the tents. 
     &lt;/p&gt;
     &lt;p&gt;
     [[Head to the inn]] &lt;br&gt;
     [[Head to the shop]] &lt;br&gt;
     [[Debug -&gt; Beginning2]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="ExploreBeginning" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="ExploreBeginning" tags="nobr" position="">&lt;&lt;audio "bgm1" stop&gt;&gt;
+&lt;&lt;audio "bgm2" volume .15 loop play&gt;&gt;
+&lt;div class="room"&gt;
     &lt;p&gt;
-    What surrounds you is a bleak red landscape, full of terror, but with an inkling of familiarity. The workers' camp lies east of your current location, distant fires scratching at the darkness
-    that the cliffside casts on its figure. To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
+    What surrounds you is a bleak red landscape, full of terror, but with an inkling of &lt;&lt;linkreplace "familiarity." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+    &lt;span id="fadein1" style="display:none"&gt;
+    familiarity. Perhaps you were once an explorer of savage lands. Or maybe a soldier of some sort?
+    &lt;br&gt;&lt;br&gt;
+    &lt;/span&gt;
+    The workers' camp lies east of your current location, distant fires scratching at the darkness
+    that the cliffside casts on its figure. 
+    &lt;img class="invert" src="./images/forest.svg" /&gt;
+    To your west is a forest of bristlecone pine, mired in a shadowy haze. Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity
     you have into the ground.
     &lt;/p&gt;
     &lt;p&gt;
@@ -766,28 +838,53 @@ div .room::-webkit-scrollbar-track {
     [[Head north -&gt; Empty]] &lt;br&gt;
     [[Head south -&gt; Empty]] &lt;br&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Forest" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Forest" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt;
-    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature greets you. It moves in a sickening haste, spewing dark shadows in its wake.
+    &lt;img class="invert" src="./images/eyedemon.png" /&gt;
+    Every step taken into the trees heightens your unease. When you reach the center of the forest, a many eyed creature appears. It moves in a sickening haste, spewing dark shadows in its wake.
     &lt;br&gt; &lt;br&gt;
-    You attempt to move silently
+    You attempt to crawl backwards 
+    &lt;&lt;cycle "$crawl" autoselect&gt;&gt;
+        &lt;&lt;option "silently"&gt;&gt;
+        &lt;&lt;option "very silently"&gt;&gt;
+        &lt;&lt;option "loudly"&gt;&gt;
+    &lt;&lt;/cycle&gt;&gt;
+    &lt;&lt;linkreplace "[...]" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+    &lt;span id="fadein1" style="display:none"&gt;
+    &lt;&lt;if $crawl is "silently"&gt;&gt;
+	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you.
+        &lt;br&gt;&lt;br&gt;
+        [[Fight back -&gt; FightMonster]] &lt;br&gt;
+        [[Retreat to camp -&gt; Camp2]]   
+    &lt;&lt;elseif $crawl is "loudly"&gt;&gt;
+        — and you slip behind a tree before its gaze meets you.
+        &lt;br&gt;&lt;br&gt;
+        [[Attack it -&gt; FightMonster]] &lt;br&gt;
+        [[Retreat to camp -&gt; Camp2]]        
+    &lt;&lt;elseif $crawl is "very silently"&gt;&gt;
+        — The demon seems amused for just a second before it bites your head off.
+        &lt;br&gt;&lt;br&gt;
+        [[Try again -&gt; Beginning2]]
+    &lt;&lt;/if&gt;&gt;
+    &lt;/span&gt;
     &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="FightMonster" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt;
-    [[Fight -&gt; FightMonster]] &lt;br&gt;
-    [[Retreat to camp -&gt; Camp2]]
-    &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="FightMonster" tags="nobr" position="">&lt;div class="room"&gt;
-    &lt;p&gt;
-    &lt;&lt;if $inventory.includes("Found")&gt;&gt;
-    Contains
+    &lt;&lt;if $inventory.includes("sword1")&gt;&gt;
+    &lt;&lt;set $inventory.push("magic2")&gt;&gt;
+    &lt;img class="invert" src="./images/energy.png" /&gt;
+    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain.
+    Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
+    &lt;br&gt;&lt;br&gt;
+    [[Head to camp -&gt; Camp2]]
     &lt;&lt;else&gt;&gt;
-    Not contains
+    You swing your pickaxe to no avail. The demon seems amused for just a second before it bites your head off.
+    &lt;br&gt;&lt;br&gt;
+    [[Try again -&gt; Beginning2]]
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-    &lt;p&gt;
-    [[Head to camp -&gt; Camp2]]
-    &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Empty" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Empty" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/footprints.png" /&gt;
     &lt;p&gt;
     Eventually, the redness of your surroundings blends with your limbs and the very thought of return is lost. So you &lt;&lt;linkreplace "walk." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
     &lt;span id="fadein1" style="display:none"&gt; walk. And &lt;&lt;linkreplace "walk." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;

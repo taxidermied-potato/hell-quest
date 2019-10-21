@@ -12,10 +12,26 @@
   background-size: cover;
 }
 
+#character {
+  position: absolute;
+  top: 0;
+  right: .8rem;
+}
+
+#character h1 {
+  font-family: 'Crimson Text', serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgba(221, 221, 221, 1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
+}
+
 #inventory {
   position: absolute;
   top: 0;
-  left: 0;
+  left: .8rem;
   width: 18rem;
 }
 
@@ -40,8 +56,14 @@ table, th, td {
   border: 1px solid white;
   padding: 5px;
 }
+
 table {
   border-spacing: 15px;
+}
+
+
+.inven-name {
+  width: 3.5rem;
 }
 
 /* Custom Classes */
