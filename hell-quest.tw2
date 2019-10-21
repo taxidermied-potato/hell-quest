@@ -24,7 +24,9 @@ hell quest
 <<set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 1, worth: 5}>>
 <<set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 1, worth: 15}>>
 <<set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 1, worth: 30}>>
+<<set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 1, worth: 20}>>
 <<set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 1, worth: 50}>>
+<<set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 1, worth: 75}>>
 <<set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 1, worth: 150}>>
 <<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}>>
 <<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}>>
@@ -354,7 +356,7 @@ hell quest
     <<linkreplace "[...]" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
     <span id="fadein1" style="display:none">
     <<if $crawl is "silently">>
-	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you.
+	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you, hissing all the while.
         <br><br>
         [[Fight back -> FightMonster]] <br>
         [[Retreat to camp -> Camp2]]   
@@ -378,7 +380,8 @@ hell quest
     <<if $inventory.includes("sword1")>>
     <<set $inventory.push("magic2")>>
     <img class="invert" src="./images/energy.png" />
-    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain.
+    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
+    your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     <br><br>
     [[Head to camp -> Camp2]]
@@ -425,11 +428,12 @@ hell quest
     </span>
     In the end, you can't help but smile at the sound of laughter and the effervescent scent of <<linkreplace "morning market being." t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
     <span id="fadein2" style="display:none"> 
-    morning market being. As the scent of freshly cooked bread stretches its legs, children sprint across crowded streets.
+    morning market being. As the aroma of freshly cooked bread stretches its legs, children sprint across crowded streets. It's a hassle to make your way across, but you do so anyways — guided by cobblestone and merriment.
     </span>
     </p>
     <p>
     [[Head out -> Headout]] <br>
+    [[Explore camp -> Headout]] <br>
     [[Enter the inn -> InnDay]] <br>
     [[Head to the shop -> Shop]] <br>
     </p>

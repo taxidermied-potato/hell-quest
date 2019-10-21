@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="601df7f5-0359-4f7f-9638-ac61ae84d915" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="7e025203-9ee9-4710-92c5-504b5852a900" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -556,7 +556,9 @@ div .room::-webkit-scrollbar-track {
 &lt;&lt;set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 1, worth: 5}&gt;&gt;
 &lt;&lt;set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 1, worth: 15}&gt;&gt;
 &lt;&lt;set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 1, worth: 30}&gt;&gt;
+&lt;&lt;set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 1, worth: 20}&gt;&gt;
 &lt;&lt;set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 1, worth: 50}&gt;&gt;
+&lt;&lt;set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 1, worth: 75}&gt;&gt;
 &lt;&lt;set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 1, worth: 150}&gt;&gt;
 &lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}&gt;&gt;
 &lt;&lt;set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}&gt;&gt;
@@ -850,7 +852,7 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;linkreplace "[...]" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
     &lt;span id="fadein1" style="display:none"&gt;
     &lt;&lt;if $crawl is "silently"&gt;&gt;
-	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you.
+	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you, hissing all the while.
         &lt;br&gt;&lt;br&gt;
         [[Fight back -&gt; FightMonster]] &lt;br&gt;
         [[Retreat to camp -&gt; Camp2]]   
@@ -871,7 +873,8 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;if $inventory.includes("sword1")&gt;&gt;
     &lt;&lt;set $inventory.push("magic2")&gt;&gt;
     &lt;img class="invert" src="./images/energy.png" /&gt;
-    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain.
+    The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
+    your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     &lt;br&gt;&lt;br&gt;
     [[Head to camp -&gt; Camp2]]
@@ -912,11 +915,12 @@ div .room::-webkit-scrollbar-track {
     &lt;/span&gt;
     In the end, you can't help but smile at the sound of laughter and the effervescent scent of &lt;&lt;linkreplace "morning market being." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
     &lt;span id="fadein2" style="display:none"&gt; 
-    morning market being. As the scent of freshly cooked bread stretches its legs, children sprint across crowded streets.
+    morning market being. As the aroma of freshly cooked bread stretches its legs, children sprint across crowded streets. It's a hassle to make your way across, but you do so anyways — guided by cobblestone and merriment.
     &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
     [[Head out -&gt; Headout]] &lt;br&gt;
+    [[Explore camp -&gt; Headout]] &lt;br&gt;
     [[Enter the inn -&gt; InnDay]] &lt;br&gt;
     [[Head to the shop -&gt; Shop]] &lt;br&gt;
     &lt;/p&gt;
