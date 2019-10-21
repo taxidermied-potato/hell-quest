@@ -54,6 +54,7 @@ hell quest
 <<set $items["armor4"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies"}>>
 <<set $items["armor5"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon"}>>
 <<set $days to 1>>
+<<set $health to 10>>
 <<set $inventory to []>>
 <<cacheaudio "bgm1" "./audio/dreamlike.mp3">>
 <<cacheaudio "bgm2" "./audio/rest.mp3">>
@@ -111,7 +112,7 @@ hell quest
     var char = document.getElementById('character');
     character.style.visibility = 'visible';
 <</script>>
-<<audio "bgm1" volume .1 loop play>>
+<<audio "bgm1" volume .15 loop play>>
 <<set $inventory.push("coin")>>
 <<set $inventory.push("cloak1")>>
 <div class="room-start">
@@ -155,7 +156,7 @@ hell quest
     character.style.visibility = 'visible';
 <</script>>
 <<audio ":playing" stop>>
-<<audio "bgm1" volume .1 loop play>>
+<<audio "bgm1" volume .15 loop play>>
 <<set $inventory to []>>
 <<set $inventory.push("coin")>>
 <<set $inventory.push("cloak1")>>
@@ -316,7 +317,7 @@ hell quest
 
 ::ExploreBeginning [nobr]
 <<audio ":playing" stop>>
-<<audio "bgm2" volume .12 loop play>>
+<<audio "bgm2" volume .2 loop play>>
 <div class="room">
     <img class="invert" src="./images/crownedskull.svg" width=500/>
     <p>
@@ -379,6 +380,7 @@ hell quest
     <p>
     <<if $inventory.includes("sword1")>>
     <<set $inventory.push("magic2")>>
+    <<set $health to $health - 2>>
     <img class="invert" src="./images/energy.png" />
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
@@ -416,7 +418,7 @@ hell quest
 
 ::Camp1 [nobr]
 <<audio ":playing" stop>>
-<<audio "bgm4" volume .1 loop play>>
+<<audio "bgm4" volume .05 loop play>>
 <div class="room">
     <img class="invert" src="./images/village.svg" />
     <p>
@@ -433,7 +435,7 @@ hell quest
     </p>
     <p>
     [[Head out -> Headout]] <br>
-    [[Explore camp -> Headout]] <br>
+    [[Explore camp -> ExploreCamp]] <br>
     [[Enter the inn -> InnDay]] <br>
     [[Head to the shop -> Shop]] <br>
     </p>
@@ -441,7 +443,7 @@ hell quest
 
 ::Camp2 [nobr]
 <<audio ":playing" stop>>
-<<audio "bgm4" volume .06 loop play>>
+<<audio "bgm4" volume .03 loop play>>
 <div class="room">
     <p>
     <img class="invert" src="./images/sunset.svg" />
@@ -456,17 +458,39 @@ hell quest
 
 ::Camp3 [nobr]
 <<audio ":playing" stop>>
-<<audio "bgm4" volume .1 loop play>>
+<<audio "bgm4" volume .05 loop play>>
 <div class="room">
+    <<if $health > 12>>
+    <<set $health to 12>>
+    <</if>>
     <img class="invert" src="./images/village.svg" />
     <p>
-    Another day.
-    </p>
-    <p>
+    Another night gone.
+    <<if $health > 10>>
+    You wake up refreshed and ready for what the new day holds.
+    <br><br>
     [[Head out -> Headout]] <br>
-    [[Enter the inn -> InnDay]] <br>
-    [[Head to the shop -> Shop]] <br>
-    </p>
+    [[Explore camp -> ExploreCamp]] <br>
+    [[Head to the shop -> Shop]]
+    <<elseif $health > 8>>
+    A slight ache still pervades through your body, but it's nothing to worry about.
+    <br><br>
+    [[Head out -> Headout]] <br>
+    [[Explore camp -> ExploreCamp]] <br>
+    [[Head to the shop -> Shop]]
+    <<elseif $health > 5>>
+    Your muscles spent the night knitting themselves back together. They are not done yet.
+    <br><br>
+    [[Explore camp -> ExploreCamp]] <br>
+    [[Head to the shop -> Shop]]
+    <<else>>
+    Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
+    <br><br>
+    [[Head to the shop -> Shop]]
+    <</if>>  
+    <br>
+    [[Explore the inn -> InnDay]]
+    </p>  
 </div>
 
 ::InnDay [nobr]
@@ -476,7 +500,18 @@ hell quest
 
 ::InnNight [nobr]
 <div class="room">
-   
+    <p>
+    <<if $health > 10>>
+    You are in good health. Time to hit the hay.
+    <<elseif $health > 7>>
+    You are slightly injured. A good night's sleep will help you heal.
+    <<elseif $health > 4>>
+    Everything aches. Sleep is an opiate welcome.
+    <<else>>
+    You are pretty terribly injured. The pain makes it difficult to find comfort in your bed.
+    <</if>>
+    </p>
+    [[Go to sleep|Camp3][$days to $days + 1, $health to $health + 1]]
 </div>
 
 ::Shop [nobr]
@@ -486,7 +521,7 @@ hell quest
 
 ::Headout [nobr]
 <<audio ":playing" stop>>
-<<audio "bgm2" volume .12 loop play>>
+<<audio "bgm2" volume .2 loop play>>
 <div class="room">
     <img class="invert" src="./images/crownedskull.svg" width=500/>
 

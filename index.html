@@ -586,6 +586,7 @@ div .room::-webkit-scrollbar-track {
 &lt;&lt;set $items["armor4"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies"}&gt;&gt;
 &lt;&lt;set $items["armor5"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon"}&gt;&gt;
 &lt;&lt;set $days to 1&gt;&gt;
+&lt;&lt;set $health to 10&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
 &lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;
 &lt;&lt;cacheaudio "bgm2" "./audio/rest.mp3"&gt;&gt;
@@ -628,7 +629,7 @@ div .room::-webkit-scrollbar-track {
     var char = document.getElementById('character');
     character.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
-&lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
+&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
 &lt;&lt;set $inventory.push("coin")&gt;&gt;
 &lt;&lt;set $inventory.push("cloak1")&gt;&gt;
 &lt;div class="room-start"&gt;
@@ -669,7 +670,7 @@ div .room::-webkit-scrollbar-track {
     character.style.visibility = 'visible';
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm1" volume .1 loop play&gt;&gt;
+&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
 &lt;&lt;set $inventory.push("coin")&gt;&gt;
 &lt;&lt;set $inventory.push("cloak1")&gt;&gt;
@@ -815,7 +816,7 @@ div .room::-webkit-scrollbar-track {
         &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="ExploreBeginning" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm2" volume .12 loop play&gt;&gt;
+&lt;&lt;audio "bgm2" volume .2 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/crownedskull.svg" width=500/&gt;
     &lt;p&gt;
@@ -872,6 +873,7 @@ div .room::-webkit-scrollbar-track {
     &lt;p&gt;
     &lt;&lt;if $inventory.includes("sword1")&gt;&gt;
     &lt;&lt;set $inventory.push("magic2")&gt;&gt;
+    &lt;&lt;set $health to $health - 2&gt;&gt;
     &lt;img class="invert" src="./images/energy.png" /&gt;
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
@@ -903,7 +905,7 @@ div .room::-webkit-scrollbar-track {
     &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Camp1" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm4" volume .1 loop play&gt;&gt;
+&lt;&lt;audio "bgm4" volume .05 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/village.svg" /&gt;
     &lt;p&gt;
@@ -920,12 +922,12 @@ div .room::-webkit-scrollbar-track {
     &lt;/p&gt;
     &lt;p&gt;
     [[Head out -&gt; Headout]] &lt;br&gt;
-    [[Explore camp -&gt; Headout]] &lt;br&gt;
+    [[Explore camp -&gt; ExploreCamp]] &lt;br&gt;
     [[Enter the inn -&gt; InnDay]] &lt;br&gt;
     [[Head to the shop -&gt; Shop]] &lt;br&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Camp2" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm4" volume .06 loop play&gt;&gt;
+&lt;&lt;audio "bgm4" volume .03 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;p&gt;
     &lt;img class="invert" src="./images/sunset.svg" /&gt;
@@ -937,25 +939,58 @@ div .room::-webkit-scrollbar-track {
     [[Head to the shop -&gt; Shop]] &lt;br&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Camp3" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm4" volume .1 loop play&gt;&gt;
+&lt;&lt;audio "bgm4" volume .05 loop play&gt;&gt;
 &lt;div class="room"&gt;
+    &lt;&lt;if $health &gt; 12&gt;&gt;
+    &lt;&lt;set $health to 12&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
     &lt;img class="invert" src="./images/village.svg" /&gt;
     &lt;p&gt;
-    Another day.
-    &lt;/p&gt;
-    &lt;p&gt;
+    Another night gone.
+    &lt;&lt;if $health &gt; 10&gt;&gt;
+    You wake up refreshed and ready for what the new day holds.
+    &lt;br&gt;&lt;br&gt;
     [[Head out -&gt; Headout]] &lt;br&gt;
-    [[Enter the inn -&gt; InnDay]] &lt;br&gt;
-    [[Head to the shop -&gt; Shop]] &lt;br&gt;
-    &lt;/p&gt;
+    [[Explore camp -&gt; ExploreCamp]] &lt;br&gt;
+    [[Head to the shop -&gt; Shop]]
+    &lt;&lt;elseif $health &gt; 8&gt;&gt;
+    A slight ache still pervades through your body, but it's nothing to worry about.
+    &lt;br&gt;&lt;br&gt;
+    [[Head out -&gt; Headout]] &lt;br&gt;
+    [[Explore camp -&gt; ExploreCamp]] &lt;br&gt;
+    [[Head to the shop -&gt; Shop]]
+    &lt;&lt;elseif $health &gt; 5&gt;&gt;
+    Your muscles spent the night knitting themselves back together. They are not done yet.
+    &lt;br&gt;&lt;br&gt;
+    [[Explore camp -&gt; ExploreCamp]] &lt;br&gt;
+    [[Head to the shop -&gt; Shop]]
+    &lt;&lt;else&gt;&gt;
+    Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
+    &lt;br&gt;&lt;br&gt;
+    [[Head to the shop -&gt; Shop]]
+    &lt;&lt;/if&gt;&gt;  
+    &lt;br&gt;
+    [[Explore the inn -&gt; InnDay]]
+    &lt;/p&gt;  
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="InnDay" tags="nobr" position="">&lt;div class="room"&gt;
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="InnNight" tags="nobr" position="">&lt;div class="room"&gt;
-   
+    &lt;p&gt;
+    &lt;&lt;if $health &gt; 10&gt;&gt;
+    You are in good health. Time to hit the hay.
+    &lt;&lt;elseif $health &gt; 7&gt;&gt;
+    You are slightly injured. A good night's sleep will help you heal.
+    &lt;&lt;elseif $health &gt; 4&gt;&gt;
+    Everything aches. Sleep is an opiate welcome.
+    &lt;&lt;else&gt;&gt;
+    You are pretty terribly injured. The pain makes it difficult to find comfort in your bed.
+    &lt;&lt;/if&gt;&gt;
+    &lt;/p&gt;
+    [[Go to sleep|Camp3][$days to $days + 1, $health to $health + 1]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Shop" tags="nobr" position="">&lt;div class="room"&gt;
     
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Headout" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm2" volume .12 loop play&gt;&gt;
+&lt;&lt;audio "bgm2" volume .2 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/crownedskull.svg" width=500/&gt;
 
