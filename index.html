@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="15c367a2-c8ab-4e3a-8024-220eff6fb465" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="99e8e696-3e7d-4330-b4e6-c46833e2eafc" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -671,7 +671,7 @@ div .room::-webkit-scrollbar-track {
             and you are free." &lt;/i&gt; 
             &lt;p&gt; &lt;br&gt; 
             [[Accept]] &lt;br&gt; 
-            [[Decline? -&gt; Decline]]
+            [[Decline?|Decline]]
             &lt;/p&gt;	
             &lt;/span&gt;
             &lt;/p&gt;
@@ -714,7 +714,7 @@ div .room::-webkit-scrollbar-track {
             and you are free." &lt;/i&gt; 
             &lt;p&gt; &lt;br&gt; 
             [[Accept]] &lt;br&gt; 
-            [[Decline? -&gt; Decline]]
+            [[Decline?|Decline]]
             &lt;/p&gt;	
             &lt;/span&gt;
             &lt;/p&gt;
@@ -741,9 +741,9 @@ div .room::-webkit-scrollbar-track {
                             Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
                             It leaves you to the constant howling and ephemeral groans of the world around you. 
                             &lt;br&gt; &lt;br&gt;
-                            [[Explore the area -&gt; ExploreBeginning]]  
+                            [[Explore the area|ExploreBeginning]]  
                             &lt;br&gt;
-                            [[Head to miners' camp -&gt; Camp1]]
+                            [[Head to miners' camp|Camp1]]
                         &lt;/span&gt; 
                     &lt;&lt;/timed&gt;&gt; 
                 &lt;&lt;/replace&gt;&gt; 
@@ -759,9 +759,9 @@ div .room::-webkit-scrollbar-track {
                 &lt;img class="invert" src="./images/sword.svg" width=500/&gt;
                 &lt;i&gt; I do hope you put it to good use. &lt;/i&gt; The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
                 &lt;br&gt; &lt;br&gt;
-                [[Explore the area -&gt; ExploreBeginning]]
+                [[Explore the area|ExploreBeginning]]
                 &lt;br&gt;
-                [[Head to miners' camp -&gt; Camp1]]
+                [[Head to miners' camp|Camp1]]
                 &lt;/span&gt;
                 &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
             &lt;&lt;/link&gt;&gt; 
@@ -786,7 +786,7 @@ div .room::-webkit-scrollbar-track {
             &lt;br&gt;
             &lt;/span&gt;
             &lt;br&gt;
-		[[Acquiesce -&gt; Accept]]
+		[[Acquiesce|Accept]]
         &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
@@ -803,7 +803,7 @@ div .room::-webkit-scrollbar-track {
         &lt;&lt;/cycle&gt;&gt;
         &lt;/p&gt;
         &lt;p&gt;
-        [[Back -&gt; Beginning2]]
+        [[Back|Beginning2]]
         &lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
@@ -828,7 +828,7 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
         &lt;/div&gt;
         &lt;p&gt;
-        [[Back -&gt; Beginning2]]
+        [[Back|Beginning2]]
         &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="ExploreBeginning" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
@@ -848,10 +848,10 @@ div .room::-webkit-scrollbar-track {
             To your west is a forest of bristlecone pine, mired in a shadowy haze. You think it dangerous to enter without a powerful weapon, but you're always up for a challenge. 
             Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity you have into the ground.
             &lt;br&gt;&lt;br&gt;
-            [[Head to camp -&gt; Camp2]] &lt;br&gt;
-            [[Venture into the forest -&gt; Forest]] &lt;br&gt;
-            [[Head north -&gt; Empty]] &lt;br&gt;
-            [[Head south -&gt; Empty]]
+            [[Head to camp|Camp2]] &lt;br&gt;
+            [[Venture into the forest|Forest]] &lt;br&gt;
+            [[Head north|Empty]] &lt;br&gt;
+            [[Head south|Empty]]
         &lt;/span&gt;
     &lt;/span&gt;
     &lt;/p&gt;
@@ -871,17 +871,17 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;if $crawl is "silently"&gt;&gt;
 	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you, hissing all the while.
         &lt;br&gt;&lt;br&gt;
-        [[Fight back -&gt; FightMonster]] &lt;br&gt;
-        [[Retreat to camp -&gt; Camp2]]   
+        [[Fight back|FightMonster]] &lt;br&gt;
+        [[Retreat to camp|Camp2]]   
     &lt;&lt;elseif $crawl is "loudly"&gt;&gt;
         — and you slip behind a tree before its gaze meets you.
         &lt;br&gt;&lt;br&gt;
-        [[Attack it -&gt; FightMonster]] &lt;br&gt;
-        [[Retreat to camp -&gt; Camp2]]        
+        [[Attack it|FightMonster]] &lt;br&gt;
+        [[Retreat to camp|Camp2]]        
     &lt;&lt;elseif $crawl is "very silently"&gt;&gt;
         — The demon seems amused for just a second before it bites your head off.
         &lt;br&gt;&lt;br&gt;
-        [[Try again -&gt; Beginning2]]
+        [[Try again|Beginning2]]
     &lt;&lt;/if&gt;&gt;
     &lt;/span&gt;
     &lt;/p&gt;
@@ -896,7 +896,7 @@ div .room::-webkit-scrollbar-track {
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     &lt;br&gt;&lt;br&gt;
-    [[Head to camp -&gt; Camp2]]
+    [[Head to camp|Camp2]]
     &lt;&lt;else&gt;&gt;
     &lt;&lt;if random(1, 2) == 1&gt;&gt;
     &lt;img class="invert" src="./images/reaper1.svg" /&gt;
@@ -922,7 +922,7 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     An eternity on bloodied feet beckons.
     &lt;br&gt;&lt;br&gt;
-    [[Try again -&gt; Beginning2]]
+    [[Try again|Beginning2]]
     &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Camp1" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
@@ -942,12 +942,12 @@ div .room::-webkit-scrollbar-track {
     &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
-    [[Head out -&gt; Headout]] &lt;br&gt;
+    [[Head out|Headout]] &lt;br&gt;
     &lt;&lt;if $inn_entered != true&gt;&gt;
-    [[Enter the inn -&gt; InnDay]] &lt;br&gt;
+    [[Enter the inn|InnDay]] &lt;br&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;if $shop_entered != true&gt;&gt;
-    [[Head to the shop -&gt; ShopDay]] &lt;br&gt;
+    [[Head to the shop|ShopDay]] &lt;br&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Camp2" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
@@ -959,8 +959,8 @@ div .room::-webkit-scrollbar-track {
     to keep to the relative safety of the indoors. 
     &lt;/p&gt;
     &lt;p&gt;
-    [[Enter the inn -&gt; InnNight]] &lt;br&gt;
-    [[Head to the shop -&gt; ShopNight]] &lt;br&gt;
+    [[Enter the inn|InnNight]] &lt;br&gt;
+    [[Head to the shop|ShopNight]] &lt;br&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Camp3" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
 &lt;&lt;audio "bgm4" volume .05 loop play&gt;&gt;
@@ -976,27 +976,27 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;if $health &gt; 10&gt;&gt;
     You wake up refreshed and ready for what the new day holds.
     &lt;br&gt;&lt;br&gt;
-    [[Head out -&gt; Headout]] &lt;br&gt;
-    [[Explore camp -&gt; Camp1]] &lt;br&gt;
-    [[Head to the shop -&gt; ShopDay]]
+    [[Head out|Headout]] &lt;br&gt;
+    [[Explore camp|Camp1]] &lt;br&gt;
+    [[Head to the shop|ShopDay]]
     &lt;&lt;elseif $health &gt; 7&gt;&gt;
     A slight ache still pervades through your body, but it's nothing to worry about.
     &lt;br&gt;&lt;br&gt;
-    [[Head out -&gt; Headout]] &lt;br&gt;
-    [[Explore camp -&gt; Camp1]] &lt;br&gt;
-    [[Head to the shop -&gt; ShopDay]]
+    [[Head out|Headout]] &lt;br&gt;
+    [[Explore camp|Camp1]] &lt;br&gt;
+    [[Head to the shop|ShopDay]]
     &lt;&lt;elseif $health &gt; 4&gt;&gt;
     Your muscles spent the night knitting themselves back together. They are not done yet.
     &lt;br&gt;&lt;br&gt;
-    [[Explore camp -&gt; Camp1]] &lt;br&gt;
-    [[Head to the shop -&gt; ShopDay]]
+    [[Explore camp|Camp1]] &lt;br&gt;
+    [[Head to the shop|ShopDay]]
     &lt;&lt;else&gt;&gt;
     Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
     &lt;br&gt;&lt;br&gt;
-    [[Head to the shop -&gt; ShopDay]]
+    [[Head to the shop|ShopDay]]
     &lt;&lt;/if&gt;&gt;  
     &lt;br&gt;
-    [[Explore the inn -&gt; InnDay]]
+    [[Explore the inn|InnDay]]
     &lt;/p&gt;  
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="InnDay" tags="nobr" position="">&lt;&lt;set $inn_entered to true&gt;&gt;
 &lt;div class="room"&gt;
@@ -1009,9 +1009,9 @@ div .room::-webkit-scrollbar-track {
         Before you can respond, a lone child runs up to you and asks for any money you may have to spare. She is clothed in fancy attire, yet seems emaciated all the same.
         &lt;br&gt;&lt;br&gt;
         &lt;&lt;if $items["coin"].number &gt; 0&gt;&gt;
-        [[Give her a coin -&gt; HelpChild]] &lt;br&gt;
+        [[Give her a coin|HelpChild]] &lt;br&gt;
         &lt;&lt;/if&gt;&gt;
-        [[Ignore the child -&gt; Camp1]]
+        [[Ignore the child|Camp1]]
     &lt;&lt;else&gt;&gt;
         &lt;img class="invert" src="./images/woman2.svg" /&gt;
         A woman approaches you with caution before you can complete your response. She explains that she is a mage from a neighboring village that is collecting certain magics for examination.
@@ -1035,7 +1035,7 @@ div .room::-webkit-scrollbar-track {
         &lt;&lt;/if&gt;&gt;
         &lt;/span&gt;
         &lt;br&gt;&lt;br&gt;
-        [[Leave -&gt; Camp1]]
+        [[Leave|Camp1]]
     &lt;&lt;/if&gt;&gt;
     &lt;/span&gt;
     &lt;/p&gt;
@@ -1050,7 +1050,7 @@ div .room::-webkit-scrollbar-track {
     &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
-    [[Back to camp -&gt; Camp1]]
+    [[Back to camp|Camp1]]
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="InnNight" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/bed.svg" /&gt;
@@ -1140,7 +1140,7 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;/link&gt;&gt;
     &lt;/span&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave -&gt; Camp1]]
+    [[Leave|Camp1]]
     &lt;/span&gt;
     &lt;&lt;else&gt;&gt;
     Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
@@ -1256,7 +1256,7 @@ div .room::-webkit-scrollbar-track {
         &lt;/span&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave -&gt; Camp1]]
+    [[Leave|Camp1]]
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ShopNight" tags="nobr" position="">&lt;div class="room"&gt;
@@ -1332,7 +1332,7 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;/link&gt;&gt;
     &lt;/span&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave for inn -&gt; InnNight]]
+    [[Leave for inn|InnNight]]
     &lt;/span&gt;
     &lt;&lt;else&gt;&gt;
     Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
@@ -1448,7 +1448,7 @@ div .room::-webkit-scrollbar-track {
         &lt;/span&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave for inn -&gt; InnNight]]
+    [[Leave for inn|InnNight]]
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Headout" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
@@ -1459,9 +1459,9 @@ div .room::-webkit-scrollbar-track {
     Perhaps it is a trick of your eyes, but the landscape around is constantly shifting. Miners who have families rarely venture far, fearing the unyielding dangers
     of the underworld. You, however, have no worries of the sort. 
     &lt;br&gt;&lt;br&gt;
-    [[Go mining -&gt; Mining]] &lt;br&gt;
-    [[Adventure -&gt; Adventure]] &lt;br&gt;
-    [[Head back to camp -&gt; Camp2]] 
+    [[Go mining|Mining]] &lt;br&gt;
+    [[Adventure|Adventure]] &lt;br&gt;
+    [[Head back to camp|Camp2]] 
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Mining" tags="nobr" position="">&lt;&lt;set $current_pick_id to $inventory.find(
     function(element) {
@@ -1482,7 +1482,7 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;if $day &gt; 5 &amp;&amp; random(1, 5) == 3&gt;&gt;
     Something is off today. There are no miners accompanying you, and a skin piercing chill fills the air.
     &lt;br&gt;&lt;br&gt;
-    [[Investigate -&gt; Adventure]] &lt;br&gt;
+    [[Investigate|Adventure]] &lt;br&gt;
     &lt;&lt;else&gt;&gt;
         Your $current_pick_name does its job admirably.
         &lt;br&gt;&lt;br&gt;
@@ -1537,17 +1537,94 @@ div .room::-webkit-scrollbar-track {
         &lt;&lt;/for&gt;&gt;
         &lt;br&gt;&lt;br&gt;
     &lt;&lt;/if&gt;&gt;
-    [[Head back to camp -&gt; Camp2]] 
+    [[Head back to camp|Camp2]] 
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Adventure" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt; 
-    &lt;&lt;if $days &lt; 6&gt;&gt;
-    Adventure awaits. Just not now.
-    &lt;&lt;else&gt;&gt;    
-    [[Head to the forest -&gt; Forest]]
+    &lt;&lt;if $days &lt; 2&gt;&gt;
+    Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
+    &lt;br&gt;&lt;br&gt;
+    [[Go to work|Mining]]
+    &lt;&lt;elseif $days &lt; 10&gt;&gt;
+    &lt;&lt;switch random(1, 3)&gt;&gt;
+    &lt;&lt;case 1&gt;&gt;
+    &lt;img class="invert" src="./images/forest.svg" /&gt;
+    Today, the dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
+    &lt;br&gt;&lt;br&gt;
+    [[Head to the forest|Forest]] &lt;br&gt;
+    [[Back to mine|Mining]]
+    &lt;&lt;case 2&gt;&gt;
+    &lt;img class="invert" src="./images/treasure.svg" /&gt;
+    Today, a great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside? The decision is yours.
+    &lt;br&gt;&lt;br&gt;
+    [[Head to the mountains|Mountains]] &lt;br&gt;
+    [[Back to mine|Mining]]
+    &lt;&lt;case 3&gt;&gt;
+    &lt;img class="invert" src="./images/scenic.svg" /&gt;
+    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. The decision is yours.
+    &lt;br&gt;&lt;br&gt;
+    [[Head to the valley|Valley]] &lt;br&gt;
+    [[Back to mine|Mining]]
+    &lt;&lt;/switch&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    You have done all there currently is to do!
+    &lt;br&gt;&lt;br&gt;
+    [[Go to work|Mining]]    
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-    [[Go back -&gt; Camp2]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Valley" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
+    &lt;p&gt;
+    You first think the cabin is empty when you enter. 
+    &lt;br&gt;
+    That is, until you turn around to find yourself face to face with a giant spider. Its fangs drip with virulence and thick bristles across its body tingle with excitement.
+    &lt;br&gt;&lt;br&gt;
+    [[Reason with it?|Speak]] &lt;br&gt;
+    [[Fight the monster|FightSpider]] &lt;br&gt;
+    [[Run for your life|Camp2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/flower.svg"/&gt;
+    &lt;p&gt;
+    Bowing down to the spider, as insane as it sounds, actually works. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
+    a day amongst the flowers. By evening, your body feels refreshed and lively.
+    &lt;&lt;set $health to $health + 3&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Return back to camp|Camp2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
+    &lt;p&gt;
+    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
+    for you to escape. 
+    &lt;&lt;set $health to $health - 3&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Run for your life|Camp2]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;&lt;switch random(1, 2)&gt;&gt;
+    &lt;&lt;case 1&gt;&gt;
+    &lt;img class="invert" src="./images/barrels.svg"/&gt;
+    &lt;p&gt;
+    You walk around the mountains for a while, but find nothing. Eventually you stumble upon an old shelter full of &lt;&lt;linkreplace "barrels." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+        &lt;span id="fadein1" style="display:none"&gt;
+        barrels. They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        &lt;/span&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Go mining|Mining]] &lt;br&gt;
+    [[Head back to camp|Camp2]] 
+    &lt;/p&gt;
+    &lt;&lt;case 2&gt;&gt;
+    &lt;img class="invert" src="./images/coins.svg"/&gt;
+    &lt;p&gt;
+    You walk around the mountains for a while, and even injure your ankle. Eventually you stumble upon a shallow cave. Runoff from streams has carried a number of coins to the bed of the stagnant pool.
+    It's better than nothing and you pocket the change.
+    &lt;br&gt;&lt;br&gt;
+    &lt;&lt;set $health to $health - 5&gt;&gt;
+    &lt;&lt;set $items["coin"].number to $items["coin"].number + 30&gt;&gt;
+    [[Head back to camp|Camp2]] 
+    &lt;/p&gt;
+    &lt;&lt;/switch&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */

@@ -160,7 +160,7 @@ hell quest
             and you are free." </i> 
             <p> <br> 
             [[Accept]] <br> 
-            [[Decline? -> Decline]]
+            [[Decline?|Decline]]
             </p>	
             </span>
             </p>
@@ -206,7 +206,7 @@ hell quest
             and you are free." </i> 
             <p> <br> 
             [[Accept]] <br> 
-            [[Decline? -> Decline]]
+            [[Decline?|Decline]]
             </p>	
             </span>
             </p>
@@ -236,9 +236,9 @@ hell quest
                             Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
                             It leaves you to the constant howling and ephemeral groans of the world around you. 
                             <br> <br>
-                            [[Explore the area -> ExploreBeginning]]  
+                            [[Explore the area|ExploreBeginning]]  
                             <br>
-                            [[Head to miners' camp -> Camp1]]
+                            [[Head to miners' camp|Camp1]]
                         </span> 
                     <</timed>> 
                 <</replace>> 
@@ -254,9 +254,9 @@ hell quest
                 <img class="invert" src="./images/sword.svg" width=500/>
                 <i> I do hope you put it to good use. </i> The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
                 <br> <br>
-                [[Explore the area -> ExploreBeginning]]
+                [[Explore the area|ExploreBeginning]]
                 <br>
-                [[Head to miners' camp -> Camp1]]
+                [[Head to miners' camp|Camp1]]
                 </span>
                 <</timed>> <</replace>> 
             <</link>> 
@@ -284,7 +284,7 @@ hell quest
             <br>
             </span>
             <br>
-		[[Acquiesce -> Accept]]
+		[[Acquiesce|Accept]]
         </p>
 	</div>
 </div>
@@ -304,7 +304,7 @@ hell quest
         <</cycle>>
         </p>
         <p>
-        [[Back -> Beginning2]]
+        [[Back|Beginning2]]
         </p>
     </div>
 </div>
@@ -332,7 +332,7 @@ hell quest
             </p>
         </div>
         <p>
-        [[Back -> Beginning2]]
+        [[Back|Beginning2]]
         </p>
 	</div>
 </div>
@@ -355,10 +355,10 @@ hell quest
             To your west is a forest of bristlecone pine, mired in a shadowy haze. You think it dangerous to enter without a powerful weapon, but you're always up for a challenge. 
             Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity you have into the ground.
             <br><br>
-            [[Head to camp -> Camp2]] <br>
-            [[Venture into the forest -> Forest]] <br>
-            [[Head north -> Empty]] <br>
-            [[Head south -> Empty]]
+            [[Head to camp|Camp2]] <br>
+            [[Venture into the forest|Forest]] <br>
+            [[Head north|Empty]] <br>
+            [[Head south|Empty]]
         </span>
     </span>
     </p>
@@ -381,17 +381,17 @@ hell quest
     <<if $crawl is "silently">>
 	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you, hissing all the while.
         <br><br>
-        [[Fight back -> FightMonster]] <br>
-        [[Retreat to camp -> Camp2]]   
+        [[Fight back|FightMonster]] <br>
+        [[Retreat to camp|Camp2]]   
     <<elseif $crawl is "loudly">>
         — and you slip behind a tree before its gaze meets you.
         <br><br>
-        [[Attack it -> FightMonster]] <br>
-        [[Retreat to camp -> Camp2]]        
+        [[Attack it|FightMonster]] <br>
+        [[Retreat to camp|Camp2]]        
     <<elseif $crawl is "very silently">>
         — The demon seems amused for just a second before it bites your head off.
         <br><br>
-        [[Try again -> Beginning2]]
+        [[Try again|Beginning2]]
     <</if>>
     </span>
     </p>
@@ -409,7 +409,7 @@ hell quest
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     <br><br>
-    [[Head to camp -> Camp2]]
+    [[Head to camp|Camp2]]
     <<else>>
     <<if random(1, 2) == 1>>
     <img class="invert" src="./images/reaper1.svg" />
@@ -438,7 +438,7 @@ hell quest
     <br><br>
     An eternity on bloodied feet beckons.
     <br><br>
-    [[Try again -> Beginning2]]
+    [[Try again|Beginning2]]
     </span> </span> </span>
     </p>
 </div>
@@ -461,12 +461,12 @@ hell quest
     </span>
     </p>
     <p>
-    [[Head out -> Headout]] <br>
+    [[Head out|Headout]] <br>
     <<if $inn_entered != true>>
-    [[Enter the inn -> InnDay]] <br>
+    [[Enter the inn|InnDay]] <br>
     <</if>>
     <<if $shop_entered != true>>
-    [[Head to the shop -> ShopDay]] <br>
+    [[Head to the shop|ShopDay]] <br>
     <</if>>
     </p>
 </div>
@@ -481,8 +481,8 @@ hell quest
     to keep to the relative safety of the indoors. 
     </p>
     <p>
-    [[Enter the inn -> InnNight]] <br>
-    [[Head to the shop -> ShopNight]] <br>
+    [[Enter the inn|InnNight]] <br>
+    [[Head to the shop|ShopNight]] <br>
     </p>
 </div>
 
@@ -501,27 +501,27 @@ hell quest
     <<if $health > 10>>
     You wake up refreshed and ready for what the new day holds.
     <br><br>
-    [[Head out -> Headout]] <br>
-    [[Explore camp -> Camp1]] <br>
-    [[Head to the shop -> ShopDay]]
+    [[Head out|Headout]] <br>
+    [[Explore camp|Camp1]] <br>
+    [[Head to the shop|ShopDay]]
     <<elseif $health > 7>>
     A slight ache still pervades through your body, but it's nothing to worry about.
     <br><br>
-    [[Head out -> Headout]] <br>
-    [[Explore camp -> Camp1]] <br>
-    [[Head to the shop -> ShopDay]]
+    [[Head out|Headout]] <br>
+    [[Explore camp|Camp1]] <br>
+    [[Head to the shop|ShopDay]]
     <<elseif $health > 4>>
     Your muscles spent the night knitting themselves back together. They are not done yet.
     <br><br>
-    [[Explore camp -> Camp1]] <br>
-    [[Head to the shop -> ShopDay]]
+    [[Explore camp|Camp1]] <br>
+    [[Head to the shop|ShopDay]]
     <<else>>
     Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
     <br><br>
-    [[Head to the shop -> ShopDay]]
+    [[Head to the shop|ShopDay]]
     <</if>>  
     <br>
-    [[Explore the inn -> InnDay]]
+    [[Explore the inn|InnDay]]
     </p>  
 </div>
 
@@ -537,9 +537,9 @@ hell quest
         Before you can respond, a lone child runs up to you and asks for any money you may have to spare. She is clothed in fancy attire, yet seems emaciated all the same.
         <br><br>
         <<if $items["coin"].number > 0>>
-        [[Give her a coin -> HelpChild]] <br>
+        [[Give her a coin|HelpChild]] <br>
         <</if>>
-        [[Ignore the child -> Camp1]]
+        [[Ignore the child|Camp1]]
     <<else>>
         <img class="invert" src="./images/woman2.svg" />
         A woman approaches you with caution before you can complete your response. She explains that she is a mage from a neighboring village that is collecting certain magics for examination.
@@ -563,7 +563,7 @@ hell quest
         <</if>>
         </span>
         <br><br>
-        [[Leave -> Camp1]]
+        [[Leave|Camp1]]
     <</if>>
     </span>
     </p>
@@ -581,7 +581,7 @@ hell quest
     </span>
     </p>
     <p>
-    [[Back to camp -> Camp1]]
+    [[Back to camp|Camp1]]
     </p>
 </div>
 
@@ -677,7 +677,7 @@ hell quest
     <</link>>
     </span>
     <br><br>
-    [[Leave -> Camp1]]
+    [[Leave|Camp1]]
     </span>
     <<else>>
     Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
@@ -793,7 +793,7 @@ hell quest
         </span>
         <</if>>
     <br><br>
-    [[Leave -> Camp1]]
+    [[Leave|Camp1]]
     <</if>>
     </p>
 </div>
@@ -872,7 +872,7 @@ hell quest
     <</link>>
     </span>
     <br><br>
-    [[Leave for inn -> InnNight]]
+    [[Leave for inn|InnNight]]
     </span>
     <<else>>
     Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
@@ -988,7 +988,7 @@ hell quest
         </span>
         <</if>>
     <br><br>
-    [[Leave for inn -> InnNight]]
+    [[Leave for inn|InnNight]]
     <</if>>
     </p>
 </div>
@@ -1002,9 +1002,9 @@ hell quest
     Perhaps it is a trick of your eyes, but the landscape around is constantly shifting. Miners who have families rarely venture far, fearing the unyielding dangers
     of the underworld. You, however, have no worries of the sort. 
     <br><br>
-    [[Go mining -> Mining]] <br>
-    [[Adventure -> Adventure]] <br>
-    [[Head back to camp -> Camp2]] 
+    [[Go mining|Mining]] <br>
+    [[Adventure|Adventure]] <br>
+    [[Head back to camp|Camp2]] 
     </p>
 </div>
 
@@ -1028,7 +1028,7 @@ hell quest
     <<if $day > 5 && random(1, 5) == 3>>
     Something is off today. There are no miners accompanying you, and a skin piercing chill fills the air.
     <br><br>
-    [[Investigate -> Adventure]] <br>
+    [[Investigate|Adventure]] <br>
     <<else>>
         Your $current_pick_name does its job admirably.
         <br><br>
@@ -1083,18 +1083,107 @@ hell quest
         <</for>>
         <br><br>
     <</if>>
-    [[Head back to camp -> Camp2]] 
+    [[Head back to camp|Camp2]] 
     </p>
 </div>
 
 ::Adventure [nobr]
 <div class="room">
     <p> 
-    <<if $days < 6>>
-    Adventure awaits. Just not now.
-    <<else>>    
-    [[Head to the forest -> Forest]]
+    <<if $days < 2>>
+    Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
+    <br><br>
+    [[Go to work|Mining]]
+    <<elseif $days < 10>>
+    <<switch random(1, 3)>>
+    <<case 1>>
+    <img class="invert" src="./images/forest.svg" />
+    Today, the dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
+    <br><br>
+    [[Head to the forest|Forest]] <br>
+    [[Back to mine|Mining]]
+    <<case 2>>
+    <img class="invert" src="./images/treasure.svg" />
+    Today, a great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside? The decision is yours.
+    <br><br>
+    [[Head to the mountains|Mountains]] <br>
+    [[Back to mine|Mining]]
+    <<case 3>>
+    <img class="invert" src="./images/scenic.svg" />
+    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. The decision is yours.
+    <br><br>
+    [[Head to the valley|Valley]] <br>
+    [[Back to mine|Mining]]
+    <</switch>>
+    <<else>>
+    You have done all there currently is to do!
+    <br><br>
+    [[Go to work|Mining]]    
     <</if>>
     </p>
-    [[Go back -> Camp2]]
+</div>
+
+::Valley [nobr]
+<div class="room">
+    <img class="invert" src="./images/spider.svg" width=500/>
+    <p>
+    You first think the cabin is empty when you enter. 
+    <br>
+    That is, until you turn around to find yourself face to face with a giant spider. Its fangs drip with virulence and thick bristles across its body tingle with excitement.
+    <br><br>
+    [[Reason with it?|Speak]] <br>
+    [[Fight the monster|FightSpider]] <br>
+    [[Run for your life|Camp2]]
+    </p>
+</div>
+
+::Speak [nobr]
+<div class="room">
+    <img class="invert" src="./images/flower.svg"/>
+    <p>
+    Bowing down to the spider, as insane as it sounds, actually works. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
+    a day amongst the flowers. By evening, your body feels refreshed and lively.
+    <<set $health to $health + 3>>
+    <br><br>
+    [[Return back to camp|Camp2]]
+    </p>
+</div>
+
+::FightSpider [nobr]
+<div class="room">
+    <img class="invert" src="./images/spider.svg" width=500/>
+    <p>
+    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
+    for you to escape. 
+    <<set $health to $health - 3>>
+    <br><br>
+    [[Run for your life|Camp2]]
+    </p>
+</div>
+
+::Mountains [nobr]
+<div class="room">
+    <<switch random(1, 2)>>
+    <<case 1>>
+    <img class="invert" src="./images/barrels.svg"/>
+    <p>
+    You walk around the mountains for a while, but find nothing. Eventually you stumble upon an old shelter full of <<linkreplace "barrels." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+        <span id="fadein1" style="display:none">
+        barrels. They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        </span>
+    <br><br>
+    [[Go mining|Mining]] <br>
+    [[Head back to camp|Camp2]] 
+    </p>
+    <<case 2>>
+    <img class="invert" src="./images/coins.svg"/>
+    <p>
+    You walk around the mountains for a while, and even injure your ankle. Eventually you stumble upon a shallow cave. Runoff from streams has carried a number of coins to the bed of the stagnant pool.
+    It's better than nothing and you pocket the change.
+    <br><br>
+    <<set $health to $health - 5>>
+    <<set $items["coin"].number to $items["coin"].number + 30>>
+    [[Head back to camp|Camp2]] 
+    </p>
+    <</switch>>
 </div>
