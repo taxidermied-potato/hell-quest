@@ -15,39 +15,58 @@ hell quest
 }());
 <</script>>
 <<set $items to {}>>
-<<set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 1}>>
-<<set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a weak spell", number: 1, worth: 1}>>
-<<set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 1, worth: 5}>>
-<<set $items["bones"] to {name: "Old Bones", desc: "One man's bones another man's...?", number: 1, worth: 1}>>
-<<set $items["tome"] to {name: "Blank Tome", desc: "They say stories are powerful", number: 1, worth: 2}>>
-<<set $items["ore"] to {name: "Raw Ore", desc: "It's not treasure, but it's something", number: 1, worth: 3}>>
-<<set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 1, worth: 5}>>
-<<set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 1, worth: 15}>>
-<<set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 1, worth: 30}>>
-<<set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 1, worth: 20}>>
-<<set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 1, worth: 50}>>
-<<set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 1, worth: 75}>>
-<<set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 1, worth: 150}>>
-<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}>>
-<<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}>>
-<<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery"}>>
-<<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer"}>>
-<<set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields"}>>
+<<set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a decimated spell", number: 0, worth: 1}>>
+<<set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 0, worth: 5}>>
+<<set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 5, worth: 1}>>
+<<set $items["bones"] to {name: "Old Bones", desc: "One man's bones, another man's...?", number: 0, worth: 1}>>
+<<set $items["tome"] to {name: "Blank Tome", desc: "They say stories are powerful", number: 0, worth: 2}>>
+<<set $items["brokensword"] to {name: "Broken Sword", desc: "Scrap metal at best", number: 0, worth: 2}>>
+<<set $items["oldwatch"] to {name: "Old Watch", desc: "You can't even tell what it's made of", number: 0, worth: 2}>>
+
+<<set $items["bore"] to {name: "Bronze Ore", desc: "It's not really treasure, but it's something", number: 0, worth: 3}>>
+<<set $items["sore"] to {name: "Silver Ore", desc: "Important for coinage", number: 0, worth: 5}>>
+<<set $items["pottery"] to {name: "Pottery", desc: "Artfully simple", number: 0, worth: 5}>>
+<<set $items["tainted"] to {name: "Tainted Gem", desc: "A corrupted crystal", number: 0, worth: 7}>>
+<<set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 0, worth: 10}>>
+
+<<set $items["gore"] to {name: "Gold Ore", desc: "Shiny, malleable, and valuable", number: 0, worth: 15}>>
+<<set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 0, worth: 20}>>
+<<set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 0, worth: 20}>>
+<<set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 0, worth: 30}>>
+<<set $items["imbuedtome"] to {name: "Imbued Tome", desc: "This book radiates raw mana", number: 0, worth: 30}>>
+
+<<set $items["demonhorn"] to {name: "Demon Horn", desc: "A bit chipped, but still scary", number: 0, worth: 40}>>
+<<set $items["mithril"] to {name: "Mithril", desc: "Alluring metal for sword and armorsmiths", number: 0, worth: 40}>>
+<<set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 0, worth: 50}>>
+<<set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 0, worth: 65}>>
+<<set $items["ancientscroll"] to {name: "Ancient Scroll", desc: "Its knowledge is unknowable", number: 0, worth: 75}>>
+
+<<set $items["dragonclaw"] to {name: "Dragon Claw", desc: "Once belonging to a majestic beast", number: 0, worth: 80}>>
+<<set $items["dragonteeth"] to {name: "Dragon Tooth", desc: "Once belonging to a majestic beast", number: 0, worth: 80}>>
+<<set $items["contract"] to {name: "Faustian Contract", desc: "Written in another language", number: 0, worth: 100}>>
+<<set $items["crystal"] to {name: "Crystal Eye", desc: "A beautifully preserved orb of power", number: 0, worth: 120}>>
+<<set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 0, worth: 150}>>
+
+<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2}>>
+<<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10}>>
+<<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50}>>
+<<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100}>>
+<<set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields", worth: 200}>>
 <<set $items["cloak6"] to {name: "Walpurgisnacht", desc: "An embodiment of terror that allows for bat like travel"}>>
-<<set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch"}>>
-<<set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted"}>>
-<<set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune"}>>
-<<set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them"}>>
-<<set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole"}>>
-<<set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later"}>>
-<<set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive"}>>
-<<set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says"}>>
-<<set $items["sword3"] to {name: "Gold Broadsword", desc: "Shiny, chrome, and great for slaying monsters"}>>
+<<set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch", power: 0, yield: 2, worth: 1}>>
+<<set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted", power: 1, yield: 2, worth: 2}>>
+<<set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune", power: 2, yield: 2, worth: 10}>>
+<<set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them", power: 3, yield: 3, worth: 100}>>
+<<set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole", power: 4, yield: 3, worth: 200}>>
+<<set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later", power: 5, yield: 4, worth: 500}>>
+<<set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive", worth: 10}>>
+<<set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says", worth: 2}>>
+<<set $items["sword3"] to {name: "Silver Broadsword", desc: "Shiny, chrome, and great for slaying monsters", worth: 5}>>
 <<set $items["sword4"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself"}>>
 <<set $items["sword5"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something monstrous"}>>
 <<set $items["bow1"] to {name: "Yew Bow", desc: "May your aim be true"}>>
 <<set $items["bow2"] to {name: "Obsidian Crossbow", desc: "Pratically a deviant blade"}>>
-<<set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore"}>>
+<<set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore", worth: 1}>>
 <<set $items["armor1"] to {name: "Iron Armor", desc: "+5 DEF, -5 SPD"}>>
 <<set $items["armor2"] to {name: "Gold Armor", desc: "You didn't actually think stats were a thing did you?"}>>
 <<set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons"}>>
@@ -56,6 +75,7 @@ hell quest
 <<set $days to 1>>
 <<set $health to 10>>
 <<set $inventory to []>>
+<<set $childhelped to false>>
 <<cacheaudio "bgm1" "./audio/dreamlike.mp3">>
 <<cacheaudio "bgm2" "./audio/rest.mp3">>
 <<cacheaudio "bgm3" "./audio/air.mp3">>
@@ -70,23 +90,22 @@ hell quest
 
 ::Inventory [nobr]
 <h1> Inventory </h1>
-<<for _i=0; _i<$inventory.length; _i++>>
 <table>
+<<for _i=0; _i<$inventory.length; _i++>>
         <tr>
             <td class="inven-name">
-            <<print $items[$inventory[_i]].name>>   
+            <<print $items[$inventory[_i]].name>>
             </td>
             <td>
+            <<if $items[$inventory[_i]].number != null>>
+            <<print "(x" + $items[$inventory[_i]].number + ")">>
+            <</if>>   
             <<print $items[$inventory[_i]].desc>>
             </td>	
-            <<if $items[$inventory[_i]].number != null>>
-            <td>
-            <<print "x" + $items[$inventory[_i]].number>>
-            </td>	
-            <</if>>
         </tr>
-</table>
 <</for>>
+</table>
+
 
 ::Character [nobr]
 <h1> Day <<print $days>> </h1>
@@ -113,6 +132,7 @@ hell quest
     character.style.visibility = 'visible';
 <</script>>
 <<audio "bgm1" volume .15 loop play>>
+<<set $days to 1>>
 <<set $inventory.push("coin")>>
 <<set $inventory.push("cloak1")>>
 <div class="room-start">
@@ -157,6 +177,7 @@ hell quest
 <</script>>
 <<audio ":playing" stop>>
 <<audio "bgm1" volume .15 loop play>>
+<<set $days to 1>>
 <<set $inventory to []>>
 <<set $inventory.push("coin")>>
 <<set $inventory.push("cloak1")>>
@@ -255,6 +276,7 @@ hell quest
         </p>
         <p>
         <<linkreplace "Resist" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>> 
+            <<set $items["magic1"].number to $items["magic1"].number + 1>>
             <<set $inventory.push("magic1")>>
             <span id="fadein1" style="display:none">
             <img class="invert" src="./images/eyes.png" />
@@ -378,7 +400,8 @@ hell quest
 ::FightMonster [nobr]
 <div class="room">
     <p>
-    <<if $inventory.includes("sword1")>>
+    <<if $inventory.includes("sword1") || $inventory.includes("sword2") || $inventory.includes("sword3")>>
+    <<set $items["magic2"].number to $items["magic2"].number + 1>>
     <<set $inventory.push("magic2")>>
     <<set $health to $health - 2>>
     <img class="invert" src="./images/energy.png" />
@@ -395,7 +418,11 @@ hell quest
     <</if>>
     You swing your pickaxe to no avail. The demon seems amused for just a second before it bites your head off.
     <br><br>
-    [[Try again -> Beginning2]]
+    <<link "Try again">>
+    <<script>>
+        state.restart();
+    <</script>>
+    <</link>>
     <</if>>
     </p>
 </div>
@@ -435,9 +462,12 @@ hell quest
     </p>
     <p>
     [[Head out -> Headout]] <br>
-    [[Explore camp -> ExploreCamp]] <br>
+    <<if $inn_entered != true>>
     [[Enter the inn -> InnDay]] <br>
-    [[Head to the shop -> Shop]] <br>
+    <</if>>
+    <<if $shop_entered != true>>
+    [[Head to the shop -> ShopDay]] <br>
+    <</if>>
     </p>
 </div>
 
@@ -452,7 +482,7 @@ hell quest
     </p>
     <p>
     [[Enter the inn -> InnNight]] <br>
-    [[Head to the shop -> Shop]] <br>
+    [[Head to the shop -> ShopNight]] <br>
     </p>
 </div>
 
@@ -460,6 +490,8 @@ hell quest
 <<audio ":playing" stop>>
 <<audio "bgm4" volume .05 loop play>>
 <div class="room">
+    <<set $inn_entered to false>>
+    <<set $shop_entered to false>>
     <<if $health > 12>>
     <<set $health to 12>>
     <</if>>
@@ -470,23 +502,23 @@ hell quest
     You wake up refreshed and ready for what the new day holds.
     <br><br>
     [[Head out -> Headout]] <br>
-    [[Explore camp -> ExploreCamp]] <br>
-    [[Head to the shop -> Shop]]
+    [[Explore camp -> Camp1]] <br>
+    [[Head to the shop -> ShopDay]]
     <<elseif $health > 7>>
     A slight ache still pervades through your body, but it's nothing to worry about.
     <br><br>
     [[Head out -> Headout]] <br>
-    [[Explore camp -> ExploreCamp]] <br>
-    [[Head to the shop -> Shop]]
+    [[Explore camp -> Camp1]] <br>
+    [[Head to the shop -> ShopDay]]
     <<elseif $health > 4>>
     Your muscles spent the night knitting themselves back together. They are not done yet.
     <br><br>
-    [[Explore camp -> ExploreCamp]] <br>
-    [[Head to the shop -> Shop]]
+    [[Explore camp -> Camp1]] <br>
+    [[Head to the shop -> ShopDay]]
     <<else>>
     Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
     <br><br>
-    [[Head to the shop -> Shop]]
+    [[Head to the shop -> ShopDay]]
     <</if>>  
     <br>
     [[Explore the inn -> InnDay]]
@@ -494,10 +526,62 @@ hell quest
 </div>
 
 ::InnDay [nobr]
+<<set $inn_entered to true>>
 <div class="room">
-    <img class="invert" src="./images/inkeep.svg" />
+    <img class="invert" src="./images/innkeep.svg" width=200/>
     <p>
-    You enter the common room with no notable intent. The inkeep, a boisterous old man, sends his greetings from across the room.
+    You enter the common room with no notable intent. The inkeep, a boisterous old man, sends his greetings from across the room. <<linkreplace "Good morni—" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none"> 
+    <<if $days < 2 && $childhelped == false>>
+        <img class="invert" src="./images/girl.svg" />
+        Before you can respond, a lone child runs up to you and asks for any money you may have to spare. She is clothed in fancy attire, yet seems emaciated all the same.
+        <br><br>
+        <<if $items["coin"].number > 0>>
+        [[Give her a coin -> HelpChild]] <br>
+        <</if>>
+        [[Ignore the child -> Camp1]]
+    <<else>>
+        <img class="invert" src="./images/woman2.svg" />
+        A woman approaches you with caution before you can complete your response. She explains that she is a mage from a neighboring village that is collecting certain magics for examination.
+        Though it may be a lie, the gist is that she can offer insight on relevant materials, if they are in your possession.
+        <span>
+        <br><br>
+        <<if $items["magic1"].number > 0>>
+        <<linkreplace "Offer her the remnants of the demon's charm" t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+            <span id="fadein2" style="display:none">
+            The moment the faint energy touches her hand her eyes light up. <i> This is residual mana from an extremely potent suggestion charm! The caster and target
+            of the spell must have both been quite powerful. </i> 
+            <br>
+            </span>
+            <br>
+        <</if>>        
+        <<if $items["magic2"].number > 0>>
+        <<linkreplace "Offer her the shadowy fabric left by the eye demon" t8n>> <script>$("#fadein3").fadeIn();</script> <</linkreplace>>
+            <span id="fadein3" style="display:none">
+            The subcutaneous material shifts and pulses like it's still alive. She doesn't even dare touch it. In a hurried whisper she says that this is out of her scope. 
+            </span>
+        <</if>>
+        </span>
+        <br><br>
+        [[Leave -> Camp1]]
+    <</if>>
+    </span>
+    </p>
+</div>
+
+::HelpChild [nobr]
+<<set $items["coin"].number to $items["coin"].number - 1>>
+<<set $childhelped to true>>
+<div class="room">
+    <img class="invert" src="./images/coins.svg" />
+    <p> 
+    You fish out one of your silver aspri and hand one to her. She thanks you profusely before slipping <<linkreplace "away." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none">
+    away. The dark alleyway behind the inn masks her route, but you hope that your donation will go to good use.
+    </span>
+    </p>
+    <p>
+    [[Back to camp -> Camp1]]
     </p>
 </div>
 
@@ -518,14 +602,395 @@ hell quest
     [[Go to sleep|Camp3][$days to $days + 1, $health to $health + 1]]
 </div>
 
-::ExploreCamp [nobr]
+::ShopDay [nobr]
 <div class="room">
-    
+    <<set $shop_entered to true>>
+    <img class="invert" src="./images/merchant.svg" />
+    <p>
+    <<if $days < 3>>
+    Merchant Holmwood is a busy man who seems overly stern. <<linkreplace "Curios," t8n>> <script>$("#fadein0").fadeIn();</script> <</linkreplace>>
+    <span id="fadein0" style="display:none"> 
+    Strange masks that you swear shuffle about and impressively coiled beastskins,
+    </span>
+    among mundane things, among more curios, line the shelves.
+    <br><br>
+    <<linkreplace "Strike up conversation" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none">
+    <i> New faces. New faces. </i> He shakes his head as if your presence is so unremarkable that it disappoints. It triggers a foreign feeling that invades your stomach. Holmwood shows you 
+    to his stores and comments that new wares will arrive in a few days.
+    <br><br>
+    <<linkreplace "Browse items" t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+    <span id="fadein2" style="display:none">
+    <<link "Iron Broadsword - 5 aspri">>
+    <<if $items["coin"].number >= 1>>
+        <<set $items["coin"].number to $items["coin"].number - 1>>
+        <<set $inventory.push("sword2")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the iron broadsword and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>
+        <br>
+    <<link "Iron Pickaxe - 5 aspri">>
+    <<if $items["coin"].number >= 2>>
+        <<set $items["coin"].number to $items["coin"].number - 2>>
+        <<set $inventory.delete("pickaxe1")>>
+        <<set $inventory.push("pickaxe2")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the iron pickaxe and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>   
+        <br> 
+    <<link "Wooden Armor - 2 aspri">>
+        <<if $items["coin"].number >= 1>>
+        <<set $items["coin"].number to $items["coin"].number - 1>>
+        <<set $inventory.push("armor0")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the wooden armor and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>
+    </span>
+    <br><br>
+    [[Leave -> Camp1]]
+    </span>
+    <<else>>
+    Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
+        <br><br>
+        <span id="shop">
+        <<link "Silver Broadsword - 10 aspri">>
+        <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("sword3")>>
+            <<replace "#fadein2">> 
+                <<timed 10ms t8n>> 
+                You bought the silver broadsword and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
+            <br>
+        <<link "Silver Pickaxe - 20 aspri">>
+        <<if $items["coin"].number >= 20>>
+            <<set $items["coin"].number to $items["coin"].number - 20>>
+            <<set $inventory.delete("pickaxe2")>>
+            <<set $inventory.push("pickaxe3")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You bought the silver pickaxe and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>   
+            <br> 
+        <<link "Iron Armor - 10 aspri">>
+            <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("armor1")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You bought the iron armor and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
+        </span>
+        <<if $inventory.length > 4>>
+        <br>
+        <span>
+        <<set $sellables to $inventory.randomMany(4)>>       
+            <br>
+            <<set $item0 to $items[$sellables[0]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item0.worth>>
+                <<if !isNaN($item0.number)>>
+                    <<set $item0.number to $item0.number - 1>>
+                <</if>>
+                <<if isNaN($item0.number) || $item0.number <= 0>>
+                    <<set $inventory.delete($sellables[0])>>
+                <</if>>
+            <</link>>
+            <<print $item0.name + " for " + $item0.worth + " aspri? ">>
+            <br>
+            <<set $item1 to $items[$sellables[1]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item1.worth>>
+                <<if !isNaN($item1.number)>>
+                    <<set $item1.number to $item1.number - 1>>
+                <</if>>
+                <<if isNaN($item1.number) || $item1.number <= 0>>
+                    <<set $inventory.delete($sellables[1])>>
+                <</if>>
+            <</link>>
+            <<print $item1.name + " for " + $item1.worth + " aspri? ">>
+            <br>
+            <<set $item2 to $items[$sellables[2]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item2.worth>>
+                <<if !isNaN($item2.number)>>
+                    <<set $item2.number to $item2.number - 1>>
+                <</if>>
+                <<if isNaN($item2.number) || $item2.number <= 0>>
+                    <<set $inventory.delete($sellables[2])>>
+                <</if>>
+            <</link>>
+            <<print $item2.name + " for " + $item2.worth + " aspri? ">>
+            <br>
+            <<set $item3 to $items[$sellables[3]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item3.worth>>
+                <<if !isNaN($item3.number)>>
+                    <<set $item3.number to $item3.number - 1>>
+                <</if>>
+                <<if isNaN($item3.number) || $item3.number <= 0>>
+                    <<set $inventory.delete($sellables[3])>>
+                <</if>>
+            <</link>>
+            <<print $item3.name + " for " + $item3.worth + " aspri? ">>        
+        </span>
+        <</if>>
+    <br><br>
+    [[Leave -> Camp1]]
+    <</if>>
+    </p>
 </div>
 
-::Shop [nobr]
+::ShopNight [nobr]
 <div class="room">
-    
+    <img class="invert" src="./images/merchant.svg" />
+    <p>
+    <<if $days < 3>>
+    Merchant Holmwood is a busy man who seems overly stern. <<linkreplace "Curios," t8n>> <script>$("#fadein0").fadeIn();</script> <</linkreplace>>
+    <span id="fadein0" style="display:none"> 
+    Strange masks that you swear shuffle about and impressively coiled beastskins,
+    </span>
+    among mundane things, among more curios, line the shelves.
+    <br><br>
+    <<linkreplace "Strike up conversation" t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
+    <span id="fadein1" style="display:none">
+    <i> New faces. New faces. </i> He shakes his head as if your presence is so unremarkable that it disappoints. It triggers a foreign feeling that invades your stomach. Holmwood shows you 
+    to his stores and comments that new wares will arrive in a few days.
+    <br><br>
+    <<linkreplace "Browse items" t8n>> <script>$("#fadein2").fadeIn();</script> <</linkreplace>>
+    <span id="fadein2" style="display:none">
+    <<link "Iron Broadsword - 5 aspri">>
+    <<if $items["coin"].number >= 5>>
+        <<set $items["coin"].number to $items["coin"].number - 5>>
+        <<set $inventory.push("sword2")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the iron broadsword and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>
+        <br>
+    <<link "Iron Pickaxe - 5 aspri">>
+    <<if $items["coin"].number >= 5>>
+        <<set $items["coin"].number to $items["coin"].number - 5>>
+        <<set $inventory.delete("pickaxe1")>>
+        <<set $inventory.push("pickaxe2")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the iron pickaxe and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>   
+        <br> 
+    <<link "Wooden Armor - 2 aspri">>
+        <<if $items["coin"].number >= 2>>
+        <<set $items["coin"].number to $items["coin"].number - 2>>
+        <<set $inventory.push("armor0")>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You bought the wooden armor and now have $items["coin"].number aspri left.
+            <</timed>>
+        <</replace>>
+        <<else>>
+        <<replace "#fadein2">> 
+            <<timed 10ms t8n>> 
+            You don't have enough to buy that. Better luck tomorrow.
+            <</timed>>
+        <</replace>>
+    <</if>>
+    <</link>>
+    </span>
+    <br><br>
+    [[Leave for inn -> InnNight]]
+    </span>
+    <<else>>
+    Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
+        <br><br>
+        <span id="shop">
+        <<link "Silver Broadsword - 10 aspri">>
+        <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("sword3")>>
+            <<replace "#fadein2">> 
+                <<timed 10ms t8n>> 
+                You bought the silver broadsword and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
+            <br>
+        <<link "Silver Pickaxe - 20 aspri">>
+        <<if $items["coin"].number >= 20>>
+            <<set $items["coin"].number to $items["coin"].number - 20>>
+            <<set $inventory.delete("pickaxe2")>>
+            <<set $inventory.push("pickaxe3")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You bought the silver pickaxe and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>   
+            <br> 
+        <<link "Iron Armor - 10 aspri">>
+            <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("armor1")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You bought the iron armor and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
+        </span>
+        <<if $inventory.length > 4>>
+        <br>
+        <span>
+        <<set $sellables to $inventory.randomMany(4)>>       
+            <br>
+            <<set $item0 to $items[$sellables[0]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item0.worth>>
+                <<if !isNaN($item0.number)>>
+                    <<set $item0.number to $item0.number - 1>>
+                <</if>>
+                <<if isNaN($item0.number) || $item0.number <= 0>>
+                    <<set $inventory.delete($sellables[0])>>
+                <</if>>
+            <</link>>
+            <<print $item0.name + " for " + $item0.worth + " aspri? ">>
+            <br>
+            <<set $item1 to $items[$sellables[1]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item1.worth>>
+                <<if !isNaN($item1.number)>>
+                    <<set $item1.number to $item1.number - 1>>
+                <</if>>
+                <<if isNaN($item1.number) || $item1.number <= 0>>
+                    <<set $inventory.delete($sellables[1])>>
+                <</if>>
+            <</link>>
+            <<print $item1.name + " for " + $item1.worth + " aspri? ">>
+            <br>
+            <<set $item2 to $items[$sellables[2]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item2.worth>>
+                <<if !isNaN($item2.number)>>
+                    <<set $item2.number to $item2.number - 1>>
+                <</if>>
+                <<if isNaN($item2.number) || $item2.number <= 0>>
+                    <<set $inventory.delete($sellables[2])>>
+                <</if>>
+            <</link>>
+            <<print $item2.name + " for " + $item2.worth + " aspri? ">>
+            <br>
+            <<set $item3 to $items[$sellables[3]]>>
+            <<link "Sell">>
+                <<set $items["coin"].number to $items["coin"].number + $item3.worth>>
+                <<if !isNaN($item3.number)>>
+                    <<set $item3.number to $item3.number - 1>>
+                <</if>>
+                <<if isNaN($item3.number) || $item3.number <= 0>>
+                    <<set $inventory.delete($sellables[3])>>
+                <</if>>
+            <</link>>
+            <<print $item3.name + " for " + $item3.worth + " aspri? ">>        
+        </span>
+        <</if>>
+    <br><br>
+    [[Leave for inn -> InnNight]]
+    <</if>>
+    </p>
 </div>
 
 ::Headout [nobr]
@@ -533,5 +998,103 @@ hell quest
 <<audio "bgm2" volume .2 loop play>>
 <div class="room">
     <img class="invert" src="./images/crownedskull.svg" width=500/>
+    <p>
+    Perhaps it is a trick of your eyes, but the landscape around is constantly shifting. Miners who have families rarely venture far, fearing the unyielding dangers
+    of the underworld. You, however, have no worries of the sort. 
+    <br><br>
+    [[Go mining -> Mining]] <br>
+    [[Adventure -> Adventure]] <br>
+    [[Head back to camp -> Camp2]] 
+    </p>
+</div>
 
+::Mining [nobr]
+<<set $current_pick_id to $inventory.find(
+    function(element) {
+        return element.substring(0, 7) == "pickaxe";
+    })>>
+<<set $current_pick_name to $items[$current_pick_id].name>>
+<<set $mining_yield to random(1, ($items[$current_pick_id].yield))>>
+<<set $mining_power to random(1, ($items[$current_pick_id].power))>>
+<<set $tier0 to ["coin", "bones", "tome", "brokensword", "oldwatch"]>>
+<<set $tier1 to ["bore", "sore", "pottery", "tainted", "obsidian"].concat($tier0).concat($tier0)>>
+<<set $tier2 to ["gore", "emerald", "fdiamond", "ruby", "imbuedtome"].concat($tier1)>>
+<<set $tier3 to ["demonhorn", "mithril", "diamond", "meteorite", "ancientscroll"].concat($tier2)>>
+<<set $tier4 to ["dragonclaw", "dragonteeth", "contract", "crystal", "bloodgem"].concat($tier3)>>
+<<set $tier5 to [$goal].concat($tier4)>>
+<div class="room">
+    <img class="invert" src="./images/pickaxe.svg" width=500/>
+    <p>
+    <<if $day > 5 && random(1, 5) == 3>>
+    Something is off today. There are no miners accompanying you, and a skin piercing chill fills the air.
+    <br><br>
+    [[Investigate -> Adventure]] <br>
+    <<else>>
+        Your $current_pick_name does its job admirably.
+        <br><br>
+        Item yield:
+        <<for _i=0; _i<$mining_yield; _i++>>
+            <<set $mining_power to random(0, ($items[$current_pick_id].power))>>
+            <br>
+            <<switch $mining_power>>
+                <<case 0>>
+                    <<set $item to $tier0.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>
+                <<case 1>>
+                    <<set $item to $tier1.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>
+                <<case 2>>
+                    <<set $item to $tier2.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>
+                <<case 3>>
+                    <<set $item to $tier3.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>                   
+                <<case 4>>
+                    <<set $item to $tier4.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>                
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>
+                <<case 5>>
+                    <<set $item to $tier5.random()>>
+                    <<print $items[$item].name + " - " + $items[$item].desc>>
+                    <<if !$inventory.includes($item)>>                    
+                        <<set $inventory.push($item)>>
+                    <</if>>
+                    <<set $items[$item].number to $items[$item].number + 1>>                
+            <</switch>>
+        <</for>>
+        <br><br>
+    <</if>>
+    [[Head back to camp -> Camp2]] 
+    </p>
+</div>
+
+::Adventure [nobr]
+<div class="room">
+    <p> 
+    <<if $days < 6>>
+    Adventure awaits. Just not now.
+    <<else>>    
+    [[Head to the forest -> Forest]]
+    <</if>>
+    </p>
+    [[Go back -> Camp2]]
 </div>

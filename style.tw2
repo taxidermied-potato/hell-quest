@@ -61,11 +61,6 @@ table {
   border-spacing: 15px;
 }
 
-
-.inven-name {
-  width: 3.5rem;
-}
-
 /* Custom Classes */
   .black-screen {
     position: fixed;
