@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="fb68902e-432d-434c-ae7a-22bbf21e305e" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="62c65dd8-6029-48fe-8433-de9d69083c87" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -1541,7 +1541,7 @@ div .room::-webkit-scrollbar-track {
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Adventure" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt; 
-    &lt;&lt;if $days &lt; 2&gt;&gt;
+    &lt;&lt;if $days &lt; 3&gt;&gt;
     Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
     &lt;br&gt;&lt;br&gt;
     [[Go to work|Mining]]
@@ -1608,11 +1608,41 @@ div .room::-webkit-scrollbar-track {
     &lt;p&gt;
     You walk around the mountains for a while, but find nothing. Eventually you stumble upon an old shelter full of &lt;&lt;linkreplace "barrels." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
         &lt;span id="fadein1" style="display:none"&gt;
-        barrels. They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        barrels. 
+        &lt;&lt;if $days &lt; 7&gt;&gt;
+        &lt;&lt;switch random(1, 2)&gt;&gt;
+        &lt;&lt;case 1&gt;&gt;
+        They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        &lt;br&gt;&lt;br&gt;
+        [[Go mining|Mining]] &lt;br&gt;
+        [[Head back to camp|Camp2]] 
+        &lt;&lt;case 2&gt;&gt;
+            &lt;&lt;if !$inventory.includes("pottery")&gt;&gt;
+                &lt;&lt;set $inventory.push("pottery")&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+            &lt;&lt;set $items["pottery"].number to $items["pottery"].number + 10&gt;&gt;
+        Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
+        &lt;br&gt;&lt;br&gt;
+        [[Head back to camp|Camp2]] 
+        &lt;&lt;/switch&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+        &lt;&lt;switch random(1, 2)&gt;&gt;
+        &lt;&lt;case 1&gt;&gt;
+        They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        &lt;br&gt;&lt;br&gt;
+        [[Go mining|Mining]] &lt;br&gt;
+        [[Head back to camp|Camp2]] 
+        &lt;&lt;case 2&gt;&gt;
+            &lt;&lt;if !$inventory.includes("pottery")&gt;&gt;
+                &lt;&lt;set $inventory.push("pottery")&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+            &lt;&lt;set $items["pottery"].number to $items["pottery"].number + 10&gt;&gt;
+        Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
+        &lt;br&gt;&lt;br&gt;
+        [[Head back to camp|Camp2]] 
+        &lt;&lt;/switch&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
         &lt;/span&gt;
-    &lt;br&gt;&lt;br&gt;
-    [[Go mining|Mining]] &lt;br&gt;
-    [[Head back to camp|Camp2]] 
     &lt;/p&gt;
     &lt;&lt;case 2&gt;&gt;
     &lt;img class="invert" src="./images/coins.svg"/&gt;
@@ -1621,7 +1651,7 @@ div .room::-webkit-scrollbar-track {
     It's better than nothing and you pocket the change.
     &lt;br&gt;&lt;br&gt;
     &lt;&lt;set $health to $health - 5&gt;&gt;
-    &lt;&lt;set $items["coin"].number to $items["coin"].number + 30&gt;&gt;
+    &lt;&lt;set $items["coin"].number to $items["coin"].number + random(10, 50)&gt;&gt;
     [[Head back to camp|Camp2]] 
     &lt;/p&gt;
     &lt;&lt;/switch&gt;&gt;

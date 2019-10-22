@@ -1090,7 +1090,7 @@ hell quest
 ::Adventure [nobr]
 <div class="room">
     <p> 
-    <<if $days < 2>>
+    <<if $days < 3>>
     Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
     <br><br>
     [[Go to work|Mining]]
@@ -1169,11 +1169,41 @@ hell quest
     <p>
     You walk around the mountains for a while, but find nothing. Eventually you stumble upon an old shelter full of <<linkreplace "barrels." t8n>> <script>$("#fadein1").fadeIn();</script> <</linkreplace>>
         <span id="fadein1" style="display:none">
-        barrels. They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        barrels. 
+        <<if $days < 7>>
+        <<switch random(1, 2)>>
+        <<case 1>>
+        They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        <br><br>
+        [[Go mining|Mining]] <br>
+        [[Head back to camp|Camp2]] 
+        <<case 2>>
+            <<if !$inventory.includes("pottery")>>
+                <<set $inventory.push("pottery")>>
+            <</if>>
+            <<set $items["pottery"].number to $items["pottery"].number + 10>>
+        Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
+        <br><br>
+        [[Head back to camp|Camp2]] 
+        <</switch>>
+        <<else>>
+        <<switch random(1, 2)>>
+        <<case 1>>
+        They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
+        <br><br>
+        [[Go mining|Mining]] <br>
+        [[Head back to camp|Camp2]] 
+        <<case 2>>
+            <<if !$inventory.includes("pottery")>>
+                <<set $inventory.push("pottery")>>
+            <</if>>
+            <<set $items["pottery"].number to $items["pottery"].number + 10>>
+        Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
+        <br><br>
+        [[Head back to camp|Camp2]] 
+        <</switch>>
+        <</if>>
         </span>
-    <br><br>
-    [[Go mining|Mining]] <br>
-    [[Head back to camp|Camp2]] 
     </p>
     <<case 2>>
     <img class="invert" src="./images/coins.svg"/>
@@ -1182,7 +1212,7 @@ hell quest
     It's better than nothing and you pocket the change.
     <br><br>
     <<set $health to $health - 5>>
-    <<set $items["coin"].number to $items["coin"].number + 30>>
+    <<set $items["coin"].number to $items["coin"].number + random(10, 50)>>
     [[Head back to camp|Camp2]] 
     </p>
     <</switch>>
