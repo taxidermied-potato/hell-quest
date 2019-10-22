@@ -1094,7 +1094,7 @@ hell quest
     Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
     <br><br>
     [[Go to work|Mining]]
-    <<elseif $days < 10>>
+    <<elseif $days < 15>>
     <<switch random(1, 3)>>
     <<case 1>>
     <img class="invert" src="./images/forest.svg" />
