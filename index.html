@@ -1218,13 +1218,16 @@ div .room::-webkit-scrollbar-track {
     &lt;p&gt;
     &lt;&lt;if $totalatk &gt; 1&gt;&gt;
     &lt;&lt;set $items["magic2"].number to $items["magic2"].number + 1&gt;&gt;
+    &lt;&lt;if !$inventory.includes("magic2")&gt;&gt;
     &lt;&lt;set $inventory.push("magic2")&gt;&gt;
-    &lt;&lt;set $health to $health - (3 - $totaldef &gt; 0 ? 3 - $totaldef &gt; 0 : 1)&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $health to ($health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) &gt; 0 ? $health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) : 1)&gt;&gt;
     &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;&lt;replace "#profile"&gt;&gt;&lt;&lt;include "Profile"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;img class="invert" src="./images/energy.png" /&gt;
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
+    &lt;br&gt;
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     &lt;br&gt;&lt;br&gt;
     [[Head to camp|Camp]]
@@ -1871,7 +1874,7 @@ div .room::-webkit-scrollbar-track {
     You walk around the mountains for a while, and even injure your ankle. Eventually you stumble upon a shallow cave. Runoff from streams has carried a number of coins to the bed of the stagnant pool.
     It's better than nothing and you pocket the change.
     &lt;br&gt;&lt;br&gt;
-    &lt;&lt;set $health to $health - 5&gt;&gt;
+    &lt;&lt;set $health to ($health - 5 &gt; 0 ? $health - 5 : 1)&gt;&gt;
     &lt;&lt;set $items["coin"].number to $items["coin"].number + random(10, 50)&gt;&gt;
     [[Head back to camp|Camp]] 
     &lt;/p&gt;

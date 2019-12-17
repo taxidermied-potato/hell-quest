@@ -627,13 +627,16 @@ hell quest
     <p>
     <<if $totalatk > 1>>
     <<set $items["magic2"].number to $items["magic2"].number + 1>>
+    <<if !$inventory.includes("magic2")>>
     <<set $inventory.push("magic2")>>
-    <<set $health to $health - (3 - $totaldef > 0 ? 3 - $totaldef > 0 : 1)>>
+    <</if>>
+    <<set $health to ($health - (3 - $totaldef > 0 ? 3 - $totaldef : 1) > 0 ? $health - (3 - $totaldef > 0 ? 3 - $totaldef : 1) : 1)>>
     <<replace "#inventory">><<include "Inventory">><</replace>>
     <<replace "#profile">><<include "Profile">><</replace>>
     <img class="invert" src="./images/energy.png" />
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
+    <br>
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     <br><br>
     [[Head to camp|Camp]]
@@ -1322,7 +1325,7 @@ hell quest
     You walk around the mountains for a while, and even injure your ankle. Eventually you stumble upon a shallow cave. Runoff from streams has carried a number of coins to the bed of the stagnant pool.
     It's better than nothing and you pocket the change.
     <br><br>
-    <<set $health to $health - 5>>
+    <<set $health to ($health - 5 > 0 ? $health - 5 : 1)>>
     <<set $items["coin"].number to $items["coin"].number + random(10, 50)>>
     [[Head back to camp|Camp]] 
     </p>
