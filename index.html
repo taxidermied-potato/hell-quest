@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="3df57767-8886-4036-a51e-4da39454c8c5" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="ea044f62-ee1c-4d38-ab0a-663d7ae9b578" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -699,7 +699,7 @@ div .room::-webkit-scrollbar-track {
 
 &lt;&lt;set $items["none"] to {name: "None", stats: "0000"}&gt;&gt;
 
-&lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0101"}&gt;&gt;
+&lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0501"}&gt;&gt;
 &lt;&lt;set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10, equipped: false, stats: "1201"}&gt;&gt;
 &lt;&lt;set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50, equipped: false, stats: "0122"}&gt;&gt;
 &lt;&lt;set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100, equipped: false, stats: "2212"}&gt;&gt;
@@ -1085,7 +1085,7 @@ div .room::-webkit-scrollbar-track {
             &lt;/p&gt;
     &lt;/div&gt;
     &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Accept" tags="nobr" position="">&lt;&lt;audio "laugh" volume .5 play&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Accept" tags="nobr" position="">&lt;&lt;audio "laugh" volume .75 play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/devil.svg" width=170/&gt;
 	&lt;div&gt;
@@ -1225,8 +1225,13 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;&lt;replace "#profile"&gt;&gt;&lt;&lt;include "Profile"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;img class="invert" src="./images/energy.png" /&gt;
+    &lt;&lt;if $equipids["sword"] == "sword1"&gt;&gt;
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
+    &lt;&lt;else&gt;&gt;
+    You swing erratically at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
+    your strikes break at the dark reflections of many eyes — until you are completely out of breath.
+    &lt;&lt;/if&gt;&gt;
     &lt;br&gt;
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     &lt;br&gt;&lt;br&gt;
@@ -1739,24 +1744,33 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     [[Go to work|Mining]]
     &lt;&lt;elseif $days &lt; 30&gt;&gt;
-    &lt;&lt;switch random(1, 3)&gt;&gt;
+    &lt;&lt;switch random(1, 4)&gt;&gt;
     &lt;&lt;case 1&gt;&gt;
     &lt;img class="invert" src="./images/forest.svg" /&gt;
-    Today, the dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
+    The familiarly dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
     &lt;br&gt;&lt;br&gt;
     [[Head to the forest|Forest]] &lt;br&gt;
     [[Back to mine|Mining]]
     &lt;&lt;case 2&gt;&gt;
     &lt;img class="invert" src="./images/treasure.svg" /&gt;
-    Today, a great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside? The decision is yours.
+    A great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside?
     &lt;br&gt;&lt;br&gt;
     [[Head to the mountains|Mountains]] &lt;br&gt;
     [[Back to mine|Mining]]
     &lt;&lt;case 3&gt;&gt;
     &lt;img class="invert" src="./images/scenic.svg" /&gt;
-    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. The decision is yours.
+    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. 
     &lt;br&gt;&lt;br&gt;
     [[Head to the valley|Valley]] &lt;br&gt;
+    [[Back to mine|Mining]]
+    &lt;&lt;case 4&gt;&gt;
+    &lt;img class="invert" src="./images/bridge.svg" /&gt;
+    Your troupe comes across a stone bridge that reaches across a gently flowing river. On the other side, dense mists obscure a source of powerful light. 
+    &lt;br&gt;&lt;br&gt;
+    The others shake their heads in fear, telling you that nobody has ever crossed successfully. You inquire further, but they are incapable
+    of providing much information. Are you fast enough to make it?
+    &lt;br&gt;&lt;br&gt;
+    [[Cross|River]] &lt;br&gt;
     [[Back to mine|Mining]]
     &lt;&lt;/switch&gt;&gt;
     &lt;&lt;else&gt;&gt;
@@ -1765,19 +1779,74 @@ div .room::-webkit-scrollbar-track {
     [[Go to work|Mining]]    
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Valley" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="River" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;&lt;set $isday to false&gt;&gt;
+    &lt;&lt;if $totaldex &gt; 5&gt;&gt;
+    &lt;img class="invert" src="./images/rapids.svg"/&gt;
+    &lt;p&gt;
+    Your feet carry you faster than ever as the bridge crumbles behind you. When you break through the mist, an idyllic paradise awaits. The atmosphere invites you to enter,
+    even though you are wary of appearances here.
+    &lt;br&gt;&lt;br&gt;
+    [[Proceed|Rapids]] &lt;br&gt;
+    [[Swim back|Camp]]
+    &lt;/p&gt;
+    &lt;&lt;else&gt;&gt;
+    &lt;img class="invert" src="./images/bridge.svg"/&gt;
+    &lt;p&gt;
+    As you cross, the bridge starts to slowly crumble. You attempt to pick up speed, but it's hopeless. When you drop into the river, it suddenly becomes aggressive and violent, and you are swept afar
+    like an ant. A few villagers manage to rescue you, but you discover the waters have stolen away many of your aspri coins. Wet and disheveled, the journey back is demoralizing.
+    &lt;&lt;set $items["coin"].number to $items["coin"].number * .5&gt;&gt;
+    &lt;&lt;set $health to ($health - 2 &gt; 0 ? $health - 2 : 1)&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Head back to camp|Camp]]
+    &lt;/p&gt;
+    &lt;&lt;/if&gt;&gt;    
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Rapids" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" width="500" src="./images/gem.svg"/&gt;
+    &lt;p&gt;
+    The waterfall has deposited a trove of valuable gems in a shallow pool below. They sparkle with a kaleidoscopic brilliance that dazzles you for a few brief moments. Then, you collect enough to fill your bag and delight at the wealth you have gained today.
+    &lt;&lt;if !$inventory.includes("amethyst")&gt;&gt;
+        &lt;&lt;set $inventory.push("amethyst")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["amethyst"].number to $items["amethyst"].number + random(1,5)&gt;&gt;
+    &lt;&lt;switch random(1,15)&gt;&gt;
+    &lt;&lt;case 1 or 2 or 3 or 4 or 5 or 6 or 7&gt;&gt;
+    &lt;&lt;if !$inventory.includes("topaz")&gt;&gt;
+        &lt;&lt;set $inventory.push("topaz")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["topaz"].number to $items["topaz"].number + random(1,5)&gt;&gt;
+    &lt;&lt;case 8 or 9 or 10 or 11&gt;&gt;
+    &lt;&lt;if !$inventory.includes("emerald")&gt;&gt;
+        &lt;&lt;set $inventory.push("emerald")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["emerald"].number to $items["emerald"].number + random(1,4)&gt;&gt;
+    &lt;&lt;case 12 or 13 or 14&gt;&gt;
+    &lt;&lt;if !$inventory.includes("ruby")&gt;&gt;
+        &lt;&lt;set $inventory.push("ruby")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["ruby"].number to $items["ruby"].number + random(1,3)&gt;&gt;
+    &lt;&lt;case 15&gt;&gt;
+    &lt;&lt;if !$inventory.includes("diamond")&gt;&gt;
+        &lt;&lt;set $inventory.push("diamond")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["diamond"].number to $items["diamond"].number + (1, 3)&gt;&gt;
+    &lt;&lt;/switch&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Head back to camp|Camp]]
+    &lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Valley" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;&lt;set $isday to false&gt;&gt;
     &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
     &lt;p&gt;
     You first think the cabin is empty when you enter. 
-    &lt;br&gt;
+    &lt;br&gt;&lt;br&gt;
     That is, until you turn around to find yourself face to face with a giant spider. Its fangs drip with virulence and thick bristles across its body tingle with excitement.
     &lt;br&gt;&lt;br&gt;
     [[Reason with it?|Speak]] &lt;br&gt;
     [[Fight the monster|FightSpider]] &lt;br&gt;
     [[Run for your life|Camp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/flower.svg"/&gt;
     &lt;p&gt;
     &lt;&lt;if !$inventory.includes("rose")&gt;&gt;
@@ -1797,7 +1866,7 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     [[Return to camp|Camp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
     &lt;p&gt;
     &lt;&lt;if $totaldex &gt; 2 &amp;&amp; $totalatk &gt; 3&gt;&gt;
@@ -1824,7 +1893,7 @@ div .room::-webkit-scrollbar-track {
     [[Run for your life|Camp]]
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;&lt;set $isday to false&gt;&gt;
     &lt;&lt;switch random(1, 2)&gt;&gt;
     &lt;&lt;case 1&gt;&gt;

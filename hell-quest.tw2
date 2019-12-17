@@ -69,7 +69,7 @@ hell quest
 
 <<set $items["none"] to {name: "None", stats: "0000"}>>
 
-<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0101"}>>
+<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0501"}>>
 <<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10, equipped: false, stats: "1201"}>>
 <<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50, equipped: false, stats: "0122"}>>
 <<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100, equipped: false, stats: "2212"}>>
@@ -482,7 +482,7 @@ hell quest
 </div>
 
 ::Accept [nobr]
-<<audio "laugh" volume .5 play>>
+<<audio "laugh" volume .75 play>>
 <div class="room">
     <img class="invert" src="./images/devil.svg" width=170/>
 	<div>
@@ -634,8 +634,13 @@ hell quest
     <<replace "#inventory">><<include "Inventory">><</replace>>
     <<replace "#profile">><<include "Profile">><</replace>>
     <img class="invert" src="./images/energy.png" />
+    <<if $equipids["sword"] == "sword1">>
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
+    <<else>>
+    You swing erratically at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
+    your strikes break at the dark reflections of many eyes — until you are completely out of breath.
+    <</if>>
     <br>
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     <br><br>
@@ -1178,24 +1183,33 @@ hell quest
     <br><br>
     [[Go to work|Mining]]
     <<elseif $days < 30>>
-    <<switch random(1, 3)>>
+    <<switch random(1, 4)>>
     <<case 1>>
     <img class="invert" src="./images/forest.svg" />
-    Today, the dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
+    The familiarly dark forest appears. You shudder at the thought of the monstrosities that lie within. The decision is yours.
     <br><br>
     [[Head to the forest|Forest]] <br>
     [[Back to mine|Mining]]
     <<case 2>>
     <img class="invert" src="./images/treasure.svg" />
-    Today, a great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside? The decision is yours.
+    A great ridge, formed by centuries of lava flow makes itself known. Perhaps there will be treasure deep inside?
     <br><br>
     [[Head to the mountains|Mountains]] <br>
     [[Back to mine|Mining]]
     <<case 3>>
     <img class="invert" src="./images/scenic.svg" />
-    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. The decision is yours.
+    The valley below leads to a small cabin that seems very inviting. But you know how misleading this realm can be. 
     <br><br>
     [[Head to the valley|Valley]] <br>
+    [[Back to mine|Mining]]
+    <<case 4>>
+    <img class="invert" src="./images/bridge.svg" />
+    Your troupe comes across a stone bridge that reaches across a gently flowing river. On the other side, dense mists obscure a source of powerful light. 
+    <br><br>
+    The others shake their heads in fear, telling you that nobody has ever crossed successfully. You inquire further, but they are incapable
+    of providing much information. Are you fast enough to make it?
+    <br><br>
+    [[Cross|River]] <br>
     [[Back to mine|Mining]]
     <</switch>>
     <<else>>
@@ -1206,13 +1220,74 @@ hell quest
     </p>
 </div>
 
+::River [nobr]
+<div class="room">
+    <<set $isday to false>>
+    <<if $totaldex > 5>>
+    <img class="invert" src="./images/rapids.svg"/>
+    <p>
+    Your feet carry you faster than ever as the bridge crumbles behind you. When you break through the mist, an idyllic paradise awaits. The atmosphere invites you to enter,
+    even though you are wary of appearances here.
+    <br><br>
+    [[Proceed|Rapids]] <br>
+    [[Swim back|Camp]]
+    </p>
+    <<else>>
+    <img class="invert" src="./images/bridge.svg"/>
+    <p>
+    As you cross, the bridge starts to slowly crumble. You attempt to pick up speed, but it's hopeless. When you drop into the river, it suddenly becomes aggressive and violent, and you are swept afar
+    like an ant. A few villagers manage to rescue you, but you discover the waters have stolen away many of your aspri coins. Wet and disheveled, the journey back is demoralizing.
+    <<set $items["coin"].number to $items["coin"].number * .5>>
+    <<set $health to ($health - 2 > 0 ? $health - 2 : 1)>>
+    <br><br>
+    [[Head back to camp|Camp]]
+    </p>
+    <</if>>    
+</div>
+
+::Rapids [nobr]
+<div class="room">
+    <img class="invert" width="500" src="./images/gem.svg"/>
+    <p>
+    The waterfall has deposited a trove of valuable gems in a shallow pool below. They sparkle with a kaleidoscopic brilliance that dazzles you for a few brief moments. Then, you collect enough to fill your bag and delight at the wealth you have gained today.
+    <<if !$inventory.includes("amethyst")>>
+        <<set $inventory.push("amethyst")>>
+    <</if>>
+    <<set $items["amethyst"].number to $items["amethyst"].number + random(1,5)>>
+    <<switch random(1,15)>>
+    <<case 1 or 2 or 3 or 4 or 5 or 6 or 7>>
+    <<if !$inventory.includes("topaz")>>
+        <<set $inventory.push("topaz")>>
+    <</if>>
+    <<set $items["topaz"].number to $items["topaz"].number + random(1,5)>>
+    <<case 8 or 9 or 10 or 11>>
+    <<if !$inventory.includes("emerald")>>
+        <<set $inventory.push("emerald")>>
+    <</if>>
+    <<set $items["emerald"].number to $items["emerald"].number + random(1,4)>>
+    <<case 12 or 13 or 14>>
+    <<if !$inventory.includes("ruby")>>
+        <<set $inventory.push("ruby")>>
+    <</if>>
+    <<set $items["ruby"].number to $items["ruby"].number + random(1,3)>>
+    <<case 15>>
+    <<if !$inventory.includes("diamond")>>
+        <<set $inventory.push("diamond")>>
+    <</if>>
+    <<set $items["diamond"].number to $items["diamond"].number + (1, 3)>>
+    <</switch>>
+    <br><br>
+    [[Head back to camp|Camp]]
+    </p>
+</div>
+
 ::Valley [nobr]
 <div class="room">
     <<set $isday to false>>
     <img class="invert" src="./images/spider.svg" width=500/>
     <p>
     You first think the cabin is empty when you enter. 
-    <br>
+    <br><br>
     That is, until you turn around to find yourself face to face with a giant spider. Its fangs drip with virulence and thick bristles across its body tingle with excitement.
     <br><br>
     [[Reason with it?|Speak]] <br>
