@@ -708,10 +708,10 @@ hell quest
         </p>
         <p>
         <<if $inn_entered != true>>
-        [[Enter the inn|Inn][$isdays to false]] <br>
+        [[Enter the inn|Inn][$isday to false]] <br>
         <</if>>
         <<if $shop_entered != true>>
-        [[Head to the shop|Shop][$isdays to false]] <br>
+        [[Head to the shop|Shop][$isday to false]] <br>
         <</if>>
         </p>
     <</if>>
