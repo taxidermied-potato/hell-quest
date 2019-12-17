@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="62c65dd8-6029-48fe-8433-de9d69083c87" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
+	<tw-storydata name="hell quest" startnode="5" creator="Twee2" creator-version="0.5.0" ifid="b36d5cdd-9b55-4d11-9eda-66be5c357512" format="sugarcube-2" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Mansalva|Nunito|Varela+Round&amp;display=swap');
 
 #story {
   text-align: left;
@@ -113,13 +113,13 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
   background-size: cover;
 }
 
-#character {
+#days {
   position: absolute;
   top: 0;
-  right: .8rem;
+  right: 10rem;
 }
 
-#character h1 {
+#days h1 {
   font-family: 'Crimson Text', serif;
   font-weight: bold;
   font-size: 1.5rem;
@@ -127,23 +127,118 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
+}
+
+#profile {
+  position: absolute;
+  top: 0;
+  right: .8rem;
+  width: 18rem;
+  font-size: 1rem;
+  font-family: 'Crimson Text', serif;
+  line-height: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 16px rgba(0, 0, 0, 1);
+  text-align: right;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#profile h1 {
+  font-family: 'Crimson Text', serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: rgba(221, 221, 221, 1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1);
+  text-align: right;
+}
+
+#profile table {
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: .5rem;
+}
+
+#profile img {
+  width: 2.5rem;
+  margin-right: 0;
+  padding-bottom: 0;
+}
+
+.profile-table {
+  margin-right: -.3rem!important;
+}
+
+.healthbar td {
+  border: none;
+  padding: 0px;
+  margin-top: .5rem;
+}
+
+.healthbar img {
+  width: 1.5rem!important;
+}
+
+.stats table {
+    border: none!important;
+}
+
+.stats td {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none!important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+}
+
+.equips td {
+    font-size: 1rem;
+    border: none!important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
 }
 
 #inventory {
   position: absolute;
   top: 0;
   left: .8rem;
-  width: 18rem;
+  width: 20rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#inventory a {
+  margin-left: .25rem;
+  font-size: calc(7px + 1vmin);
 }
 
 #inventory h1 {
   font-family: 'Crimson Text', serif;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: rgba(221, 221, 221, 1);
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1)
+}
+
+#inventory hr {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 td {
@@ -154,12 +249,20 @@ td {
 }
 
 table, th, td {
-  border: 1px solid white;
   padding: 5px;
 }
 
 table {
   border-spacing: 15px;
+}
+
+.shop-desc {
+  line-height: .9rem;
+  font-size: .9rem;
+}
+
+.shop-br {
+  line-height: 200%;
 }
 
 /* Custom Classes */
@@ -544,8 +647,16 @@ div .room::-webkit-scrollbar-track {
 &lt;&lt;set $items to {}&gt;&gt;
 &lt;&lt;set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a decimated spell", number: 0, worth: 1}&gt;&gt;
 &lt;&lt;set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 0, worth: 5}&gt;&gt;
-&lt;&lt;set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 5, worth: 1}&gt;&gt;
+&lt;&lt;set $items["magic3"] to {name: "Fiery Glyphs", desc: "The work of sun cultists from the east", number: 0, worth: 10}&gt;&gt;
+&lt;&lt;set $items["magic4"] to {name: "Strange Potion", desc: "Bubbling and fuming", number: 0, worth: 10}&gt;&gt;
+&lt;&lt;set $items["magic5"] to {name: "Cursed Runes", desc: "Luckily not for you", number: 0, worth: 20}&gt;&gt;
+&lt;&lt;set $items["magic6"] to {name: "Sulfurous Vial", desc: "Brimming with brimstone", number: 0, worth: 25}&gt;&gt;
+
+&lt;&lt;set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 10, worth: 1}&gt;&gt;
 &lt;&lt;set $items["bones"] to {name: "Old Bones", desc: "One man's bones, another man's...?", number: 0, worth: 1}&gt;&gt;
+&lt;&lt;set $items["leather"] to {name: "Worn Leather", desc: "Hungry enough?", number: 0, worth: 1}&gt;&gt;
+&lt;&lt;set $items["chains"] to {name: "Chains", desc: "We have a lot of these", number: 0, worth: 1}&gt;&gt;
+&lt;&lt;set $items["ooze"] to {name: "Ooze", desc: "Ew", number: 0, worth: 2}&gt;&gt;
 &lt;&lt;set $items["tome"] to {name: "Blank Tome", desc: "They say stories are powerful", number: 0, worth: 2}&gt;&gt;
 &lt;&lt;set $items["brokensword"] to {name: "Broken Sword", desc: "Scrap metal at best", number: 0, worth: 2}&gt;&gt;
 &lt;&lt;set $items["oldwatch"] to {name: "Old Watch", desc: "You can't even tell what it's made of", number: 0, worth: 2}&gt;&gt;
@@ -553,66 +664,116 @@ div .room::-webkit-scrollbar-track {
 &lt;&lt;set $items["bore"] to {name: "Bronze Ore", desc: "It's not really treasure, but it's something", number: 0, worth: 3}&gt;&gt;
 &lt;&lt;set $items["sore"] to {name: "Silver Ore", desc: "Important for coinage", number: 0, worth: 5}&gt;&gt;
 &lt;&lt;set $items["pottery"] to {name: "Pottery", desc: "Artfully simple", number: 0, worth: 5}&gt;&gt;
+&lt;&lt;set $items["ecto"] to {name: "Ectoplasm", desc: "Spiritual residue", number: 0, worth: 6}&gt;&gt;
 &lt;&lt;set $items["tainted"] to {name: "Tainted Gem", desc: "A corrupted crystal", number: 0, worth: 7}&gt;&gt;
+&lt;&lt;set $items["amethyst"] to {name: "Amethyst", desc: "Pretty", number: 0, worth: 7}&gt;&gt;
+&lt;&lt;set $items["topaz"] to {name: "Topaz", desc: "Pretty", number: 0, worth: 9}&gt;&gt;
 &lt;&lt;set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 0, worth: 10}&gt;&gt;
+&lt;&lt;set $items["tarmor"] to {name: "Torn Armor", desc: "A reminder of past wars", number: 0, worth: 13}&gt;&gt;
 
 &lt;&lt;set $items["gore"] to {name: "Gold Ore", desc: "Shiny, malleable, and valuable", number: 0, worth: 15}&gt;&gt;
 &lt;&lt;set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 0, worth: 20}&gt;&gt;
+&lt;&lt;set $items["fossil"] to {name: "Fossil", desc: "An ancient creature's fate", number: 0, worth: 20}&gt;&gt;
 &lt;&lt;set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 0, worth: 20}&gt;&gt;
 &lt;&lt;set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 0, worth: 30}&gt;&gt;
 &lt;&lt;set $items["imbuedtome"] to {name: "Imbued Tome", desc: "This book radiates raw mana", number: 0, worth: 30}&gt;&gt;
+&lt;&lt;set $items["tears"] to {name: "Oesyrian Tears", desc: "Solidified tears", number: 0, worth: 35}&gt;&gt;
 
 &lt;&lt;set $items["demonhorn"] to {name: "Demon Horn", desc: "A bit chipped, but still scary", number: 0, worth: 40}&gt;&gt;
 &lt;&lt;set $items["mithril"] to {name: "Mithril", desc: "Alluring metal for sword and armorsmiths", number: 0, worth: 40}&gt;&gt;
+&lt;&lt;set $items["note"] to {name: "Secret Note", desc: "You have no idea what it means", number: 0, worth: 42}&gt;&gt;
 &lt;&lt;set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 0, worth: 50}&gt;&gt;
+&lt;&lt;set $items["rose"] to {name: "Evenrose", desc: "Anything that grows down here is otherworldly", number: 0, worth: 52}&gt;&gt;
+&lt;&lt;set $items["bdiamond"] to {name: "Black Diamond", desc: "Not obsidian", number: 0, worth: 55}&gt;&gt;
 &lt;&lt;set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 0, worth: 65}&gt;&gt;
 &lt;&lt;set $items["ancientscroll"] to {name: "Ancient Scroll", desc: "Its knowledge is unknowable", number: 0, worth: 75}&gt;&gt;
 
 &lt;&lt;set $items["dragonclaw"] to {name: "Dragon Claw", desc: "Once belonging to a majestic beast", number: 0, worth: 80}&gt;&gt;
 &lt;&lt;set $items["dragonteeth"] to {name: "Dragon Tooth", desc: "Once belonging to a majestic beast", number: 0, worth: 80}&gt;&gt;
+&lt;&lt;set $items["flames"] to {name: "Forbidden Flame", desc: "It never goes out and unravels at your touch", number: 0, worth: 90}&gt;&gt;
 &lt;&lt;set $items["contract"] to {name: "Faustian Contract", desc: "Written in another language", number: 0, worth: 100}&gt;&gt;
+&lt;&lt;set $items["fragment"] to {name: "Mechanical Fragment", desc: "A piece of a complicated contraption", number: 0, worth: 110}&gt;&gt;
+&lt;&lt;set $items["scales"] to {name: "Basilisk Scales", desc: "Suited for armor of the highest caliber", number: 0, worth: 112}&gt;&gt;
 &lt;&lt;set $items["crystal"] to {name: "Crystal Eye", desc: "A beautifully preserved orb of power", number: 0, worth: 120}&gt;&gt;
 &lt;&lt;set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 0, worth: 150}&gt;&gt;
 
-&lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2}&gt;&gt;
-&lt;&lt;set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10}&gt;&gt;
-&lt;&lt;set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50}&gt;&gt;
-&lt;&lt;set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100}&gt;&gt;
-&lt;&lt;set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields", worth: 200}&gt;&gt;
-&lt;&lt;set $items["cloak6"] to {name: "Walpurgisnacht", desc: "An embodiment of terror that allows for bat like travel"}&gt;&gt;
-&lt;&lt;set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch", power: 0, yield: 2, worth: 1}&gt;&gt;
-&lt;&lt;set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted", power: 1, yield: 2, worth: 2}&gt;&gt;
-&lt;&lt;set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune", power: 2, yield: 2, worth: 10}&gt;&gt;
-&lt;&lt;set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them", power: 3, yield: 3, worth: 100}&gt;&gt;
-&lt;&lt;set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole", power: 4, yield: 3, worth: 200}&gt;&gt;
-&lt;&lt;set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later", power: 5, yield: 4, worth: 500}&gt;&gt;
-&lt;&lt;set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive", worth: 10}&gt;&gt;
-&lt;&lt;set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says", worth: 2}&gt;&gt;
-&lt;&lt;set $items["sword3"] to {name: "Silver Broadsword", desc: "Shiny, chrome, and great for slaying monsters", worth: 5}&gt;&gt;
-&lt;&lt;set $items["sword4"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself"}&gt;&gt;
-&lt;&lt;set $items["sword5"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something monstrous"}&gt;&gt;
-&lt;&lt;set $items["bow1"] to {name: "Yew Bow", desc: "May your aim be true"}&gt;&gt;
-&lt;&lt;set $items["bow2"] to {name: "Obsidian Crossbow", desc: "Pratically a deviant blade"}&gt;&gt;
-&lt;&lt;set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore", worth: 1}&gt;&gt;
-&lt;&lt;set $items["armor1"] to {name: "Iron Armor", desc: "+5 DEF, -5 SPD"}&gt;&gt;
-&lt;&lt;set $items["armor2"] to {name: "Gold Armor", desc: "You didn't actually think stats were a thing did you?"}&gt;&gt;
-&lt;&lt;set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons"}&gt;&gt;
-&lt;&lt;set $items["armor4"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies"}&gt;&gt;
-&lt;&lt;set $items["armor5"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon"}&gt;&gt;
+&lt;&lt;set $items["none"] to {name: "None", stats: "0000"}&gt;&gt;
+
+&lt;&lt;set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0101"}&gt;&gt;
+&lt;&lt;set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10, equipped: false, stats: "1201"}&gt;&gt;
+&lt;&lt;set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50, equipped: false, stats: "0122"}&gt;&gt;
+&lt;&lt;set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100, equipped: false, stats: "2212"}&gt;&gt;
+&lt;&lt;set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields", worth: 200, equipped: false, stats: "5130"}&gt;&gt;
+&lt;&lt;set $items["cloak6"] to {name: "Robe of Invisibility", desc: "You're a wizard", worth: 300, equipped: false, stats: "1640"}&gt;&gt;
+&lt;&lt;set $items["cloak7"] to {name: "Spectral Menace", desc: "Ghastly energies wrap around you", worth: 350, equipped: false, stats: "4444"}&gt;&gt;
+&lt;&lt;set $items["cloak8"] to {name: "Walpurgisnacht", desc: "An embodiment of terror that allows for bat like travel", worth: 5, equipped: false, stats: "6853"}&gt;&gt;
+
+&lt;&lt;set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch", power: 0, yield: 3, worth: 1, equipped: false}&gt;&gt;
+&lt;&lt;set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted", power: 1, yield: 3, worth: 2, equipped: false}&gt;&gt;
+&lt;&lt;set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune", power: 2, yield: 4, worth: 10, equipped: false}&gt;&gt;
+&lt;&lt;set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them", power: 3, yield: 5, worth: 100, equipped: false}&gt;&gt;
+&lt;&lt;set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole", power: 4, yield: 6, worth: 300, equipped: false}&gt;&gt;
+&lt;&lt;set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later", power: 5, yield: 7, worth: 500, equipped: false}&gt;&gt;
+
+&lt;&lt;set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive", worth: 10, equipped: false, stats: "2020"}&gt;&gt;
+&lt;&lt;set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says", worth: 2, equipped: false, stats: "1000"}&gt;&gt;
+&lt;&lt;set $items["sword3"] to {name: "Silver Broadsword", desc: "Shiny, chrome, and great for slaying monsters", worth: 5, equipped: false, stats: "3000"}&gt;&gt;
+&lt;&lt;set $items["sword4"] to {name: "Obsidian Sickle", desc: "Souls weep at your approach", worth: 15, equipped: false, stats: "3230"}&gt;&gt;
+&lt;&lt;set $items["sword5"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself", worth: 50, equipped: false, stats: "4230"}&gt;&gt;
+&lt;&lt;set $items["sword6"] to {name: "Envenomed Brand", desc: "Not very fair, but effective", worth: 100, equipped: false, stats: "7100"}&gt;&gt;
+&lt;&lt;set $items["sword7"] to {name: "Ancient Cutlass", desc: "Once belonged to a cursed captain", worth: 5, equipped: false, stats: "5370"}&gt;&gt;
+&lt;&lt;set $items["sword8"] to {name: "Akhilleus Kosmos", desc: "Uh... That's a shield", worth: 300, equipped: false, stats: "5077"}&gt;&gt;
+&lt;&lt;set $items["sword9"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something truly monstrous", worth: 5, equipped: false, stats: "9590"}&gt;&gt;
+
+&lt;&lt;set $items["bow1"] to {name: "Yew Bow", desc: "May your aim be true", equipped: false}&gt;&gt;
+&lt;&lt;set $items["bow2"] to {name: "Obsidian Crossbow", desc: "Pratically a deviant blade", equipped: false}&gt;&gt;
+
+&lt;&lt;set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore", worth: 1, equipped: false, stats: "0101"}&gt;&gt;
+&lt;&lt;set $items["armor1"] to {name: "Iron Armor", desc: "A bit on the heavy side", worth: 5, equipped: false, stats: "0102"}&gt;&gt;
+&lt;&lt;set $items["armor2"] to {name: "Gold Armor", desc: "Okay, I'm jealous", worth: 50, equipped: false, stats: "0004"}&gt;&gt;
+&lt;&lt;set $items["armorf"] to {name: "Rogue Leather", desc: "You're a master of stealth in this", worth: 30, equipped: false, stats: "2302"}&gt;&gt;
+&lt;&lt;set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons", worth: 60, equipped: false, stats: "2223"}&gt;&gt;
+&lt;&lt;set $items["armor4"] to {name: "Bejeweled Corset", desc: "Empowered by fancy gems", worth: 100, equipped: false, stats: "3260"}&gt;&gt;
+&lt;&lt;set $items["armor5"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies", worth: 90, equipped: false, stats: "3145"}&gt;&gt;
+&lt;&lt;set $items["armor6"] to {name: "Mithril Armor", desc: "Jack of all trades", worth: 100, equipped: false, stats: "4344"}&gt;&gt;
+&lt;&lt;set $items["armor7"] to {name: "Scalebane Cuirass", desc: "An ancient beast's defense is now yours", worth: 5, equipped: false, stats: "6019"}&gt;&gt;
+&lt;&lt;set $items["armor8"] to {name: "Entou", desc: "Wreathed in drake whispers and flames", worth: 5, equipped: false, stats: "7575"}&gt;&gt;
+&lt;&lt;set $items["armor9"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon", worth: 5, equipped: false, stats: "6798"}&gt;&gt;
+
+&lt;&lt;set $items["artifact0"] to {name: "Voodoo Doll", desc: "Spooky little thing", worth: 5, equipped: false, stats: "0010"}&gt;&gt;
+
+&lt;&lt;set $name to "Nameless Soul"&gt;&gt;
+&lt;&lt;set $isday to true&gt;&gt;
+&lt;&lt;set $totalatk to 1&gt;&gt;
+&lt;&lt;set $totaldex to 1&gt;&gt;
+&lt;&lt;set $totalint to 1&gt;&gt;
+&lt;&lt;set $totaldef to 1&gt;&gt;
+&lt;&lt;set $atk to 1&gt;&gt;
+&lt;&lt;set $dex to 1&gt;&gt;
+&lt;&lt;set $int to 1&gt;&gt;
+&lt;&lt;set $def to 1&gt;&gt;
+&lt;&lt;set $equipids to {}&gt;&gt;
+&lt;&lt;set $equipids["armor"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["cloak"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["sword"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["pickaxe"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["artifact"] to "none"&gt;&gt;
 &lt;&lt;set $days to 1&gt;&gt;
-&lt;&lt;set $health to 10&gt;&gt;
+&lt;&lt;set $health to 12&gt;&gt;
 &lt;&lt;set $inventory to []&gt;&gt;
 &lt;&lt;set $childhelped to false&gt;&gt;
 &lt;&lt;cacheaudio "bgm1" "./audio/dreamlike.mp3"&gt;&gt;
 &lt;&lt;cacheaudio "bgm2" "./audio/rest.mp3"&gt;&gt;
 &lt;&lt;cacheaudio "bgm3" "./audio/air.mp3"&gt;&gt;
-&lt;&lt;cacheaudio "bgm4" "./audio/minstrel.mp3"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="nobr" position="">&lt;div id="story" role="main"&gt;
+&lt;&lt;cacheaudio "bgm4" "./audio/minstrel.mp3"&gt;&gt;
+&lt;&lt;cacheaudio "laugh" "./audio/demonlaugh.wav"&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="nobr" position="">&lt;div id="story" role="main"&gt;
     &lt;div id="passages"&gt;&lt;/div&gt;
     &lt;div id="inventory" data-passage="Inventory"&gt;&lt;/div&gt;
-    &lt;div id="character" data-passage="Character"&gt;&lt;/div&gt;
+    &lt;div id="profile" data-passage="Profile"&gt;&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Inventory" tags="nobr" position="">&lt;h1&gt; Inventory &lt;/h1&gt;
+&lt;hr width="80%"/&gt;
 &lt;table&gt;
-&lt;&lt;for _i=0; _i&lt;$inventory.length; _i++&gt;&gt;
+&lt;&lt;for _i = 0; _i &lt; $inventory.length; _i++&gt;&gt;
         &lt;tr&gt;
             &lt;td class="inven-name"&gt;
             &lt;&lt;print $items[$inventory[_i]].name&gt;&gt;
@@ -622,180 +783,170 @@ div .room::-webkit-scrollbar-track {
             &lt;&lt;print "(x" + $items[$inventory[_i]].number + ")"&gt;&gt;
             &lt;&lt;/if&gt;&gt;   
             &lt;&lt;print $items[$inventory[_i]].desc&gt;&gt;
-            &lt;/td&gt;	
+            &lt;/td&gt;
+            &lt;td&gt;
+            &lt;&lt;if $items[$inventory[_i]].equipped != null&gt;&gt;
+                &lt;&lt;print "&lt;&lt;click \"Equip\"&gt;&gt;&lt;&lt;set $equipids[$inventory[" + _i + "].slice(0, -1)] to $inventory[" + _i + "]&gt;&gt;&lt;&lt;replace \"#profile\"&gt;&gt;&lt;&lt;include \"Profile\"&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;"&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
 &lt;&lt;/for&gt;&gt;
-&lt;/table&gt;</tw-passagedata><tw-passagedata pid="4" name="Character" tags="nobr" position="">&lt;h1&gt; Day &lt;&lt;print $days&gt;&gt; &lt;/h1&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="nobr dark" position="">&lt;&lt;script&gt;&gt;
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="4" name="Profile" tags="nobr" position="">&lt;h1&gt; &lt;&lt;print $name&gt;&gt; &lt;/h1&gt;
+&lt;div&gt;
+    &lt;table class="healthbar"&gt;
+        &lt;tr&gt;
+            &lt;&lt;for _i = 0; _i &lt; 6; _i++&gt;&gt;
+                &lt;&lt;if _i &lt; $health&gt;&gt;
+                &lt;td&gt;
+                &lt;img class="invert" src="./images/heartfilled.svg" /&gt;
+                &lt;/td&gt;
+                &lt;&lt;else&gt;&gt;
+                &lt;td&gt;
+                &lt;img class="invert" src="./images/heart.svg" /&gt;
+                &lt;/td&gt;
+                &lt;&lt;/if&gt;&gt;
+            &lt;&lt;/for&gt;&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;&lt;for _j = 6; _j &lt; 12; _j++&gt;&gt;
+                &lt;&lt;if _j &lt; $health&gt;&gt;
+                &lt;td&gt;
+                &lt;img class="invert" src="./images/heartfilled.svg" /&gt;
+                &lt;/td&gt;
+                &lt;&lt;else&gt;&gt;
+                &lt;td&gt;
+                &lt;img class="invert" src="./images/heart.svg" /&gt;
+                &lt;/td&gt;
+                &lt;&lt;/if&gt;&gt;
+            &lt;&lt;/for&gt;&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;table class="profile-table"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;table class="equips"&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;&lt;print $items[$equipids["sword"]].name&gt;&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/weapon.svg" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;&lt;print $items[$equipids["pickaxe"]].name&gt;&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/pick.svg" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;&lt;print $items[$equipids["armor"]].name&gt;&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/armor.svg" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;&lt;print $items[$equipids["cloak"]].name&gt;&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/cloak.svg" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;&lt;print $items[$equipids["artifact"]].name&gt;&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/artifact.svg" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;table class="stats"&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/attack.svg" /&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;&lt;set $totalatk to $atk
+                        + parseInt($items[$equipids["armor"]].stats.charAt(0)) 
+                        + parseInt($items[$equipids["cloak"]].stats.charAt(0))
+                        + parseInt($items[$equipids["sword"]].stats.charAt(0)) 
+                        + parseInt($items[$equipids["artifact"]].stats.charAt(0))
+                        &gt;&gt;
+                        &lt;&lt;print $totalatk&gt;&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/dexterity.svg" /&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;&lt;set $totaldex to $dex              
+                        + parseInt($items[$equipids["armor"]].stats.charAt(1)) 
+                        + parseInt($items[$equipids["cloak"]].stats.charAt(1))
+                        + parseInt($items[$equipids["sword"]].stats.charAt(1)) 
+                        + parseInt($items[$equipids["artifact"]].stats.charAt(1))
+                        &gt;&gt;
+                        &lt;&lt;print $totaldex&gt;&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/int.svg" /&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;&lt;set $totalint to $int                      
+                        + parseInt($items[$equipids["armor"]].stats.charAt(2)) 
+                        + parseInt($items[$equipids["cloak"]].stats.charAt(2))
+                        + parseInt($items[$equipids["sword"]].stats.charAt(2)) 
+                        + parseInt($items[$equipids["artifact"]].stats.charAt(2))
+                        &gt;&gt;
+                        &lt;&lt;print $totalint&gt;&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                        &lt;img class="invert" src="./images/def.svg" /&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;&lt;set $totaldef to $def 
+                        + parseInt($items[$equipids["armor"]].stats.charAt(3)) 
+                        + parseInt($items[$equipids["cloak"]].stats.charAt(3))
+                        + parseInt($items[$equipids["sword"]].stats.charAt(3)) 
+                        + parseInt($items[$equipids["artifact"]].stats.charAt(3))
+                        &gt;&gt;
+                        &lt;&lt;print $totaldef&gt;&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt; 
+            &lt;/td&gt;            
+        &lt;/tr&gt;
+    &lt;/table&gt;    
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="nobr dark" position="">&lt;&lt;script&gt;&gt;
     var inventory = document.getElementById('inventory');
     inventory.style.visibility = 'hidden';
-    var char = document.getElementById('character');
-    character.style.visibility = 'hidden';
+    var profile = document.getElementById('profile');
+    profile.style.visibility = 'hidden';
 &lt;&lt;/script&gt;&gt;
 &lt;div class="room-start black-screen"&gt;
     &lt;div class="room align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         [img[./images/play-icon.svg][Beginning]]
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;script&gt;&gt;
-    var inventory = document.getElementById('inventory');
-    inventory.style.visibility = 'visible';
-    var char = document.getElementById('character');
-    character.style.visibility = 'visible';
-&lt;&lt;/script&gt;&gt;
-&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
-&lt;&lt;set $days to 1&gt;&gt;
-&lt;&lt;set $inventory.push("coin")&gt;&gt;
-&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
-&lt;div class="room-start"&gt;
-    &lt;div class="room"&gt;
-        &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
-            &lt;p&gt;
-            Congratulations! 
-            Fortune smiles upon your wretched soul. 
-            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
-            &lt;p&gt;
-            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
-            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
-            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
-            &lt;/p&gt;
-            &lt;p&gt;
-            &lt;i&gt; But you don't want to spend an eternity here, do you?
-            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
-            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
-                &lt;&lt;cycle "$goal" autoselect&gt;&gt;
-                    &lt;&lt;option "grail"&gt;&gt;
-                    &lt;&lt;option "nail"&gt;&gt;
-                    &lt;&lt;option "lance"&gt;&gt;
-                    &lt;&lt;option "crown"&gt;&gt;
-                &lt;&lt;/cycle&gt;&gt; 
-            and you are free." &lt;/i&gt; 
-            &lt;p&gt; &lt;br&gt; 
-            [[Accept]] &lt;br&gt; 
-            [[Decline?|Decline]]
-            &lt;/p&gt;	
-            &lt;/span&gt;
-            &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
-    var inventory = document.getElementById('inventory');
-    inventory.style.visibility = 'visible';
-    var char = document.getElementById('character');
-    character.style.visibility = 'visible';
-&lt;&lt;/script&gt;&gt;
-&lt;&lt;audio ":playing" stop&gt;&gt;
-&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
-&lt;&lt;set $days to 1&gt;&gt;
-&lt;&lt;set $inventory to []&gt;&gt;
-&lt;&lt;set $inventory.push("coin")&gt;&gt;
-&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
-&lt;div class="room-start"&gt;
-    &lt;div class="room"&gt;
-        &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
-            &lt;p&gt;
-            Congratulations! 
-            Fortune smiles upon your wretched soul. 
-            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
-            &lt;p&gt;
-            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
-            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
-            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
-            &lt;/p&gt;
-            &lt;p&gt;
-            &lt;i&gt; But you don't want to spend an eternity here, do you?
-            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
-            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
-                &lt;&lt;cycle "$goal" autoselect&gt;&gt;
-                    &lt;&lt;option "grail"&gt;&gt;
-                    &lt;&lt;option "nail"&gt;&gt;
-                    &lt;&lt;option "lance"&gt;&gt;
-                    &lt;&lt;option "crown"&gt;&gt;
-                &lt;&lt;/cycle&gt;&gt; 
-            and you are free." &lt;/i&gt; 
-            &lt;p&gt; &lt;br&gt; 
-            [[Accept]] &lt;br&gt; 
-            [[Decline?|Decline]]
-            &lt;/p&gt;	
-            &lt;/span&gt;
-            &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Accept" tags="nobr" position="">&lt;div class="room"&gt;
-    &lt;img class="invert" src="./images/devil.svg" width=170/&gt;
-	&lt;div&gt;
-        &lt;p&gt;
-        The devilish being cackles, a sound so terribly gleeful that it makes even your blood run colder. &lt;i&gt; You'll be needing &lt;/i&gt; &lt;&lt;linkreplace "this." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-        &lt;span id="fadein1" style="display:none"&gt; 
-            &lt;i&gt; this &lt;/i&gt; — a simple, rusted pickaxe that weeps beautifully when swung. 
-            &lt;br&gt; &lt;br&gt;
-            &lt;span id="choices"&gt; 
-            &lt;&lt;link "Take the pickaxe"&gt;&gt; 
-                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
-                &lt;&lt;replace "#choices"&gt;&gt; 
-                    &lt;&lt;timed 10ms t8n&gt;&gt; 
-                        You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
-                        &lt;br&gt; &lt;br&gt; 
-                        &lt;&lt;linkreplace "Express your gratitude" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-                        &lt;span id="fadein2" style="display:none"&gt;
-                            &lt;img src="./images/creepy-grin.svg" /&gt;
-                            Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
-                            It leaves you to the constant howling and ephemeral groans of the world around you. 
-                            &lt;br&gt; &lt;br&gt;
-                            [[Explore the area|ExploreBeginning]]  
-                            &lt;br&gt;
-                            [[Head to miners' camp|Camp1]]
-                        &lt;/span&gt; 
-                    &lt;&lt;/timed&gt;&gt; 
-                &lt;&lt;/replace&gt;&gt; 
-            &lt;&lt;/link&gt;&gt; &lt;br&gt;
-            &lt;&lt;link "Ask for more"&gt;&gt; 
-                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
-                &lt;&lt;set $inventory.push("sword1")&gt;&gt;  
-                &lt;&lt;replace "#choices"&gt;&gt; &lt;&lt;timed 10ms t8n&gt;&gt; 
-                &lt;i&gt; Greedy, are we&lt;/i&gt;? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
-                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and stow it &lt;&lt;linkreplace "away." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-                &lt;span id="fadein3" style="display:none"&gt;
-                away.
-                &lt;img class="invert" src="./images/sword.svg" width=500/&gt;
-                &lt;i&gt; I do hope you put it to good use. &lt;/i&gt; The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
-                &lt;br&gt; &lt;br&gt;
-                [[Explore the area|ExploreBeginning]]
-                &lt;br&gt;
-                [[Head to miners' camp|Camp1]]
-                &lt;/span&gt;
-                &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
-            &lt;&lt;/link&gt;&gt; 
-            &lt;/span&gt;
-        &lt;/span&gt;
-        &lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
-    &lt;img class="invert" src="./images/skull.svg" /&gt;
-	&lt;div&gt;
-        &lt;p&gt;
-        The response is greeted by a look of what you think is sadness. Your benefactor takes to a stone tablet and scrawls out a rough drawing. The glyph shimmers with otherworldly energy, and when you stare into it
-        a brief hypnosis is induced. 
-        &lt;/p&gt;
-        &lt;p&gt;
-        &lt;&lt;linkreplace "Resist" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
-            &lt;&lt;set $items["magic1"].number to $items["magic1"].number + 1&gt;&gt;
-            &lt;&lt;set $inventory.push("magic1")&gt;&gt;
-            &lt;span id="fadein1" style="display:none"&gt;
-            &lt;img class="invert" src="./images/eyes.png" /&gt;
-            Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
-            &lt;br&gt;
-            &lt;/span&gt;
-            &lt;br&gt;
-		[[Acquiesce|Accept]]
-        &lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="about" tags="nobr" position="">&lt;div class="room-start"&gt;
     &lt;div class="room align-center"&gt;
         &lt;p class="hidden-links"&gt;
         &lt;&lt;cycle "$about" autoselect&gt;&gt;
             &lt;&lt;option "I wish there were a way to make a link not look like a link, but still have people click on it."&gt;&gt;
             &lt;&lt;option "Do not cry over spilled blood."&gt;&gt;
-            &lt;&lt;option "Happy Halloween..."&gt;&gt;
+            &lt;&lt;option "Merry Christmas..."&gt;&gt;
             &lt;&lt;option "Why is there random Japanese thrown into the title? I don't know either."&gt;&gt;
             &lt;&lt;option "Today's lucky numbers are 42, 666, and 1912."&gt;&gt;
             &lt;&lt;option "JavaScript is hard to please."&gt;&gt;
@@ -806,7 +957,7 @@ div .room::-webkit-scrollbar-track {
         [[Back|Beginning2]]
         &lt;/p&gt;
     &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="credits" tags="t8n-typewriter-25 nobr" position="">&lt;div class="room"&gt;
 	&lt;div class="align-center"&gt;
         &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
         &lt;div class="text-normal"&gt;
@@ -819,6 +970,9 @@ div .room::-webkit-scrollbar-track {
             &lt;p&gt;
             Music - Kevin Macleod
             &lt;/p&gt;
+            &lt;p&gt;
+            Stat Icons - veectezy
+            &lt;/p&gt;
             &lt;br&gt;
             &lt;p&gt;
             Twine - Lots of people
@@ -829,6 +983,180 @@ div .room::-webkit-scrollbar-track {
         &lt;/div&gt;
         &lt;p&gt;
         [[Back|Beginning2]]
+        &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Beginning" tags="fade-background t8n-typewriter-30 nobr" position="">&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
+    var profile = document.getElementById('profile');
+    profile.style.visibility = 'visible';
+&lt;&lt;/script&gt;&gt;
+&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
+&lt;&lt;set $inventory.push("coin")&gt;&gt;
+&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
+&lt;div class="room-start"&gt;
+    &lt;div class="room"&gt;
+        &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
+            &lt;p&gt;
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
+            &lt;p&gt;
+            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
+            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+            &lt;i&gt; But you don't want to spend an eternity here, do you?
+            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
+                &lt;&lt;cycle "$goal" autoselect&gt;&gt;
+                    &lt;&lt;option "grail"&gt;&gt;
+                    &lt;&lt;option "nail"&gt;&gt;
+                    &lt;&lt;option "lance"&gt;&gt;
+                    &lt;&lt;option "crown"&gt;&gt;
+                &lt;&lt;/cycle&gt;&gt; 
+            and you are free." &lt;/i&gt; 
+            &lt;p&gt; &lt;br&gt; 
+            [[Accept]] &lt;br&gt; 
+            [[Decline?|Decline]]
+            &lt;/p&gt;	
+            &lt;/span&gt;
+            &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Beginning2" tags="nobr" position="">&lt;&lt;script&gt;&gt;
+    var inventory = document.getElementById('inventory');
+    inventory.style.visibility = 'visible';
+    var profile = document.getElementById('profile');
+    profile.style.visibility = 'visible';
+&lt;&lt;/script&gt;&gt;
+&lt;&lt;audio ":playing" stop&gt;&gt;
+&lt;&lt;audio "bgm1" volume .15 loop play&gt;&gt;
+&lt;&lt;set $isday to true&gt;&gt;
+&lt;&lt;set $days to 1&gt;&gt;
+&lt;&lt;set $health to 12&gt;&gt;
+&lt;&lt;set $inventory to []&gt;&gt;
+&lt;&lt;set $childhelped to false&gt;&gt;
+&lt;&lt;set $totalatk to 1&gt;&gt;
+&lt;&lt;set $totaldex to 1&gt;&gt;
+&lt;&lt;set $totalint to 1&gt;&gt;
+&lt;&lt;set $totaldef to 1&gt;&gt;
+&lt;&lt;set $atk to 1&gt;&gt;
+&lt;&lt;set $dex to 1&gt;&gt;
+&lt;&lt;set $int to 1&gt;&gt;
+&lt;&lt;set $def to 1&gt;&gt;
+&lt;&lt;set $equipids["armor"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["cloak"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["sword"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["pickaxe"] to "none"&gt;&gt;
+&lt;&lt;set $equipids["artifact"] to "none"&gt;&gt;
+&lt;&lt;set $items["coin"].number to ($items["coin"].number * .5 &gt; 10 ? $items["coin"].number * .5 : 10)&gt;&gt;
+&lt;&lt;set $inventory.push("coin")&gt;&gt;
+&lt;&lt;set $inventory.push("cloak1")&gt;&gt;
+&lt;div class="room-start"&gt;
+    &lt;div class="room"&gt;
+        &lt;h1&gt; hell&lt;span class="vert"&gt;地獄&lt;/span&gt;quest &lt;/h1&gt;
+            &lt;p&gt;
+            Congratulations! 
+            Fortune smiles upon your wretched soul. 
+            Though your &lt;&lt;linkreplace "memories" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; &lt;span id="fadein1" style="display:none"&gt; memories — a glaring chasm in your head — &lt;/span&gt; are long gone, your conscious remains quite intact. &lt;/p&gt;
+            &lt;p&gt;
+            And for the low, low price of your unlife, we're glad to have you&lt;&lt;linkreplace " working." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;  
+            &lt;span id="fadein2" style="display:none"&gt; working. On the crook of a obsidian mountain, myriad miners toil.
+            As it stands, you'll soon be joining their fruitless labor of extracting and hauling whatever treasures the underworld holds. &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+            &lt;i&gt; But you don't want to spend an eternity here, do you?
+            I'd like to propose an &lt;/i&gt; &lt;&lt;linkreplace "exchange." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;span id="fadein3" style="display:none"&gt; &lt;i&gt; exchange. &lt;/i&gt; The contract, indelibly inked in demon's blood, reads simply. &lt;i&gt; "Bring me the       
+                &lt;&lt;cycle "$goal" autoselect&gt;&gt;
+                    &lt;&lt;option "grail"&gt;&gt;
+                    &lt;&lt;option "nail"&gt;&gt;
+                    &lt;&lt;option "lance"&gt;&gt;
+                    &lt;&lt;option "crown"&gt;&gt;
+                &lt;&lt;/cycle&gt;&gt; 
+            and you are free." &lt;/i&gt; 
+            &lt;p&gt; &lt;br&gt; 
+            [[Accept]] &lt;br&gt; 
+            [[Decline?|Decline]]
+            &lt;/p&gt;	
+            &lt;/span&gt;
+            &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class="small"&gt;[[about]] | [[credits]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Accept" tags="nobr" position="">&lt;&lt;audio "laugh" volume .5 play&gt;&gt;
+&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/devil.svg" width=170/&gt;
+	&lt;div&gt;
+        &lt;p&gt;
+        The devilish being cackles, a sound so terribly gleeful that it makes even your blood run colder. &lt;i&gt; You'll be needing &lt;/i&gt; &lt;&lt;linkreplace "this." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+        &lt;span id="fadein1" style="display:none"&gt; 
+            &lt;i&gt; this &lt;/i&gt; — a simple, rusted pickaxe that weeps beautifully when swung. 
+            &lt;br&gt; &lt;br&gt;
+            &lt;span id="choices"&gt; 
+            &lt;&lt;link "Take the pickaxe"&gt;&gt; 
+                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
+                &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+                &lt;&lt;replace "#choices"&gt;&gt; 
+                    &lt;&lt;timed 10ms t8n&gt;&gt; 
+                        You latch the tool to your belt. The act reminds you of a time long past, when something much heavier took its stead. 
+                        &lt;br&gt; &lt;br&gt; 
+                        &lt;&lt;linkreplace "Express your gratitude" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+                        &lt;span id="fadein2" style="display:none"&gt;
+                            &lt;img src="./images/creepy-grin.svg" /&gt;
+                            Immediately, you are met with a simple smile, and then — as quickly as it appeared — the demon fades into the vermillion cliffside. 
+                            It leaves you to the constant howling and ephemeral groans of the world around you. 
+                            &lt;br&gt; &lt;br&gt;
+                            [[Explore the area|ExploreBeginning]]  
+                            &lt;br&gt;
+                            [[Head to miners' camp|ExploreCamp]]
+                        &lt;/span&gt; 
+                    &lt;&lt;/timed&gt;&gt; 
+                &lt;&lt;/replace&gt;&gt; 
+            &lt;&lt;/link&gt;&gt; &lt;br&gt;
+            &lt;&lt;link "Ask for more"&gt;&gt; 
+                &lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
+                &lt;&lt;set $inventory.push("sword1")&gt;&gt;  
+                &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+                &lt;&lt;replace "#choices"&gt;&gt; &lt;&lt;timed 10ms t8n&gt;&gt; 
+                &lt;i&gt; Greedy, are we&lt;/i&gt;? The demon sneers and presents you with a polished bloodletter that displays not an inkling of tarnish. 
+                Its viridescent blade seems to hunger for your very unlife and you contemplate feeding it in your weakened state. Wisely, you do otherwise and stow it &lt;&lt;linkreplace "away." t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+                &lt;span id="fadein3" style="display:none"&gt;
+                away.
+                &lt;img class="invert" src="./images/sword.svg" width=500/&gt;
+                &lt;i&gt; I do hope you put it to good use. &lt;/i&gt; The demon slinks away and you begin your trek — hounded by half formed memories of your previous life.
+                &lt;br&gt; &lt;br&gt;
+                [[Explore the area|ExploreBeginning]]
+                &lt;br&gt;
+                [[Head to miners' camp|ExploreCamp]]
+                &lt;/span&gt;
+                &lt;&lt;/timed&gt;&gt; &lt;&lt;/replace&gt;&gt; 
+            &lt;&lt;/link&gt;&gt; 
+            &lt;/span&gt;
+        &lt;/span&gt;
+        &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Decline" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;img class="invert" src="./images/skull.svg" /&gt;
+	&lt;div&gt;
+        &lt;p&gt;
+        The response is greeted by a look of what you think is sadness. Your benefactor takes to a stone tablet and scrawls out a rough drawing. The glyph shimmers with otherworldly energy, and when you stare into it
+        a brief hypnosis is induced. 
+        &lt;/p&gt;
+        &lt;p&gt;
+        &lt;&lt;linkreplace "Resist" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt; 
+            &lt;&lt;set $int to $int + 1&gt;&gt;
+            &lt;&lt;set $items["magic1"].number to $items["magic1"].number + 1&gt;&gt;
+            &lt;&lt;set $inventory.push("magic1")&gt;&gt;
+            &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+            &lt;span id="fadein1" style="display:none"&gt;
+            &lt;img class="invert" src="./images/eyes.png" /&gt;
+            Such a power is familiar, having perhaps employed it yourself. Your eyes burn with faint, scarlet embers that dispell the suggestion charm immediately. Still, the demon's diligence is interesting. Perhaps you should play along, for now.
+            &lt;br&gt;
+            &lt;/span&gt;
+            &lt;br&gt;
+		[[Acquiesce|Accept]]
         &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="ExploreBeginning" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
@@ -848,7 +1176,8 @@ div .room::-webkit-scrollbar-track {
             To your west is a forest of bristlecone pine, mired in a shadowy haze. You think it dangerous to enter without a powerful weapon, but you're always up for a challenge. 
             Finally, your 12 and 6 extend into a vast emptiness that threatens to drive what little sanity you have into the ground.
             &lt;br&gt;&lt;br&gt;
-            [[Head to camp|Camp2]] &lt;br&gt;
+            &lt;&lt;set $isday to false&gt;&gt;
+            [[Head to camp|Camp]] &lt;br&gt;
             [[Venture into the forest|Forest]] &lt;br&gt;
             [[Head north|Empty]] &lt;br&gt;
             [[Head south|Empty]]
@@ -872,12 +1201,12 @@ div .room::-webkit-scrollbar-track {
 	    — but the thing doesn't have ears. It zeroes in on your movement and saunters towards you, hissing all the while.
         &lt;br&gt;&lt;br&gt;
         [[Fight back|FightMonster]] &lt;br&gt;
-        [[Retreat to camp|Camp2]]   
+        [[Retreat to camp|Camp]]   
     &lt;&lt;elseif $crawl is "loudly"&gt;&gt;
         — and you slip behind a tree before its gaze meets you.
         &lt;br&gt;&lt;br&gt;
         [[Attack it|FightMonster]] &lt;br&gt;
-        [[Retreat to camp|Camp2]]        
+        [[Retreat to camp|Camp]]        
     &lt;&lt;elseif $crawl is "very silently"&gt;&gt;
         — The demon seems amused for just a second before it bites your head off.
         &lt;br&gt;&lt;br&gt;
@@ -887,16 +1216,18 @@ div .room::-webkit-scrollbar-track {
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="FightMonster" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt;
-    &lt;&lt;if $inventory.includes("sword1") || $inventory.includes("sword2") || $inventory.includes("sword3")&gt;&gt;
+    &lt;&lt;if $totalatk &gt; 1&gt;&gt;
     &lt;&lt;set $items["magic2"].number to $items["magic2"].number + 1&gt;&gt;
     &lt;&lt;set $inventory.push("magic2")&gt;&gt;
-    &lt;&lt;set $health to $health - 2&gt;&gt;
+    &lt;&lt;set $health to $health - (3 - $totaldef &gt; 0 ? 3 - $totaldef &gt; 0 : 1)&gt;&gt;
+    &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+    &lt;&lt;replace "#profile"&gt;&gt;&lt;&lt;include "Profile"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;img class="invert" src="./images/energy.png" /&gt;
     The demon's gift sings as you swing at the ocular monstrosity before you. Every blow against its phantom body causes it to shriek in what must be pain. Like ripples on calm water
     your strikes break at the dark reflections of many eyes — until your fervent blade has turned your arms weak and hollow.
     Eventually, only shredded shadows lie on the forest's ground. Fashioning them into a fabric-like miasma, you pocket the remains.
     &lt;br&gt;&lt;br&gt;
-    [[Head to camp|Camp2]]
+    [[Head to camp|Camp]]
     &lt;&lt;else&gt;&gt;
     &lt;&lt;if random(1, 2) == 1&gt;&gt;
     &lt;img class="invert" src="./images/reaper1.svg" /&gt;
@@ -905,7 +1236,9 @@ div .room::-webkit-scrollbar-track {
     &lt;&lt;/if&gt;&gt;
     You swing your pickaxe to no avail. The demon seems amused for just a second before it bites your head off.
     &lt;br&gt;&lt;br&gt;
+    &lt;&lt;set $health to 0&gt;&gt;
     &lt;&lt;link "Try again"&gt;&gt;
+    &lt;&lt;replace "#profile"&gt;&gt;&lt;&lt;include "Profile"&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;&lt;script&gt;&gt;
         state.restart();
     &lt;&lt;/script&gt;&gt;
@@ -925,48 +1258,145 @@ div .room::-webkit-scrollbar-track {
     [[Try again|Beginning2]]
     &lt;/span&gt; &lt;/span&gt; &lt;/span&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Camp1" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="ExploreCamp" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
 &lt;&lt;audio "bgm4" volume .05 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/village.svg" /&gt;
-    &lt;p&gt;
-    The atmosphere exuded by the camp is surprisingly jolly, all things considered. Though the miners present seem weary and just a bit disillusioned, 
-    there is an ostensible air of &lt;&lt;linkreplace "peace." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein1" style="display:none"&gt; 
-    peace.  As much peace as one can have here, anyways.
-    &lt;br&gt;&lt;br&gt;
-    &lt;/span&gt;
-    In the end, you can't help but smile at the sound of laughter and the effervescent scent of &lt;&lt;linkreplace "morning market being." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein2" style="display:none"&gt; 
-    morning market being. As the aroma of freshly cooked bread stretches its legs, children sprint across crowded streets. It's a hassle to make your way across, but you do so anyways — guided by cobblestone and merriment.
-    &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-    [[Head out|Headout]] &lt;br&gt;
-    &lt;&lt;if $inn_entered != true&gt;&gt;
-    [[Enter the inn|InnDay]] &lt;br&gt;
+    &lt;&lt;if $health &gt; 5&gt;&gt;
+        &lt;p&gt;
+        The atmosphere exuded by the camp is surprisingly jolly, all things considered. Though the miners present seem weary and just a bit disillusioned, 
+        there is an ostensible air of &lt;&lt;linkreplace "peace." t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+        &lt;span id="fadein1" style="display:none"&gt; 
+        peace.  As much peace as one can have here, anyways.
+        &lt;br&gt;&lt;br&gt;
+        &lt;/span&gt;
+        In the end, you can't help but smile at the sound of laughter and the effervescent scent of &lt;&lt;linkreplace "morning market being." t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+        &lt;span id="fadein2" style="display:none"&gt; 
+        morning market being. As the aroma of freshly cooked bread stretches its legs, children sprint across crowded streets. It's a hassle to make your way across, but you do so anyways — guided by cobblestone and merriment.
+        &lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Head out|Headout]] &lt;br&gt;
+        &lt;&lt;if $inn_entered != true&gt;&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $shop_entered != true&gt;&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;&lt;/if&gt;&gt;
+        &lt;/p&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;p&gt;
+        Your injuries do not allow you to travel far. A day of rest may be in order.
+        &lt;/p&gt;
+        &lt;p&gt;
+        &lt;&lt;if $inn_entered != true&gt;&gt;
+        [[Enter the inn|Inn][$isdays to false]] &lt;br&gt;
+        &lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $shop_entered != true&gt;&gt;
+        [[Head to the shop|Shop][$isdays to false]] &lt;br&gt;
+        &lt;&lt;/if&gt;&gt;
+        &lt;/p&gt;
     &lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $shop_entered != true&gt;&gt;
-    [[Head to the shop|ShopDay]] &lt;br&gt;
-    &lt;&lt;/if&gt;&gt;
-    &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Camp2" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Camp" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
 &lt;&lt;audio "bgm4" volume .03 loop play&gt;&gt;
 &lt;div class="room"&gt;
+    &lt;&lt;if $days &lt; 5&gt;&gt;
     &lt;p&gt;
     &lt;img class="invert" src="./images/sunset.svg" /&gt;
     By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
     to keep to the relative safety of the indoors. 
     &lt;/p&gt;
     &lt;p&gt;
-    [[Enter the inn|InnNight]] &lt;br&gt;
-    [[Head to the shop|ShopNight]] &lt;br&gt;
+    [[Enter the inn|Inn]] &lt;br&gt;
+    [[Head to the shop|Shop]] &lt;br&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Camp3" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
+    &lt;&lt;elseif $days &lt; 10&gt;&gt;
+        &lt;&lt;switch random(1, 4)&gt;&gt;
+        &lt;&lt;case 1&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        The sun has yet to set, and the returning miners are in good spirits. Under a drunken haze they propose another trip.
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Join|Headout]] &lt;br&gt;
+        [[Retire for today|Inn]] &lt;br&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;case 2&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
+        to keep to the relative safety of the indoors. 
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;case 3&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        You learn that a group of bandits has attacked when you return. Holmwood's wares are gone, and you will have to wait for a new stock of items.
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;default&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
+        to keep to the relative safety of the indoors. 
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;/switch&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;switch random(1, 5)&gt;&gt;
+        &lt;&lt;case 1&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        As you arrive, you see a group of bandits escaping with a wagon of supplies. After a brief struggle manage to reclaim the stolen goods, but opt to investigate where stragglers have escaped to.
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Chase|Adventure]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;case 2&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        The sun has yet to set, and the returning miners are in good spirits. Under a drunken haze they propose another trip.
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Join|Headout]] &lt;br&gt;
+        [[Retire for today|Inn]] &lt;br&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;case 3&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        You are quite tired from the day's activities. It's a good time for rest.
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;default&gt;&gt;
+        &lt;p&gt;
+        &lt;img class="invert" src="./images/sunset.svg" /&gt;
+        By the time you arrive, the black stars above have long started their daily retreat into the molten seas. Perhaps you will be able to explore a bit more of the camp tomorrow. For now, it'll be better 
+        to keep to the relative safety of the indoors. 
+        &lt;/p&gt;
+        &lt;p&gt;
+        [[Enter the inn|Inn]] &lt;br&gt;
+        [[Head to the shop|Shop]] &lt;br&gt;
+        &lt;/p&gt;
+        &lt;&lt;/switch&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Wake" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
 &lt;&lt;audio "bgm4" volume .05 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;&lt;set $inn_entered to false&gt;&gt;
     &lt;&lt;set $shop_entered to false&gt;&gt;
+    &lt;&lt;set $isday to true&gt;&gt;
     &lt;&lt;if $health &gt; 12&gt;&gt;
     &lt;&lt;set $health to 12&gt;&gt;
     &lt;&lt;/if&gt;&gt;
@@ -977,68 +1407,80 @@ div .room::-webkit-scrollbar-track {
     You wake up refreshed and ready for what the new day holds.
     &lt;br&gt;&lt;br&gt;
     [[Head out|Headout]] &lt;br&gt;
-    [[Explore camp|Camp1]] &lt;br&gt;
-    [[Head to the shop|ShopDay]]
+    [[Explore camp|ExploreCamp]] &lt;br&gt;
     &lt;&lt;elseif $health &gt; 7&gt;&gt;
     A slight ache still pervades through your body, but it's nothing to worry about.
     &lt;br&gt;&lt;br&gt;
     [[Head out|Headout]] &lt;br&gt;
-    [[Explore camp|Camp1]] &lt;br&gt;
-    [[Head to the shop|ShopDay]]
+    [[Explore camp|ExploreCamp]] &lt;br&gt;
     &lt;&lt;elseif $health &gt; 4&gt;&gt;
     Your muscles spent the night knitting themselves back together. They are not done yet.
     &lt;br&gt;&lt;br&gt;
-    [[Explore camp|Camp1]] &lt;br&gt;
-    [[Head to the shop|ShopDay]]
+    [[Explore camp|ExploreCamp]] &lt;br&gt;
     &lt;&lt;else&gt;&gt;
     Your first few attempts to raise yourself are met with sharp jolts of pain. Perhaps you should stay inside for the day.
     &lt;br&gt;&lt;br&gt;
-    [[Head to the shop|ShopDay]]
+    [[Head to the shop|Shop]]
+    [[Explore the inn|Inn]]
     &lt;&lt;/if&gt;&gt;  
-    &lt;br&gt;
-    [[Explore the inn|InnDay]]
     &lt;/p&gt;  
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="InnDay" tags="nobr" position="">&lt;&lt;set $inn_entered to true&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Inn" tags="nobr" position="">&lt;&lt;set $inn_entered to true&gt;&gt;
 &lt;div class="room"&gt;
-    &lt;img class="invert" src="./images/innkeep.svg" width=200/&gt;
-    &lt;p&gt;
-    You enter the common room with no notable intent. The inkeep, a boisterous old man, sends his greetings from across the room. &lt;&lt;linkreplace "Good morni—" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein1" style="display:none"&gt; 
-    &lt;&lt;if $days &lt; 2 &amp;&amp; $childhelped == false&gt;&gt;
-        &lt;img class="invert" src="./images/girl.svg" /&gt;
-        Before you can respond, a lone child runs up to you and asks for any money you may have to spare. She is clothed in fancy attire, yet seems emaciated all the same.
-        &lt;br&gt;&lt;br&gt;
-        &lt;&lt;if $items["coin"].number &gt; 0&gt;&gt;
-        [[Give her a coin|HelpChild]] &lt;br&gt;
-        &lt;&lt;/if&gt;&gt;
-        [[Ignore the child|Camp1]]
-    &lt;&lt;else&gt;&gt;
-        &lt;img class="invert" src="./images/woman2.svg" /&gt;
-        A woman approaches you with caution before you can complete your response. She explains that she is a mage from a neighboring village that is collecting certain magics for examination.
-        Though it may be a lie, the gist is that she can offer insight on relevant materials, if they are in your possession.
-        &lt;span&gt;
-        &lt;br&gt;&lt;br&gt;
-        &lt;&lt;if $items["magic1"].number &gt; 0&gt;&gt;
-        &lt;&lt;linkreplace "Offer her the remnants of the demon's charm" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-            &lt;span id="fadein2" style="display:none"&gt;
-            The moment the faint energy touches her hand her eyes light up. &lt;i&gt; This is residual mana from an extremely potent suggestion charm! The caster and target
-            of the spell must have both been quite powerful. &lt;/i&gt; 
-            &lt;br&gt;
+    &lt;&lt;if $isday == true&gt;&gt;
+        &lt;img class="invert" src="./images/innkeep.svg" width=200/&gt;
+        &lt;p&gt;
+        You enter the common room with no notable intent. The inkeep, a boisterous old man, sends his greetings from across the room. &lt;&lt;linkreplace "Good morni—" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+        &lt;span id="fadein1" style="display:none"&gt; 
+        &lt;&lt;if $days &lt; 3 &amp;&amp; $childhelped == false&gt;&gt;
+            &lt;img class="invert" src="./images/girl.svg" /&gt;
+            Before you can respond, a lone child runs up to you and asks for any money you may have to spare. She is clothed in fancy attire, yet seems emaciated all the same.
+            &lt;br&gt;&lt;br&gt;
+            &lt;&lt;if $items["coin"].number &gt; 0&gt;&gt;
+            [[Give her a coin|HelpChild]] &lt;br&gt;
+            &lt;&lt;/if&gt;&gt;
+            [[Ignore the child|ExploreCamp]]
+        &lt;&lt;else&gt;&gt;
+            &lt;img class="invert" src="./images/woman2.svg" /&gt;
+            A woman approaches you with caution before you can complete your response. She explains that she is a mage from a neighboring village that is collecting certain magics for examination.
+            Though it may be a lie, the gist is that she can offer insight on relevant materials, if they are in your possession.
+            &lt;span&gt;
+            &lt;br&gt;&lt;br&gt;
+            &lt;&lt;if $items["magic1"].number &gt; 0&gt;&gt;
+            &lt;&lt;linkreplace "Offer her the remnants of the demon's charm" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+                &lt;span id="fadein2" style="display:none"&gt;
+                The moment the faint energy touches her hand her eyes light up. &lt;i&gt; This is residual mana from an extremely potent suggestion charm! The caster and target
+                of the spell must have both been quite powerful. &lt;/i&gt; 
+                &lt;br&gt;
+                &lt;/span&gt;
+                &lt;br&gt;
+            &lt;&lt;/if&gt;&gt;        
+            &lt;&lt;if $items["magic2"].number &gt; 0&gt;&gt;
+            &lt;&lt;linkreplace "Offer her the shadowy fabric left by the eye demon" t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
+                &lt;span id="fadein3" style="display:none"&gt;
+                The subcutaneous material shifts and pulses like it's still alive. She doesn't even dare touch it. In a hurried whisper she says that this is out of her scope. 
+                &lt;/span&gt;
+            &lt;&lt;/if&gt;&gt;
             &lt;/span&gt;
-            &lt;br&gt;
-        &lt;&lt;/if&gt;&gt;        
-        &lt;&lt;if $items["magic2"].number &gt; 0&gt;&gt;
-        &lt;&lt;linkreplace "Offer her the shadowy fabric left by the eye demon" t8n&gt;&gt; &lt;script&gt;$("#fadein3").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-            &lt;span id="fadein3" style="display:none"&gt;
-            The subcutaneous material shifts and pulses like it's still alive. She doesn't even dare touch it. In a hurried whisper she says that this is out of her scope. 
-            &lt;/span&gt;
+            &lt;br&gt;&lt;br&gt;
+            [[Leave|ExploreCamp]]
         &lt;&lt;/if&gt;&gt;
         &lt;/span&gt;
-        &lt;br&gt;&lt;br&gt;
-        [[Leave|Camp1]]
+        &lt;/p&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;img class="invert" src="./images/bed.svg" /&gt;
+        &lt;p&gt;
+        &lt;&lt;if $health &gt; 10&gt;&gt;
+        You are in good health. Time to hit the hay.
+        &lt;&lt;elseif $health &gt; 9&gt;&gt;
+        You are slightly injured. A good night's sleep will help you heal.
+        &lt;&lt;elseif $health &gt; 6&gt;&gt;
+        Everything aches. Sleep is an opiate welcome.
+        &lt;&lt;else&gt;&gt;
+        You are pretty terribly injured. The pain makes it difficult to find comfort in your bed.
+        &lt;&lt;/if&gt;&gt;
+        &lt;/p&gt;
+        [[Go to sleep|Wake][$days to $days + 1, $health to $health + 1]]
     &lt;&lt;/if&gt;&gt;
-    &lt;/span&gt;
-    &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="HelpChild" tags="nobr" position="">&lt;&lt;set $items["coin"].number to $items["coin"].number - 1&gt;&gt;
 &lt;&lt;set $childhelped to true&gt;&gt;
 &lt;div class="room"&gt;
@@ -1050,27 +1492,15 @@ div .room::-webkit-scrollbar-track {
     &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
-    [[Back to camp|Camp1]]
+    [[Back to camp|ExploreCamp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="InnNight" tags="nobr" position="">&lt;div class="room"&gt;
-    &lt;img class="invert" src="./images/bed.svg" /&gt;
-    &lt;p&gt;
-    &lt;&lt;if $health &gt; 9&gt;&gt;
-    You are in good health. Time to hit the hay.
-    &lt;&lt;elseif $health &gt; 6&gt;&gt;
-    You are slightly injured. A good night's sleep will help you heal.
-    &lt;&lt;elseif $health &gt; 3&gt;&gt;
-    Everything aches. Sleep is an opiate welcome.
-    &lt;&lt;else&gt;&gt;
-    You are pretty terribly injured. The pain makes it difficult to find comfort in your bed.
-    &lt;&lt;/if&gt;&gt;
-    &lt;/p&gt;
-    [[Go to sleep|Camp3][$days to $days + 1, $health to $health + 1]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="ShopDay" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Shop" tags="nobr" position="">&lt;&lt;set $stier0 to ["pickaxe2", "pickaxe3", "sword3", "sword4", "armor2", "armorf", "cloak2", "cloak3", "artifact0"]&gt;&gt;
+&lt;&lt;set $stier1 to ["pickaxe4", "sword5", "sword6", "armor3", "armor4", "cloak4", "cloak5"].concat($stier0)&gt;&gt;
+&lt;div class="room"&gt;
     &lt;&lt;set $shop_entered to true&gt;&gt;
     &lt;img class="invert" src="./images/merchant.svg" /&gt;
     &lt;p&gt;
-    &lt;&lt;if $days &lt; 3&gt;&gt;
+    &lt;&lt;if $days &lt; 2&gt;&gt;
     Merchant Holmwood is a busy man who seems overly stern. &lt;&lt;linkreplace "Curios," t8n&gt;&gt; &lt;script&gt;$("#fadein0").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
     &lt;span id="fadein0" style="display:none"&gt; 
     Strange masks that you swear shuffle about and impressively coiled beastskins,
@@ -1084,397 +1514,156 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     &lt;&lt;linkreplace "Browse items" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
     &lt;span id="fadein2" style="display:none"&gt;
-    &lt;&lt;link "Iron Broadsword - 5 aspri"&gt;&gt;
-    &lt;&lt;if $items["coin"].number &gt;= 1&gt;&gt;
-        &lt;&lt;set $items["coin"].number to $items["coin"].number - 1&gt;&gt;
+    &lt;&lt;link "Iron Broadsword - 2 aspri"&gt;&gt;
+    &lt;&lt;if $items["coin"].number &gt;= 2&gt;&gt;
+        &lt;&lt;set $items["coin"].number to $items["coin"].number - 2&gt;&gt;
         &lt;&lt;set $inventory.push("sword2")&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the iron broadsword and now have $items["coin"].number aspri left.
+            &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+            You bought the Iron Broadsword and now have $items["coin"].number aspri left.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
         &lt;&lt;else&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
+            You don't have enough to buy that.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;/link&gt;&gt;
         &lt;br&gt;
-    &lt;&lt;link "Iron Pickaxe - 5 aspri"&gt;&gt;
+    &lt;&lt;link "Iron Pickaxe - 2 aspri"&gt;&gt;
     &lt;&lt;if $items["coin"].number &gt;= 2&gt;&gt;
         &lt;&lt;set $items["coin"].number to $items["coin"].number - 2&gt;&gt;
         &lt;&lt;set $inventory.delete("pickaxe1")&gt;&gt;
+        &lt;&lt;set $equipids["pickaxe"] to "none"&gt;&gt;
+        &lt;&lt;replace "#profile"&gt;&gt;&lt;&lt;include "Profile"&gt;&gt;&lt;&lt;/replace&gt;&gt;
         &lt;&lt;set $inventory.push("pickaxe2")&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the iron pickaxe and now have $items["coin"].number aspri left.
+            &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+            You bought the Iron Pickaxe and now have $items["coin"].number aspri left.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
         &lt;&lt;else&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
+            You don't have enough to buy that.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;/link&gt;&gt;   
         &lt;br&gt; 
-    &lt;&lt;link "Wooden Armor - 2 aspri"&gt;&gt;
+    &lt;&lt;link "Wooden Armor - 1 aspri"&gt;&gt;
         &lt;&lt;if $items["coin"].number &gt;= 1&gt;&gt;
         &lt;&lt;set $items["coin"].number to $items["coin"].number - 1&gt;&gt;
         &lt;&lt;set $inventory.push("armor0")&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the wooden armor and now have $items["coin"].number aspri left.
+            &lt;&lt;replace "#inventory"&gt;&gt;&lt;&lt;include "Inventory"&gt;&gt;&lt;&lt;/replace&gt;&gt;
+            You bought the Wooden Armor and now have $items["coin"].number aspri left.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
         &lt;&lt;else&gt;&gt;
         &lt;&lt;replace "#fadein2"&gt;&gt; 
             &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
+            You don't have enough to buy that.
             &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;&lt;/link&gt;&gt;
     &lt;/span&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave|Camp1]]
+    &lt;&lt;if $isday == false&gt;&gt;
+    [[Leave|Inn]]
+    &lt;&lt;else&gt;&gt;
+    [[Leave|ExploreCamp]]
+    &lt;&lt;/if&gt;&gt;
     &lt;/span&gt;
     &lt;&lt;else&gt;&gt;
-    Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
-        &lt;br&gt;&lt;br&gt;
+    Holmwood is glad to see you've returned. New wares have arrived, and he may be willing to purchase some items from you.
+        &lt;br&gt;
         &lt;span id="shop"&gt;
-        &lt;&lt;link "Silver Broadsword - 10 aspri"&gt;&gt;
-        &lt;&lt;if $items["coin"].number &gt;= 10&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 10&gt;&gt;
-            &lt;&lt;set $inventory.push("sword3")&gt;&gt;
-            &lt;&lt;replace "#fadein2"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the silver broadsword and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;
             &lt;br&gt;
-        &lt;&lt;link "Silver Pickaxe - 20 aspri"&gt;&gt;
-        &lt;&lt;if $items["coin"].number &gt;= 20&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 20&gt;&gt;
-            &lt;&lt;set $inventory.delete("pickaxe2")&gt;&gt;
-            &lt;&lt;set $inventory.push("pickaxe3")&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the silver pickaxe and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
+            &lt;&lt;if $items["coin"].number &lt; 100&gt;&gt;
+            &lt;&lt;set $buyables to $stier0.randomMany(3)&gt;&gt;
             &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;   
-            &lt;br&gt; 
-        &lt;&lt;link "Iron Armor - 10 aspri"&gt;&gt;
-            &lt;&lt;if $items["coin"].number &gt;= 10&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 10&gt;&gt;
-            &lt;&lt;set $inventory.push("armor1")&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the iron armor and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;
+            &lt;&lt;set $buyables to $stier1.randomMany(4)&gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+            &lt;&lt;for _j = 0; _j &lt; $buyables.length; _j++&gt;&gt;                                
+                &lt;&lt;print "&lt;&lt;click \"Buy\"&gt;&gt;&lt;&lt;if $items[\"coin\"].number &gt;= $items[$buyables[" + _j + "]].worth * 2&gt;&gt;&lt;&lt;set $items[\"coin\"].number to $items[\"coin\"].number - $items[$buyables[" + _j + "]].worth * 2&gt;&gt;&lt;&lt;set $inventory.push($buyables[" + _j + "])&gt;&gt;&lt;&lt;replace \"#inventory\"&gt;&gt;&lt;&lt;include \"Inventory\"&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;&lt;print \" \" + $items[$buyables[" + _j + "]].name + \" - \" + $items[$buyables[" + _j + "]].worth * 2 + \" aspri\"&gt;&gt;&lt;br&gt;&lt;p class=\"shop-desc\"&gt;&lt;&lt;print $items[$buyables[" + _j + "]].desc&gt;&gt;&lt;/p&gt;"&gt;&gt;   
+            &lt;&lt;/for&gt;&gt;  
         &lt;/span&gt;
         &lt;&lt;if $inventory.length &gt; 4&gt;&gt;
-        &lt;br&gt;
         &lt;span&gt;
-        &lt;&lt;set $sellables to $inventory.randomMany(4)&gt;&gt;       
-            &lt;br&gt;
-            &lt;&lt;set $item0 to $items[$sellables[0]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item0.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item0.number)&gt;&gt;
-                    &lt;&lt;set $item0.number to $item0.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item0.number) || $item0.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[0])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item0.name + " for " + $item0.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item1 to $items[$sellables[1]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item1.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item1.number)&gt;&gt;
-                    &lt;&lt;set $item1.number to $item1.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item1.number) || $item1.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[1])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item1.name + " for " + $item1.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item2 to $items[$sellables[2]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item2.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item2.number)&gt;&gt;
-                    &lt;&lt;set $item2.number to $item2.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item2.number) || $item2.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[2])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item2.name + " for " + $item2.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item3 to $items[$sellables[3]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item3.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item3.number)&gt;&gt;
-                    &lt;&lt;set $item3.number to $item3.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item3.number) || $item3.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[3])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item3.name + " for " + $item3.worth + " aspri? "&gt;&gt;        
+            &lt;&lt;set $sellables to $inventory.randomMany($inventory.length/2)&gt;&gt;  
+            &lt;&lt;for _i = 0; _i &lt; $sellables.length; _i++&gt;&gt;
+                &lt;br&gt;                  
+                &lt;&lt;print "&lt;&lt;click \"Sell\"&gt;&gt;&lt;&lt;if $inventory.includes($sellables[" + _i + "])&gt;&gt;&lt;&lt;set $items[\"coin\"].number to $items[\"coin\"].number + $items[$sellables[" + _i + "]].worth&gt;&gt;&lt;&lt;if !isNaN($items[$sellables[" + _i + "]].number)&gt;&gt;&lt;&lt;set $items[$sellables[" + _i + "]].number to $items[$sellables[" + _i + "]].number - 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if isNaN($items[$sellables[" + _i + "]].number) || $items[$sellables[" + _i + "]].number &lt;= 0&gt;&gt;&lt;&lt;set $inventory.delete($sellables[" + _i + "])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $equipids[$sellables[" + _i + "].slice(0, -1)] == $sellables[" + _i + "]&gt;&gt; &lt;&lt;set $equipids[$sellables[" + _i + "].slice(0, -1)] to \"none\"&gt;&gt; &lt;&lt;/if&gt;&gt;&lt;&lt;replace \"#inventory\"&gt;&gt;&lt;&lt;include \"Inventory\"&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace \"#profile\"&gt;&gt;&lt;&lt;include \"Profile\"&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;&lt;print \" \" + $items[$sellables[" + _i + "]].name + \" for \" + $items[$sellables[" + _i + "]].worth + \" aspri? \"&gt;&gt;"&gt;&gt;                
+            &lt;&lt;/for&gt;&gt;  
         &lt;/span&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Leave|Camp1]]
-    &lt;&lt;/if&gt;&gt;
-    &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ShopNight" tags="nobr" position="">&lt;div class="room"&gt;
-    &lt;img class="invert" src="./images/merchant.svg" /&gt;
-    &lt;p&gt;
-    &lt;&lt;if $days &lt; 3&gt;&gt;
-    Merchant Holmwood is a busy man who seems overly stern. &lt;&lt;linkreplace "Curios," t8n&gt;&gt; &lt;script&gt;$("#fadein0").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein0" style="display:none"&gt; 
-    Strange masks that you swear shuffle about and impressively coiled beastskins,
-    &lt;/span&gt;
-    among mundane things, among more curios, line the shelves.
-    &lt;br&gt;&lt;br&gt;
-    &lt;&lt;linkreplace "Strike up conversation" t8n&gt;&gt; &lt;script&gt;$("#fadein1").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein1" style="display:none"&gt;
-    &lt;i&gt; New faces. New faces. &lt;/i&gt; He shakes his head as if your presence is so unremarkable that it disappoints. It triggers a foreign feeling that invades your stomach. Holmwood shows you 
-    to his stores and comments that new wares will arrive in a few days.
-    &lt;br&gt;&lt;br&gt;
-    &lt;&lt;linkreplace "Browse items" t8n&gt;&gt; &lt;script&gt;$("#fadein2").fadeIn();&lt;/script&gt; &lt;&lt;/linkreplace&gt;&gt;
-    &lt;span id="fadein2" style="display:none"&gt;
-    &lt;&lt;link "Iron Broadsword - 5 aspri"&gt;&gt;
-    &lt;&lt;if $items["coin"].number &gt;= 5&gt;&gt;
-        &lt;&lt;set $items["coin"].number to $items["coin"].number - 5&gt;&gt;
-        &lt;&lt;set $inventory.push("sword2")&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the iron broadsword and now have $items["coin"].number aspri left.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/link&gt;&gt;
-        &lt;br&gt;
-    &lt;&lt;link "Iron Pickaxe - 5 aspri"&gt;&gt;
-    &lt;&lt;if $items["coin"].number &gt;= 5&gt;&gt;
-        &lt;&lt;set $items["coin"].number to $items["coin"].number - 5&gt;&gt;
-        &lt;&lt;set $inventory.delete("pickaxe1")&gt;&gt;
-        &lt;&lt;set $inventory.push("pickaxe2")&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the iron pickaxe and now have $items["coin"].number aspri left.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/link&gt;&gt;   
-        &lt;br&gt; 
-    &lt;&lt;link "Wooden Armor - 2 aspri"&gt;&gt;
-        &lt;&lt;if $items["coin"].number &gt;= 2&gt;&gt;
-        &lt;&lt;set $items["coin"].number to $items["coin"].number - 2&gt;&gt;
-        &lt;&lt;set $inventory.push("armor0")&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You bought the wooden armor and now have $items["coin"].number aspri left.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;else&gt;&gt;
-        &lt;&lt;replace "#fadein2"&gt;&gt; 
-            &lt;&lt;timed 10ms t8n&gt;&gt; 
-            You don't have enough to buy that. Better luck tomorrow.
-            &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/link&gt;&gt;
-    &lt;/span&gt;
-    &lt;br&gt;&lt;br&gt;
-    [[Leave for inn|InnNight]]
-    &lt;/span&gt;
+    &lt;&lt;if $isday == false&gt;&gt;
+    [[Leave|Inn]]
     &lt;&lt;else&gt;&gt;
-    Holmwood is glad to see you've returned. New wares have arrived, and he is willing to purchase some items from you.
-        &lt;br&gt;&lt;br&gt;
-        &lt;span id="shop"&gt;
-        &lt;&lt;link "Silver Broadsword - 10 aspri"&gt;&gt;
-        &lt;&lt;if $items["coin"].number &gt;= 10&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 10&gt;&gt;
-            &lt;&lt;set $inventory.push("sword3")&gt;&gt;
-            &lt;&lt;replace "#fadein2"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the silver broadsword and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;
-            &lt;br&gt;
-        &lt;&lt;link "Silver Pickaxe - 20 aspri"&gt;&gt;
-        &lt;&lt;if $items["coin"].number &gt;= 20&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 20&gt;&gt;
-            &lt;&lt;set $inventory.delete("pickaxe2")&gt;&gt;
-            &lt;&lt;set $inventory.push("pickaxe3")&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the silver pickaxe and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;   
-            &lt;br&gt; 
-        &lt;&lt;link "Iron Armor - 10 aspri"&gt;&gt;
-            &lt;&lt;if $items["coin"].number &gt;= 10&gt;&gt;
-            &lt;&lt;set $items["coin"].number to $items["coin"].number - 10&gt;&gt;
-            &lt;&lt;set $inventory.push("armor1")&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You bought the iron armor and now have $items["coin"].number aspri left.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-            &lt;&lt;else&gt;&gt;
-            &lt;&lt;replace "#shop"&gt;&gt; 
-                &lt;&lt;timed 10ms t8n&gt;&gt; 
-                You don't have enough to buy that. Better luck tomorrow.
-                &lt;&lt;/timed&gt;&gt;
-            &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;/if&gt;&gt;
-        &lt;&lt;/link&gt;&gt;
-        &lt;/span&gt;
-        &lt;&lt;if $inventory.length &gt; 4&gt;&gt;
-        &lt;br&gt;
-        &lt;span&gt;
-        &lt;&lt;set $sellables to $inventory.randomMany(4)&gt;&gt;       
-            &lt;br&gt;
-            &lt;&lt;set $item0 to $items[$sellables[0]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item0.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item0.number)&gt;&gt;
-                    &lt;&lt;set $item0.number to $item0.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item0.number) || $item0.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[0])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item0.name + " for " + $item0.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item1 to $items[$sellables[1]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item1.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item1.number)&gt;&gt;
-                    &lt;&lt;set $item1.number to $item1.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item1.number) || $item1.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[1])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item1.name + " for " + $item1.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item2 to $items[$sellables[2]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item2.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item2.number)&gt;&gt;
-                    &lt;&lt;set $item2.number to $item2.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item2.number) || $item2.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[2])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item2.name + " for " + $item2.worth + " aspri? "&gt;&gt;
-            &lt;br&gt;
-            &lt;&lt;set $item3 to $items[$sellables[3]]&gt;&gt;
-            &lt;&lt;link "Sell"&gt;&gt;
-                &lt;&lt;set $items["coin"].number to $items["coin"].number + $item3.worth&gt;&gt;
-                &lt;&lt;if !isNaN($item3.number)&gt;&gt;
-                    &lt;&lt;set $item3.number to $item3.number - 1&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-                &lt;&lt;if isNaN($item3.number) || $item3.number &lt;= 0&gt;&gt;
-                    &lt;&lt;set $inventory.delete($sellables[3])&gt;&gt;
-                &lt;&lt;/if&gt;&gt;
-            &lt;&lt;/link&gt;&gt;
-            &lt;&lt;print $item3.name + " for " + $item3.worth + " aspri? "&gt;&gt;        
-        &lt;/span&gt;
-        &lt;&lt;/if&gt;&gt;
-    &lt;br&gt;&lt;br&gt;
-    [[Leave for inn|InnNight]]
+    [[Leave|ExploreCamp]]
+    &lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Headout" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Headout" tags="nobr" position="">&lt;&lt;audio ":playing" stop&gt;&gt;
 &lt;&lt;audio "bgm2" volume .2 loop play&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/crownedskull.svg" width=500/&gt;
     &lt;p&gt;
+    &lt;&lt;if $days &lt; 5&gt;&gt;
     Perhaps it is a trick of your eyes, but the landscape around is constantly shifting. Miners who have families rarely venture far, fearing the unyielding dangers
     of the underworld. You, however, have no worries of the sort. 
+    &lt;&lt;elseif $days &lt; 8&gt;&gt;
+    &lt;&lt;switch random(1, 3)&gt;&gt;
+    &lt;&lt;case 1&gt;&gt;
+    The skies crackle with red lightning. Strangely, you feel at home.
+    &lt;&lt;case 2&gt;&gt;
+    The air vibrates as you tense up. In the distance, hellish beasts roam freely. Though you are certain they will yield precious material, you're not strong enough to confront them yet.
+    &lt;&lt;case 3&gt;&gt;
+    Whispers haunt your trek into the scarlet deserts. You can't make out what they say, but some softly scream in agony.
+    &lt;&lt;/switch&gt;&gt;
+    &lt;&lt;elseif $days &lt; 10&gt;&gt;
+    Perhaps it is a trick of your mind, but the world around grows more dangerous as you grow stronger. A faint rumbling can be heard from a distant canyon, while the bristlecone forest burns ominously.
+    &lt;&lt;elseif $days &lt; 23&gt;&gt;
+    &lt;&lt;switch random(1, 5)&gt;&gt;
+    &lt;&lt;case 1&gt;&gt;
+    Mysterious ruins have been growing nearby. One particular structure, birthed by cruel pike-like edifices, evokes the most fear from your fellow miners.
+    &lt;&lt;case 2&gt;&gt;
+    Fire paints a sky that is normally the epitome of gloom. Red, blue, and green snake out beyond clouds to form massive wings. Such a performance does little to calm the collective nerve of the troupe. 
+    &lt;&lt;case 3&gt;&gt;
+    Their voices grow louder. They call you a monster. They pledge their loyalty. It is both painful and welcoming.
+    &lt;&lt;case 4&gt;&gt;
+    Walking in the sands has become second nature. Sometimes, when the day drags on, you swear your footprints warp to become winged sigils.
+    &lt;&lt;case 5&gt;&gt;
+    You lost a few members of the mining troupe to ravenous hellhounds patrolling the area. Your anger splatters the landscape violet with their blood.
+    &lt;&lt;/switch&gt;&gt;
+    &lt;&lt;elseif $days &lt; 24&gt;&gt;
+    You are now sure that the underworld is being molded by your presence. In the back of your mind, a thorn of a memory pokes.
+    &lt;&lt;/if&gt;&gt;
     &lt;br&gt;&lt;br&gt;
     [[Go mining|Mining]] &lt;br&gt;
-    [[Adventure|Adventure]] &lt;br&gt;
-    [[Head back to camp|Camp2]] 
+    [[Adventure|Adventure]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Mining" tags="nobr" position="">&lt;&lt;set $current_pick_id to $inventory.find(
-    function(element) {
-        return element.substring(0, 7) == "pickaxe";
-    })&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Mining" tags="nobr" position="">&lt;&lt;if $equipids["pickaxe"] == "none"&gt;&gt;
+&lt;&lt;set $inventory.push("pickaxe1")&gt;&gt;
+&lt;&lt;set $equipids["pickaxe"] to "pickaxe1"&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $current_pick_id to $equipids["pickaxe"]&gt;&gt;
 &lt;&lt;set $current_pick_name to $items[$current_pick_id].name&gt;&gt;
 &lt;&lt;set $mining_yield to random(1, ($items[$current_pick_id].yield))&gt;&gt;
 &lt;&lt;set $mining_power to random(1, ($items[$current_pick_id].power))&gt;&gt;
-&lt;&lt;set $tier0 to ["coin", "bones", "tome", "brokensword", "oldwatch"]&gt;&gt;
-&lt;&lt;set $tier1 to ["bore", "sore", "pottery", "tainted", "obsidian"].concat($tier0).concat($tier0)&gt;&gt;
-&lt;&lt;set $tier2 to ["gore", "emerald", "fdiamond", "ruby", "imbuedtome"].concat($tier1)&gt;&gt;
-&lt;&lt;set $tier3 to ["demonhorn", "mithril", "diamond", "meteorite", "ancientscroll"].concat($tier2)&gt;&gt;
-&lt;&lt;set $tier4 to ["dragonclaw", "dragonteeth", "contract", "crystal", "bloodgem"].concat($tier3)&gt;&gt;
+&lt;&lt;set $tier0 to ["coin", "bones", "tome", "brokensword", "oldwatch", "ooze", "leather", "chains"]&gt;&gt;
+&lt;&lt;set $tier1 to ["bore", "sore", "pottery", "tainted", "obsidian", "ecto", "tarmor", "amethyst", "topaz"].concat($tier0).concat($tier0)&gt;&gt;
+&lt;&lt;set $tier2 to ["gore", "emerald", "fdiamond", "ruby", "imbuedtome", "tears", "fossil"].concat($tier1)&gt;&gt;
+&lt;&lt;set $tier3 to ["demonhorn", "mithril", "diamond", "meteorite", "ancientscroll", "note", "bdiamond", "rose"].concat($tier2)&gt;&gt;
+&lt;&lt;set $tier4 to ["dragonclaw", "dragonteeth", "contract", "crystal", "bloodgem", "flames", "fragment", "scales", "shell", "lamp"].concat($tier3)&gt;&gt;
 &lt;&lt;set $tier5 to [$goal].concat($tier4)&gt;&gt;
 &lt;div class="room"&gt;
     &lt;img class="invert" src="./images/pickaxe.svg" width=500/&gt;
@@ -1537,15 +1726,16 @@ div .room::-webkit-scrollbar-track {
         &lt;&lt;/for&gt;&gt;
         &lt;br&gt;&lt;br&gt;
     &lt;&lt;/if&gt;&gt;
-    [[Head back to camp|Camp2]] 
+    &lt;&lt;set $isday to false&gt;&gt;
+    [[Head back to camp|Camp]] 
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Adventure" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Adventure" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;p&gt; 
-    &lt;&lt;if $days &lt; 3&gt;&gt;
-    Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown.
+    &lt;&lt;if $totalatk &lt; 2 and $days &lt; 3&gt;&gt;
+    Adventure awaits. Just not now. You'll need better equipment and more experience before you set out into the unknown. The miners beckon at you to follow.
     &lt;br&gt;&lt;br&gt;
     [[Go to work|Mining]]
-    &lt;&lt;elseif $days &lt; 15&gt;&gt;
+    &lt;&lt;elseif $days &lt; 30&gt;&gt;
     &lt;&lt;switch random(1, 3)&gt;&gt;
     &lt;&lt;case 1&gt;&gt;
     &lt;img class="invert" src="./images/forest.svg" /&gt;
@@ -1572,7 +1762,8 @@ div .room::-webkit-scrollbar-track {
     [[Go to work|Mining]]    
     &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Valley" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Valley" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;&lt;set $isday to false&gt;&gt;
     &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
     &lt;p&gt;
     You first think the cabin is empty when you enter. 
@@ -1581,27 +1772,28 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     [[Reason with it?|Speak]] &lt;br&gt;
     [[Fight the monster|FightSpider]] &lt;br&gt;
-    [[Run for your life|Camp2]]
+    [[Run for your life|Camp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/flower.svg"/&gt;
     &lt;p&gt;
     Bowing down to the spider, as insane as it sounds, actually works. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
     a day amongst the flowers. By evening, your body feels refreshed and lively.
-    &lt;&lt;set $health to $health + 3&gt;&gt;
+    &lt;&lt;set $health to ($health + 3 &gt; 12 ? $health + 3 : 12) &gt;&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Return back to camp|Camp2]]
+    [[Return back to camp|Camp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
     &lt;p&gt;
     Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
-    for you to escape. 
-    &lt;&lt;set $health to $health - 3&gt;&gt;
+    for you to escape. Hurried by the thought of a venomous demise, you crash through bristles and mire to painful results.
+    &lt;&lt;set $health to ($health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) &gt; 0 ? $health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) : 1)&gt;&gt;
     &lt;br&gt;&lt;br&gt;
-    [[Run for your life|Camp2]]
+    [[Run for your life|Camp]]
     &lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
+    &lt;&lt;set $isday to false&gt;&gt;
     &lt;&lt;switch random(1, 2)&gt;&gt;
     &lt;&lt;case 1&gt;&gt;
     &lt;img class="invert" src="./images/barrels.svg"/&gt;
@@ -1615,7 +1807,7 @@ div .room::-webkit-scrollbar-track {
         They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
         &lt;br&gt;&lt;br&gt;
         [[Go mining|Mining]] &lt;br&gt;
-        [[Head back to camp|Camp2]] 
+        [[Head back to camp|Camp]] 
         &lt;&lt;case 2&gt;&gt;
             &lt;&lt;if !$inventory.includes("pottery")&gt;&gt;
                 &lt;&lt;set $inventory.push("pottery")&gt;&gt;
@@ -1623,7 +1815,7 @@ div .room::-webkit-scrollbar-track {
             &lt;&lt;set $items["pottery"].number to $items["pottery"].number + 10&gt;&gt;
         Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
         &lt;br&gt;&lt;br&gt;
-        [[Head back to camp|Camp2]] 
+        [[Head back to camp|Camp]] 
         &lt;&lt;/switch&gt;&gt;
         &lt;&lt;else&gt;&gt;
         &lt;&lt;switch random(1, 2)&gt;&gt;
@@ -1631,7 +1823,7 @@ div .room::-webkit-scrollbar-track {
         They are all curiously empty when you open them. Sighing, you decide to give up on the mountains.
         &lt;br&gt;&lt;br&gt;
         [[Go mining|Mining]] &lt;br&gt;
-        [[Head back to camp|Camp2]] 
+        [[Head back to camp|Camp]] 
         &lt;&lt;case 2&gt;&gt;
             &lt;&lt;if !$inventory.includes("pottery")&gt;&gt;
                 &lt;&lt;set $inventory.push("pottery")&gt;&gt;
@@ -1639,7 +1831,7 @@ div .room::-webkit-scrollbar-track {
             &lt;&lt;set $items["pottery"].number to $items["pottery"].number + 10&gt;&gt;
         Inside them, you find a great number of artisan china. Surely Holmwood would find value in these fine trinkets. You walk back triumphant, but careful not to shatter your delicate store.
         &lt;br&gt;&lt;br&gt;
-        [[Head back to camp|Camp2]] 
+        [[Head back to camp|Camp]] 
         &lt;&lt;/switch&gt;&gt;
         &lt;&lt;/if&gt;&gt;
         &lt;/span&gt;
@@ -1652,7 +1844,7 @@ div .room::-webkit-scrollbar-track {
     &lt;br&gt;&lt;br&gt;
     &lt;&lt;set $health to $health - 5&gt;&gt;
     &lt;&lt;set $items["coin"].number to $items["coin"].number + random(10, 50)&gt;&gt;
-    [[Head back to camp|Camp2]] 
+    [[Head back to camp|Camp]] 
     &lt;/p&gt;
     &lt;&lt;/switch&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>

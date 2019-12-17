@@ -1,5 +1,15 @@
-<<set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 3}>>
+<<set $items["magic1"] to {name: "Faint Energy", desc: "Residual power from a decimated spell", number: 0, worth: 1}>>
+<<set $items["magic2"] to {name: "Shadow Energy", desc: "Darkened mana, solidified by your presence", number: 0, worth: 5}>>
+<<set $items["magic3"] to {name: "Fiery Glyphs", desc: "The work of sun cultists from the east", number: 0, worth: 10}>>
+<<set $items["magic4"] to {name: "Strange Potion", desc: "Bubbling and fuming", number: 0, worth: 10}>>
+<<set $items["magic5"] to {name: "Cursed Runes", desc: "Luckily not for you", number: 0, worth: 20}>>
+<<set $items["magic6"] to {name: "Sulfurous Vial", desc: "Brimming with brimstone", number: 0, worth: 25}>>
+
+<<set $items["coin"] to {name: "Aspri coin", desc: "Minted in silver, aged by time and battle", number: 5, worth: 1}>>
 <<set $items["bones"] to {name: "Old Bones", desc: "One man's bones, another man's...?", number: 0, worth: 1}>>
+<<set $items["leather"] to {name: "Worn Leather", desc: "Hungry enough?", number: 0, worth: 1}>>
+<<set $items["chains"] to {name: "Chains", desc: "We have a lot of these", number: 0, worth: 1}>>
+<<set $items["ooze"] to {name: "Ooze", desc: "Ew", number: 0, worth: 2}>>
 <<set $items["tome"] to {name: "Blank Tome", desc: "They say stories are powerful", number: 0, worth: 2}>>
 <<set $items["brokensword"] to {name: "Broken Sword", desc: "Scrap metal at best", number: 0, worth: 2}>>
 <<set $items["oldwatch"] to {name: "Old Watch", desc: "You can't even tell what it's made of", number: 0, worth: 2}>>
@@ -7,49 +17,80 @@
 <<set $items["bore"] to {name: "Bronze Ore", desc: "It's not really treasure, but it's something", number: 0, worth: 3}>>
 <<set $items["sore"] to {name: "Silver Ore", desc: "Important for coinage", number: 0, worth: 5}>>
 <<set $items["pottery"] to {name: "Pottery", desc: "Artfully simple", number: 0, worth: 5}>>
+<<set $items["ecto"] to {name: "Ectoplasm", desc: "Spiritual residue", number: 0, worth: 6}>>
 <<set $items["tainted"] to {name: "Tainted Gem", desc: "A corrupted crystal", number: 0, worth: 7}>>
+<<set $items["amethyst"] to {name: "Amethyst", desc: "Pretty", number: 0, worth: 7}>>
+<<set $items["topaz"] to {name: "Topaz", desc: "Pretty", number: 0, worth: 9}>>
 <<set $items["obsidian"] to {name: "Obsidian", desc: "You'd think this would be more common", number: 0, worth: 10}>>
+<<set $items["tarmor"] to {name: "Torn Armor", desc: "A reminder of past wars", number: 0, worth: 13}>>
 
 <<set $items["gore"] to {name: "Gold Ore", desc: "Shiny, malleable, and valuable", number: 0, worth: 15}>>
 <<set $items["emerald"] to {name: "Emerald", desc: "This'll fetch a good price at the market", number: 0, worth: 20}>>
+<<set $items["fossil"] to {name: "Fossil", desc: "An ancient creature's fate", number: 0, worth: 20}>>
 <<set $items["fdiamond"] to {name: "Fake Diamond", desc: "All diamonds are fake", number: 0, worth: 20}>>
 <<set $items["ruby"] to {name: "Ruby", desc: "This'll fetch a good price at the market", number: 0, worth: 30}>>
 <<set $items["imbuedtome"] to {name: "Imbued Tome", desc: "This book radiates raw mana", number: 0, worth: 30}>>
+<<set $items["tears"] to {name: "Oesyrian Tears", desc: "Solidified tears", number: 0, worth: 35}>>
 
 <<set $items["demonhorn"] to {name: "Demon Horn", desc: "A bit chipped, but still scary", number: 0, worth: 40}>>
 <<set $items["mithril"] to {name: "Mithril", desc: "Alluring metal for sword and armorsmiths", number: 0, worth: 40}>>
+<<set $items["note"] to {name: "Secret Note", desc: "You have no idea what it means", number: 0, worth: 42}>>
 <<set $items["diamond"] to {name: "Diamond", desc: "Lucky you!", number: 0, worth: 50}>>
+<<set $items["rose"] to {name: "Evenrose", desc: "Anything that grows down here is otherworldly", number: 0, worth: 52}>>
+<<set $items["bdiamond"] to {name: "Black Diamond", desc: "Not obsidian", number: 0, worth: 55}>>
 <<set $items["meteorite"] to {name: "Meteoric Ore", desc: "Warm to the touch", number: 0, worth: 65}>>
 <<set $items["ancientscroll"] to {name: "Ancient Scroll", desc: "Its knowledge is unknowable", number: 0, worth: 75}>>
 
 <<set $items["dragonclaw"] to {name: "Dragon Claw", desc: "Once belonging to a majestic beast", number: 0, worth: 80}>>
 <<set $items["dragonteeth"] to {name: "Dragon Tooth", desc: "Once belonging to a majestic beast", number: 0, worth: 80}>>
+<<set $items["flames"] to {name: "Forbidden Flame", desc: "It never goes out and unravels at your touch", number: 0, worth: 90}>>
 <<set $items["contract"] to {name: "Faustian Contract", desc: "Written in another language", number: 0, worth: 100}>>
+<<set $items["fragment"] to {name: "Mechanical Fragment", desc: "A piece of a complicated contraption", number: 0, worth: 110}>>
+<<set $items["scales"] to {name: "Basilisk Scales", desc: "Suited for armor of the highest caliber", number: 0, worth: 112}>>
 <<set $items["crystal"] to {name: "Crystal Eye", desc: "A beautifully preserved orb of power", number: 0, worth: 120}>>
 <<set $items["bloodgem"] to {name: "Blood Gem", desc: "A diamond, imbued with inordinary power", number: 0, worth: 150}>>
 
-<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld"}>>
-<<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically"}>>
-<<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery"}>>
-<<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer"}>>
-<<set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields"}>>
-<<set $items["cloak6"] to {name: "Walpurgisnacht", desc: "An embodiment of terror that allows for bat like travel"}>>
-<<set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch", power: 0, yield: 2}>>
-<<set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted", power: 1, yield: 2}>>
-<<set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune", power: 2, yield: 2}>>
-<<set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them", power: 3, yield: 3}>>
-<<set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole", power: 4, yield: 3}>>
-<<set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later", power: 5, yield: 4}>>
-<<set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive"}>>
-<<set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says"}>>
-<<set $items["sword3"] to {name: "Gold Broadsword", desc: "Shiny, chrome, and great for slaying monsters"}>>
-<<set $items["sword4"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself"}>>
-<<set $items["sword5"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something monstrous"}>>
-<<set $items["bow1"] to {name: "Yew Bow", desc: "May your aim be true"}>>
-<<set $items["bow2"] to {name: "Obsidian Crossbow", desc: "Pratically a deviant blade"}>>
-<<set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore"}>>
-<<set $items["armor1"] to {name: "Iron Armor", desc: "+5 DEF, -5 SPD"}>>
-<<set $items["armor2"] to {name: "Gold Armor", desc: "You didn't actually think stats were a thing did you?"}>>
-<<set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons"}>>
-<<set $items["armor4"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies"}>>
-<<set $items["armor5"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon"}>>
+<<set $items["none"] to {name: "None", stats: "0000"}>>
+
+<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0101"}>>
+<<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10, equipped: false, stats: "1201"}>>
+<<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50, equipped: false, stats: "0122"}>>
+<<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100, equipped: false, stats: "2212"}>>
+<<set $items["cloak5"] to {name: "Tattered Cloak?", desc: "A long, scarlet cloth that has swept through countless battlefields", worth: 200, equipped: false, stats: "5130"}>>
+<<set $items["cloak6"] to {name: "Robe of Invisibility", desc: "You're a wizard", worth: 300, equipped: false, stats: "1640"}>>
+<<set $items["cloak7"] to {name: "Spectral Menace", desc: "Ghastly energies wrap around you", worth: 350, equipped: false, stats: "4444"}>>
+<<set $items["cloak8"] to {name: "Walpurgisnacht", desc: "An embodiment of terror that allows for bat like travel", worth: 5, equipped: false, stats: "6853"}>>
+
+<<set $items["pickaxe1"] to {name: "Rusted Pickaxe", desc: "It's better than nothing, and might be used to defend yourself in a pinch", power: 0, yield: 3, worth: 1, equipped: false}>>
+<<set $items["pickaxe2"] to {name: "Iron Pickaxe", desc: "Works better when not rusted", power: 1, yield: 3, worth: 2, equipped: false}>>
+<<set $items["pickaxe3"] to {name: "Silver Pickaxe", desc: "Cost you a small fortune", power: 2, yield: 4, worth: 10, equipped: false}>>
+<<set $items["pickaxe4"] to {name: "Gold Pickaxe", desc: "They tell you that gold is actually soft, but you ignore them", power: 3, yield: 5, worth: 100, equipped: false}>>
+<<set $items["pickaxe5"] to {name: "Diamond Pickaxe", desc: "Diggy diggy hole", power: 4, yield: 6, worth: 300, equipped: false}>>
+<<set $items["pickaxe6"] to {name: "Soul Drill", desc: "Drill now, pay later", power: 5, yield: 7, worth: 500, equipped: false}>>
+
+<<set $items["sword1"] to {name: "Fiend's Gift", desc: "A lovely little sword that's just almost alive", worth: 10, equipped: false, stats: "2020"}>>
+<<set $items["sword2"] to {name: "Iron Broadsword", desc: "Old reliable, the shopkeeper says", worth: 2, equipped: false, stats: "1000"}>>
+<<set $items["sword3"] to {name: "Silver Broadsword", desc: "Shiny, chrome, and great for slaying monsters", worth: 5, equipped: false, stats: "3000"}>>
+<<set $items["sword4"] to {name: "Obsidian Sickle", desc: "Souls weep at your approach", equipped: false, stats: "3230"}>>
+<<set $items["sword5"] to {name: "Blessed Claymore", desc: "It radiates an aura that cleanses everything, even slightly burning yourself", equipped: false, stats: "4230"}>>
+<<set $items["sword6"] to {name: "Envenomed Brand", desc: "Not very fair, but effective", worth: 100, equipped: false, stats: "7100"}>>
+<<set $items["sword7"] to {name: "Ancient Cutlass", desc: "Once belonged to a cursed captain", worth: 5, equipped: false, stats: "5370"}>>
+<<set $items["sword8"] to {name: "Akhilleus Kosmos", desc: "Uh... That's a shield", worth: 300, equipped: false, stats: "5077"}>>
+<<set $items["sword9"] to {name: "Sange", desc: "Your previous life has corrupted this blade into something truly monstrous", worth: 5, equipped: false, stats: "9590"}>>
+
+<<set $items["bow1"] to {name: "Yew Bow", desc: "May your aim be true", equipped: false}>>
+<<set $items["bow2"] to {name: "Obsidian Crossbow", desc: "Pratically a deviant blade", equipped: false}>>
+
+<<set $items["armor0"] to {name: "Wooden Armor", desc: "Splinters galore", worth: 1, equipped: false, stats: "0101"}>>
+<<set $items["armor1"] to {name: "Iron Armor", desc: "A bit on the heavy side", worth: 5, equipped: false, stats: "0102"}>>
+<<set $items["armor2"] to {name: "Gold Armor", desc: "Okay, I'm jealous", worth: 50, equipped: false, stats: "0004"}>>
+<<set $items["armorf"] to {name: "Rogue Leather", desc: "You're a master of stealth in this", worth: 30, equipped: false, stats: "2302"}>>
+<<set $items["armor3"] to {name: "Demonic Armor", desc: "Might be made out of demons", worth: 60, equipped: false, stats: "2223"}>>
+<<set $items["armor4"] to {name: "Bejeweled Corset", desc: "Empowered by fancy gems", worth: 100, equipped: false, stats: "3260"}>>
+<<set $items["armor5"] to {name: "Paladin Armor", desc: "Made for killing demons and other baddies", worth: 90, equipped: false, stats: "3145"}>>
+<<set $items["armor6"] to {name: "Mithril Armor", desc: "Jack of all trades", worth: 100, equipped: false, stats: "4344"}>>
+<<set $items["armor7"] to {name: "Scalebane Cuirass", desc: "An ancient beast's defense is now yours", worth: 5, equipped: false, stats: "6019"}>>
+<<set $items["armor8"] to {name: "Entou", desc: "Wreathed in drake whispers and flames", worth: 5, equipped: false, stats: "7575"}>>
+<<set $items["armor9"] to {name: "Romanian Bulwark", desc: "It whispers to you — son of the dragon", worth: 5, equipped: false, stats: "6798"}>>
+
+<<set $items["artifact0"] to {name: "Voodoo Doll", desc: "Spooky little thing", worth: 5, equipped: false, stats: "0010"}>>

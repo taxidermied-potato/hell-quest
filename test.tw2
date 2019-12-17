@@ -1,0 +1,65 @@
+<<set $buyables to $stier1.randomMany(3)>>
+<<for _j = 0; _j < $buyables.length; _j++>>
+    <br>                  
+    <<print "<<click \"Buy\">><<if $items[\"coin\"].number >= $items[$buyables[" + _j + "]].worth * 2>><<set $items[\"coin\"].number to $items[\"coin\"].number - $items[$buyables[" + _j + "]].worth * 2>><<set $inventory.push($buyables[" + _j + "])>><<replace \"#inventory\">><<include \"Inventory\">><</replace>><</if>><</click>><<print \" \" + $items[$buyables[" + _j + "]].name + \" for \" + $items[$buyables[" + _j + "]].worth + \" aspri? \">>">>   
+    <br>
+<</for>>  
+
+
+        <<link "Silver Broadsword - 10 aspri">>
+        <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("sword3")>>
+            <<replace "#fadein2">> 
+                <<timed 10ms t8n>> 
+                <<replace "#inventory">><<include "Inventory">><</replace>>
+                You bought the silver broadsword and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
+        <br>
+        <<link "Silver Pickaxe - 20 aspri">>
+        <<if $items["coin"].number >= 20>>
+            <<set $items["coin"].number to $items["coin"].number - 20>>
+            <<set $inventory.delete("pickaxe2")>>
+            <<set $inventory.push("pickaxe3")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                <<replace "#inventory">><<include "Inventory">><</replace>>
+                You bought the silver pickaxe and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>   
+        <br> 
+        <<link "Iron Armor - 10 aspri">>
+            <<if $items["coin"].number >= 10>>
+            <<set $items["coin"].number to $items["coin"].number - 10>>
+            <<set $inventory.push("armor1")>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                <<replace "#inventory">><<include "Inventory">><</replace>>
+                You bought the iron armor and now have $items["coin"].number aspri left.
+                <</timed>>
+            <</replace>>
+            <<else>>
+            <<replace "#shop">> 
+                <<timed 10ms t8n>> 
+                You don't have enough to buy that. Better luck tomorrow.
+                <</timed>>
+            <</replace>>
+        <</if>>
+        <</link>>
