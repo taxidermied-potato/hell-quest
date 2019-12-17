@@ -1222,11 +1222,22 @@ hell quest
 <div class="room">
     <img class="invert" src="./images/flower.svg"/>
     <p>
-    Bowing down to the spider, as insane as it sounds, actually works. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
-    a day amongst the flowers. By evening, your body feels refreshed and lively.
-    <<set $health to ($health + 3 > 12 ? $health + 3 : 12) >>
+    <<if !$inventory.includes("rose")>>
+        <<set $inventory.push("rose")>>
+    <</if>>
+    <<set $items["rose"].number to $items["rose"].number + 1>>
+    <<if $totalint > 3>>
+    Bowing down to the spider, as insane as it sounds, actually works. Maybe your studies have paid off. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
+    a day amongst the flowers. 
     <br><br>
-    [[Return back to camp|Camp]]
+    By evening, your body feels refreshed and lively. You pocket a mana charged evenrose — the spider's gift to you.
+    <<set $health to ($health + 3 > 12 ? $health + 3 : 12) >>
+    <<else>>
+    Your attempts to commune with the monstrosity before you fall short. Only guttural nonsense follows your speech. However, it seems just confused enough for you to escape without a scratch. Traversing the valley, you happen upon a 
+    peculiar flower that exudes darkness.
+    <</if>>
+    <br><br>
+    [[Return to camp|Camp]]
     </p>
 </div>
 
@@ -1234,11 +1245,29 @@ hell quest
 <div class="room">
     <img class="invert" src="./images/spider.svg" width=500/>
     <p>
-    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
-    for you to escape. Hurried by the thought of a venomous demise, you crash through bristles and mire to painful results.
+    <<if $totaldex > 2 && $totalatk > 3>>
+    You are both stronger and more swift than the abberant arachnid. Before it even has the chance to close in, you draw your weapon and strike with great force.
+    A single blow forces it backwards, and a second ends its terrifying existence. 
+    <br><br>
+    Its carapace yields an abundance of coagulating ooze and a translucent jewel that taunts you with regret.
+    <<if !$inventory.includes("tears")>>
+        <<set $inventory.push("tears")>>
+    <</if>>
+    <<set $items["tears"].number to $items["tears"].number + 1>>
+    <<if !$inventory.includes("ooze")>>
+        <<set $inventory.push("ooze")>>
+    <</if>>
+    <<set $items["ooze"].number to $items["ooze"].number + 3>>
     <<set $health to ($health - (3 - $totaldef > 0 ? 3 - $totaldef : 1) > 0 ? $health - (3 - $totaldef > 0 ? 3 - $totaldef : 1) : 1)>>
     <br><br>
+    [[Return to camp|Camp]]
+    <<else>>
+    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
+    for you to escape. Hurried by the thought of a venomous demise, you crash through bristles and mire to painful results.
+    <<set $health to ($health - (6 - $totaldef > 0 ? 6 - $totaldef : 1) > 0 ? $health - (6 - $totaldef > 0 ? 6 - $totaldef : 1) : 1)>>
+    <br><br>
     [[Run for your life|Camp]]
+    <</if>>
     </p>
 </div>
 

@@ -1777,20 +1777,49 @@ div .room::-webkit-scrollbar-track {
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Speak" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/flower.svg"/&gt;
     &lt;p&gt;
-    Bowing down to the spider, as insane as it sounds, actually works. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
-    a day amongst the flowers. By evening, your body feels refreshed and lively.
-    &lt;&lt;set $health to ($health + 3 &gt; 12 ? $health + 3 : 12) &gt;&gt;
+    &lt;&lt;if !$inventory.includes("rose")&gt;&gt;
+        &lt;&lt;set $inventory.push("rose")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["rose"].number to $items["rose"].number + 1&gt;&gt;
+    &lt;&lt;if $totalint &gt; 3&gt;&gt;
+    Bowing down to the spider, as insane as it sounds, actually works. Maybe your studies have paid off. You speak in a soft tone that dissuades the creature from seeing you as prey. It leaves and you are able to enjoy
+    a day amongst the flowers. 
     &lt;br&gt;&lt;br&gt;
-    [[Return back to camp|Camp]]
+    By evening, your body feels refreshed and lively. You pocket a mana charged evenrose — the spider's gift to you.
+    &lt;&lt;set $health to ($health + 3 &gt; 12 ? $health + 3 : 12) &gt;&gt;
+    &lt;&lt;else&gt;&gt;
+    Your attempts to commune with the monstrosity before you fall short. Only guttural nonsense follows your speech. However, it seems just confused enough for you to escape without a scratch. Traversing the valley, you happen upon a 
+    peculiar flower that exudes darkness.
+    &lt;&lt;/if&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+    [[Return to camp|Camp]]
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="FightSpider" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;img class="invert" src="./images/spider.svg" width=500/&gt;
     &lt;p&gt;
-    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
-    for you to escape. Hurried by the thought of a venomous demise, you crash through bristles and mire to painful results.
+    &lt;&lt;if $totaldex &gt; 2 &amp;&amp; $totalatk &gt; 3&gt;&gt;
+    You are both stronger and more swift than the abberant arachnid. Before it even has the chance to close in, you draw your weapon and strike with great force.
+    A single blow forces it backwards, and a second ends its terrifying existence. 
+    &lt;br&gt;&lt;br&gt;
+    Its carapace yields an abundance of coagulating ooze and a translucent jewel that taunts you with regret.
+    &lt;&lt;if !$inventory.includes("tears")&gt;&gt;
+        &lt;&lt;set $inventory.push("tears")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["tears"].number to $items["tears"].number + 1&gt;&gt;
+    &lt;&lt;if !$inventory.includes("ooze")&gt;&gt;
+        &lt;&lt;set $inventory.push("ooze")&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;set $items["ooze"].number to $items["ooze"].number + 3&gt;&gt;
     &lt;&lt;set $health to ($health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) &gt; 0 ? $health - (3 - $totaldef &gt; 0 ? 3 - $totaldef : 1) : 1)&gt;&gt;
     &lt;br&gt;&lt;br&gt;
+    [[Return to camp|Camp]]
+    &lt;&lt;else&gt;&gt;
+    Fear petrifies you before you get the chance to even unsheath your blade. The arachnid closes in, but by a stroke of luck a few cellar bats distract it long enough 
+    for you to escape. Hurried by the thought of a venomous demise, you crash through bristles and mire to painful results.
+    &lt;&lt;set $health to ($health - (6 - $totaldef &gt; 0 ? 6 - $totaldef : 1) &gt; 0 ? $health - (6 - $totaldef &gt; 0 ? 6 - $totaldef : 1) : 1)&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
     [[Run for your life|Camp]]
+    &lt;&lt;/if&gt;&gt;
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Mountains" tags="nobr" position="">&lt;div class="room"&gt;
     &lt;&lt;set $isday to false&gt;&gt;
