@@ -69,7 +69,7 @@ hell quest
 
 <<set $items["none"] to {name: "None", stats: "0000"}>>
 
-<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0501"}>>
+<<set $items["cloak1"] to {name: "Tattered Cloak", desc: "An old cloak that provides little protection against the elements of the underworld", worth: 2, equipped: false, stats: "0101"}>>
 <<set $items["cloak2"] to {name: "Ordinary Cape", desc: "It billows heroically", worth: 10, equipped: false, stats: "1201"}>>
 <<set $items["cloak3"] to {name: "Royal Cloak", desc: "Fancy tassels and embroidery", worth: 50, equipped: false, stats: "0122"}>>
 <<set $items["cloak4"] to {name: "Inquisitor's Renown", desc: "The merchant says they stole this from a famous demonslayer", worth: 100, equipped: false, stats: "2212"}>>
