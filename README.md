@@ -6,9 +6,9 @@ You're a long way from home down here.
 ![home](../master/hellquest_home.PNG?raw=true)
 
 Traverse the underworld in an RPG styled text narrative.
-![demon](../master/hellquest_demon.PNG)
-![adve](../master/hellquest_adventure.PNG =250x)
+<img src="../master/hellquest_demon.PNG" width="100">
+<img src="../master/hellquest_adventure.PNG" width="100">
 
 Buy items and upgrade your equipment.
-![shop](../master/hellquest_shop.PNG =250x)
-![stats](../master/hellquest_stats.PNG =250x)
+<img src="../master/hellquest_shop.PNG" width="100">
+<img src="../master/hellquest_stats.PNG" width="100">
