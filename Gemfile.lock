@@ -7,14 +7,19 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     execjs (2.7.0)
+    ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
     filewatcher (0.5.4)
       trollop (~> 2.0)
     haml (4.0.7)
       tilt
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.4-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
+    mini_portile2 (2.8.5)
+    nokogiri (1.16.2)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.2-x64-mingw32)
+      racc (~> 1.4)
+    racc (1.7.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -41,6 +46,7 @@ GEM
       trollop (~> 2.1, >= 2.1.2)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
